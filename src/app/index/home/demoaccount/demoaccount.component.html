@@ -1,39 +1,26 @@
-<p>account works!</p>
-<main>     
+<p>demoaccount works!</p>
+<main>
+            
     <div class="quote__container">&nbsp;</div>
     <div class="breadcrumbs">
-        <ul class=""><li><a href="index.html">Home</a></li><li>Register Real Account</li></ul>
+        <ul class=""><li><a href="index.html">Home</a></li><li>Register Demo</li></ul>
     </div>
     <div class="main-holder">
-<h1>Register Real Account</h1>
+        
+
+
+<h1>CREATE A DEMO ACCOUNT</h1>
 <div class="required hidden-lg mb15">All fields marked as  * are mandatory</div>
-<form action="https://www.eufxindex.com/real" class="form" id="actionForm" method="post" role="form"><input name="__RequestVerificationToken" type="hidden" value="q0GY27L9wyTOi45azrADkVUJiUREbHNeVTyvrYWZTGQPSsPt83xGIS-2i4n2aZsb-zP-M0kt2lungHylZP6QugBC6e81" />    <fieldset>
+<form action="https://www.eufxindex.com/demo" class="form" id="actionForm" method="post" role="form"><input name="__RequestVerificationToken" type="hidden" value="NY3S3lstgEFzuiXeBYe9yA4yaYCHr9zE-27-TK2SNc5tgJNszqo2uGd4nne69Hp9byaN9k6sivqxJhWht0-jUYh8Nyc1" />    <fieldset>
 <div class="form-columns">
-    <div class="row">
-        <div class="form-col col-md-6">
-            <label for="FirstName">First Name: *</label>
-            <div class="row-control">
-                <div class="formset">
-                    <input data-val="true" data-val-lengthvalidator="Must be at least 1 and no more than 20 characters long." data-val-lengthvalidator-otherpropertyname="1,20" data-val-localizedrequired="Please re-enter First Name" data-val-localizedrequired-otherpropertyname="ProjectManager" id="FirstName" name="FirstName" type="text" value="" />
-                    <span class="error"> <span class="field-validation-valid" data-valmsg-for="FirstName" data-valmsg-replace="true"></span></span>
-                </div>
-            </div>
-        </div>
-        <div class="form-col col-md-6">
-            <label for="LastName">Last Name: *</label>
-            <div class="row-control">
-                <div class="formset">
-                    <input data-val="true" data-val-lengthvalidator="Must be at least 1 and no more than 20 characters long." data-val-lengthvalidator-otherpropertyname="1,20" data-val-localizedrequired="Please re-enter Last Name" data-val-localizedrequired-otherpropertyname="ProjectManager" id="LastName" name="LastName" type="text" value="" />
-                    <span class="error"> <span class="field-validation-valid" data-valmsg-for="LastName" data-valmsg-replace="true"></span></span>
-                </div>
-            </div>
-        </div>
+    <div class="form-col col-md-6">
+        <div class="row"><label for="FirstName">First Name: *</label><div class="row-control"><div class="formset"><input data-val="true" data-val-lengthvalidator="Must be at least 1 and no more than 20 characters long." data-val-lengthvalidator-otherpropertyname="1,20" data-val-localizedrequired="Please re-enter First Name" data-val-localizedrequired-otherpropertyname="ProjectManager" id="FirstName" name="FirstName" type="text" value="" /><span class="error"><span class="field-validation-valid" data-valmsg-for="FirstName" data-valmsg-replace="true"></span></span></div></div></div>
     </div>
-    <div class="row">
-        <div class="form-col col-md-6">
-            <label for="Country">Country: *</label>
-            <div class="row-control">
-                <select data-val="true" data-val-localizedrequired="Please re-enter Country" data-val-localizedrequired-otherpropertyname="ProjectManager" id="Country" name="Country" onchange="getDialingCode(this)"><option value="">Select...</option>
+    <div class="form-col col-md-6">
+        <div class="row"><label for="LastName">Last Name: *</label><div class="row-control"><div class="formset"><input data-val="true" data-val-lengthvalidator="Must be at least 1 and no more than 20 characters long." data-val-lengthvalidator-otherpropertyname="1,20" data-val-localizedrequired="Please re-enter Last Name" data-val-localizedrequired-otherpropertyname="ProjectManager" id="LastName" name="LastName" type="text" value="" /><span class="error"><span class="field-validation-valid" data-valmsg-for="LastName" data-valmsg-replace="true"></span></span></div></div></div>
+    </div>
+    <div class="form-col col-md-6">
+        <div class="row"><label for="Country">Country: *</label><div class="row-control"><div class="formset"><select data-val="true" data-val-localizedrequired="Please re-enter Country" data-val-localizedrequired-otherpropertyname="ProjectManager" id="Country" name="Country" onchange="getDialingCode()"><option value="">Select...</option>
 <option value="AF">Afghanistan</option>
 <option value="AX">Aland Islands</option>
 <option value="AL">Albania</option>
@@ -269,16 +256,10 @@
 <option value="YE">Yemen</option>
 <option value="ZM">Zambia</option>
 <option value="ZW">Zimbabwe</option>
-</select>
-                <span class="error"> <span class="field-validation-valid" data-valmsg-for="Country" data-valmsg-replace="true"></span></span>
-            </div>
-        </div>
-        <div class="form-col col-md-6">
-            <label>Date of Birth</label>
-            <div class="row-control">
-                <div class="formitems">
-                    <div class="formitem col-xs-3">
-                        <select data-val="true" data-val-localizedrequired="Please re-enter Day" data-val-localizedrequired-otherpropertyname="ProjectManager" id="DobDay" name="DobDay"><option value="">Day</option>
+</select></div><span class="error"><span class="field-validation-valid" data-valmsg-for="Country" data-valmsg-replace="true"></span></span></div></div>
+    </div>
+    <div class="form-col col-md-6">
+        <div class="row"><label>Date of Birth: *</label><div class="row-control"><div class="formset"><div class="formitems"><div class="formitem col-xs-4"><select class="sel sel3" data-val="true" data-val-number="The field DobDay must be a number." data-val-required="The DobDay field is required." id="DobDay" name="DobDay"><option value="">Day</option>
 <option value="1">1</option>
 <option value="2">2</option>
 <option value="3">3</option>
@@ -310,10 +291,7 @@
 <option value="29">29</option>
 <option value="30">30</option>
 <option value="31">31</option>
-</select>
-                    </div>
-                    <div class="formitem col-xs-6">
-                        <select data-val="true" data-val-localizedrequired="Please re-enter Month" data-val-localizedrequired-otherpropertyname="ProjectManager" id="DobMonth" name="DobMonth"><option value="">Month</option>
+</select></div><div class="formitem col-xs-4"><select class="sel sel3" data-val="true" data-val-number="The field DobMonth must be a number." data-val-required="The DobMonth field is required." id="DobMonth" name="DobMonth"><option value="">Month</option>
 <option value="01">01</option>
 <option value="02">02</option>
 <option value="03">03</option>
@@ -326,10 +304,7 @@
 <option value="10">10</option>
 <option value="11">11</option>
 <option value="12">12</option>
-</select>
-                    </div>
-                    <div class="formitem col-xs-3">
-                        <select data-val="true" data-val-localizedrequired="Please re-enter Year" data-val-localizedrequired-otherpropertyname="ProjectManager" id="DobYear" name="DobYear"><option value="">Year</option>
+</select></div><div class="formitem col-xs-4"><select class="sel sel3" data-val="true" data-val-number="The field DobYear must be a number." data-val-required="The DobYear field is required." id="DobYear" name="DobYear"><option value="">Year</option>
 <option value="1920">1920</option>
 <option value="1921">1921</option>
 <option value="1922">1922</option>
@@ -420,75 +395,29 @@
 <option value="2007">2007</option>
 <option value="2008">2008</option>
 <option value="2009">2009</option>
-</select>
-                    </div>
-                </div>
-                <span class="error"><span class="field-validation-valid" data-valmsg-for="DobDay" data-valmsg-replace="true"></span></span>
-                <span class="error"><span class="field-validation-valid" data-valmsg-for="DobMonth" data-valmsg-replace="true"></span></span>
-                <span class="error"><span class="field-validation-valid" data-valmsg-for="DobYear" data-valmsg-replace="true"></span></span>
-
-            </div>
-        </div>
+</select></div></div></div><span class="error"><span class="field-validation-valid" data-valmsg-for="DobDay" data-valmsg-replace="true"></span></span><span class="error"><span class="field-validation-valid" data-valmsg-for="DobMonth" data-valmsg-replace="true"></span></span><span class="error"><span class="field-validation-valid" data-valmsg-for="DobYear" data-valmsg-replace="true"></span></span></div></div>
     </div>
-    <div class="row">
-        <div class="form-col col-md-6">
-            <label>PhoneNumber:*</label>
+    <div class="form-col col-md-6">
+        <div class="row"><label for="PhoneNumber">Phone: *</label><div class="row-control"><div class="formset"><div class="formitems phone-number"><div class="formitem custom-col-1"><input class="phone-txt" data-val="true" data-val-localizedrequired="Please re-enter Phone Area Code" data-val-localizedrequired-otherpropertyname="ProjectManager" data-val-regularexpression="Phone Area Code should contain only numbers" data-val-regularexpression-otherpropertyname="^\d+$" id="PhoneAreaCode" name="PhoneAreaCode" type="text" value="" /></div><div class="custom-offset-1"><div class="formitem"><input autocomplete="off" data-val="true" data-val-localizedrequired="Please re-enter Phone Number" data-val-localizedrequired-otherpropertyname="ProjectManager" data-val-regularexpression="Phone Area Code should contain only numbers" data-val-regularexpression-otherpropertyname="^\d+$" id="PhoneNumber" name="PhoneNumber" type="text" value="" /></div></div></div></div><span id="uniquePhoneError" class="error" style="display: none;"></span><span class="error"><span class="field-validation-valid" data-valmsg-for="PhoneAreaCode" data-valmsg-replace="true"></span></span><span class="error"><span class="field-validation-valid" data-valmsg-for="PhoneNumber" data-valmsg-replace="true"></span></span></div></div>
+    </div>
+    <div class="form-col col-md-6">
+        <div class="row">
+            <label for="Language">Preferred language:*</label>
             <div class="row-control">
                 <div class="formset">
-                    <div class="formset">
-                        <div class="formitems phone-number">
-                            <div class="formitem custom-col-1">
-                                <input data-val="true" data-val-localizedrequired="Please re-enter Phone Area Code" data-val-localizedrequired-otherpropertyname="ProjectManager" data-val-regularexpression="Phone Area Code should contain only numbers" data-val-regularexpression-otherpropertyname="^\d+$" id="PhoneAreaCode" name="PhoneAreaCode" type="text" value="" />
-                            </div>
-                            <div class="custom-offset-1">
-                                <div class="formitem">
-                                    <input data-val="true" data-val-localizedrequired="Please re-enter Phone Number" data-val-localizedrequired-otherpropertyname="ProjectManager" data-val-regularexpression="Phone Area Code should contain only numbers" data-val-regularexpression-otherpropertyname="^\d+$" id="PhoneNumber" name="PhoneNumber" type="text" value="" />
-                                </div>
-                            </div>
-                        </div>
-                        <span class="error"> <span class="field-validation-valid" data-valmsg-for="PhoneNumber" data-valmsg-replace="true"></span></span>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="form-col col-md-6">
-            <label>Account currency:*</label>
-            <div class="row-control">
-                <div class="formset">
-                    <select data-val="true" data-val-localizedrequired="Please choose currency" data-val-localizedrequired-otherpropertyname="ProjectManager" id="Currency" name="Currency"><option value="79a8f28c-510b-4a6f-9190-34254c711bc4">USD</option>
-<option value="c0115e53-428a-464d-9403-7c7d20d60158">EUR</option>
+                    <select id="Language" name="Language"><option value="EN">English</option>
+<option value="IT">Italian</option>
+<option value="DE">German</option>
+<option value="ES">Spanish</option>
 </select>
-                    <span class="error"> <span class="field-validation-valid" data-valmsg-for="Country" data-valmsg-replace="true"></span></span>
                 </div>
             </div>
         </div>
     </div>
-    <div class="row">
+    <div class="row mb20 mb15-sm">
         <div class="form-col col-md-6">
-            <label>Email:*</label>
-            <div class="row-control">
-                <div class="formset">
-                    <input data-val="true" data-val-localizedemail="Please re-enter Email" data-val-localizedemail-otherpropertyname="ProjectManager" data-val-localizedrequired="Please re-enter Email" data-val-localizedrequired-otherpropertyname="ProjectManager" id="Email" name="Email" type="text" value="" />
-                    <span class="error"> <span class="field-validation-valid" data-valmsg-for="Email" data-valmsg-replace="true"></span></span>
-                    <span id="uniqueEmailErrorReal" class="error" style="display: none;">This Email is already registered</span>
-                </div>
-            </div>
+            <div class="row"><label for="Email">Email: *</label><div class="row-control"><div class="formset"><input data-val="true" data-val-localizedemail="Please re-enter Email" data-val-localizedemail-otherpropertyname="ProjectManager" data-val-localizedrequired="Please re-enter Email" data-val-localizedrequired-otherpropertyname="ProjectManager" id="Email" name="Email" type="text" value="" /><span class="error"><span class="field-validation-valid" data-valmsg-for="Email" data-valmsg-replace="true"></span></span><span id="uniqueEmailError" class="error" style="display: none;">This Email is already registered</span></div></div></div>
         </div>
-        <div class="form-col col-md-6">
-            <label for="AccountType">Account Type:*</label>
-            <div class="row-control">
-                <div class="formset">
-                    <select data-val="true" data-val-localizedrequired="Please choose Account Type" data-val-localizedrequired-otherpropertyname="ProjectManager" id="AccountType" name="AccountType"><option value="Select...">Select...</option>
-<option value="Standart">Standart</option>
-<option value="Premium">Premium</option>
-<option value="VIP">VIP</option>
-</select>
-                    <span class="error"> <span class="field-validation-valid" data-valmsg-for="AccountType" data-valmsg-replace="true"></span></span>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="row">
         <div class="form-col col-md-6">
             <label for="RegPassword">Password: *</label>
             <div class="row-control">
@@ -498,8 +427,12 @@
                 <span class="error"><span class="field-validation-valid" data-valmsg-for="RegPassword" data-valmsg-replace="true"></span></span>
             </div>
         </div>
-    </div>
-    <div class="row">
+        <div class="form-col col-md-6">
+            <br />
+        </div>
+        <div class="form-col col-md-6">
+            <br />
+        </div>
         <div class="form-col col-md-6">
             <label for="ConfirmPassword">Confirm Password: *</label>
             <div class="row-control">
@@ -512,31 +445,15 @@
         </div>
     </div>
 </div>
-
-
-
-<div class="form-columns">
-    <div class="row">
-        <div class="form-col col-lg-6">
-            <label for="Promocode">Promocode</label>
-            <div class="row-control">
-                <div class="formset">
-                    <input id="Promocode" name="Promocode" type="text" value="" />
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
 <div class="row mb10">
     <div class="radio-check">
         <input class="chk" data-val="true" data-val-localizedrequiredbool="You should read and accept the Terms of Service" data-val-localizedrequiredbool-otherpropertyname="ProjectManager" data-val-required="The IsTermsAccepted field is required." id="IsTermsAccepted" name="IsTermsAccepted" type="checkbox" value="true" /><input name="IsTermsAccepted" type="hidden" value="false" />
-        <label for="RegisterRealViewModel_IsTermsAccepted"><span>I accept the <a href="terms-and-conditions.html">Terms Of Service</a> *</span></label>
+        <label for="check01"><span>I accept the <a href="terms-and-conditions.html">Terms Of Service</a> *</span></label>
         <span class="error"><span class="field-validation-valid" data-valmsg-for="IsTermsAccepted" data-valmsg-replace="true"></span></span>
     </div>
 </div>
-<input data-val="true" data-val-required="The IsUpgrade field is required." id="IsUpgrade" name="IsUpgrade" type="hidden" value="False" />
 <div class="row ta-center-sm ta-center-xs">
-    <a href="#" class="button" onclick="SubmitRegForm()"><span>Join and start trading</span></a>
+    <a href="#" onclick="submitRegisterForm(); return false;" class="button"><span>Join and start trading</span></a>
 </div>
 </fieldset>
 </form>
