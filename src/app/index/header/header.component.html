@@ -19,8 +19,8 @@
 </ul></div>
 </li>
 
-            <li class="login-nav" *ngIf = loginsection>
-<form  class="form login-form" id="loginForm" role="form">                    <div class="row">
+            <li class="login-nav">
+<form action="https://www.eufxindex.com/login" class="form login-form" id="loginForm" method="post" role="form">                    <div class="row">
                         <div class="cell">
                             <input data-val="true" data-val-localizedrequired="Please re-enter User Name" data-val-localizedrequired-otherpropertyname="ProjectManager" id="UserName" name="UserName" placeholder="Login" type="text" value="" />
                             
@@ -30,7 +30,7 @@
                             
                         </div>
                         <div class="cell btn-cell">
-                            <a class="button btn-login" return false;><span>Login</span></a>
+                            <a class="button btn-login" href="#" onclick="submitLoginForm(); return false;"><span>Login</span></a>
                         </div>
                     </div>
                     <div class="row">
@@ -54,25 +54,6 @@
 </div>
 
         </div>
-    </div>
-    <div *ngIf = afterlogin>
-        <li><a class="button button2" target="_blank" href="https://webtrader.eufxindex.com/"><span>Access WebTrader</span></a></li>
-        <li class="account-nav">
-            <a class="button btn-account link" href="#"><span>MY account</span></a>
-            <div class="drop">
-                <ul>
-                    <li><a href="/welcome">Home</a></li>
-                    <li><a href="/my-account">Personal Details</a></li>
-                    <li><a href="/change-password">Change Password</a></li>
-                    <li><a href="/trading-history">Trading History</a></li>
-                        <li><a href="/deposit-methods">Deposit Funds</a></li>
-                        <li><a href="/upload-documents">Upload Documents</a></li>
-                        <li><a href="/monetary-statement">Monetary Transactions</a></li>
-                        <li><a href="/withdrawal">Withdrawal</a></li>
-                    <li><a href="/ContactUs">Contact Us</a></li>
-                    <li><a href="/Account/Logoff">Logout</a></li>
-                </ul>
-            </div>
     </div>
     <div class="nav-holder">
         <div class="main-holder">
