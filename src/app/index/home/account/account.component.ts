@@ -10,6 +10,7 @@ import { FormGroup, FormBuilder } from '@angular/forms';
 export class AccountComponent implements OnInit {
   newUserForm: FormGroup;
   NewRealUser: any;
+  response: string;
   constructor(private service: ServicesService, private fb:FormBuilder) { }
   
   ngOnInit(): void {
@@ -43,7 +44,7 @@ export class AccountComponent implements OnInit {
       ISendEmail: '',
       AccountType: this.newUserForm.value.accounttype,
       Password: this.newUserForm.value.password,
-      OwnerId: '',
+      OwnerId: 1,
       CountryISDCode: this.newUserForm.value.phonecode,
       ConvertionDeskId: '',
       ConvertionDeskName: '',
@@ -55,6 +56,12 @@ export class AccountComponent implements OnInit {
     }
     this.service.clientRegister(clntregisterParameter).subscribe(nwusrRes =>{
       this.NewRealUser = nwusrRes;
+      if (nwusrRes === 'null') {
+        this.response = '';
+      } else {
+        this.response = 'Real Account is registered successfully..!';
+      }
+      this.newUserForm.reset();
       console.log('NewRealUser',nwusrRes);
     })
   }

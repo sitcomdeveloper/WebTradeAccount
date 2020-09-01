@@ -55,19 +55,19 @@
                             <a routerLink="/userhome" (click)="chngepassword()"><span>Change Password</span></a>
                         </li>
                         <li class="">
-                            <a href="/trading-history"><span>Trading History</span></a>
+                            <a routerLink="/userhome" (click)="tradinghistory()"><span>Trading History</span></a>
                         </li>
                         <li class="">
-                            <a href="/deposit-methods"><span>Deposit Funds</span></a>
+                            <a routerLink="/userhome" (click)="depositfunds()"><span>Deposit Funds</span></a>
                         </li>
                         <li class="">
-                            <a href="/upload-documents"><span>Upload Documents</span></a>
+                            <a routerLink="/userhome" (click)="uploaddocuments()"><span>Upload Documents</span></a>
                         </li>
                         <li class="">
-                            <a href="/monetary-statement"><span>Monetary Transactions</span></a>
+                            <a routerLink="/userhome" (click)="monetarytransactions()"><span>Monetary Transactions</span></a>
                         </li>
                         <li class="">
-                            <a href="/withdrawal"><span>Withdrawal</span></a>
+                            <a routerLink="/userhome" (click)="withdrawl()"><span>Withdrawal</span></a>
                         </li>
                         <li class="">
                             <a routerLink="/userhome" (click)="contactwe()"><span>Contact Us</span></a>
@@ -114,29 +114,29 @@
 </div>
 <div class="sidenav">
     <ul>
-        <li class="">
+        <li class="active">
             <a routerLink="/userhome" (click)="userhome()"><span>Home</span></a>
         </li>
-        <li class="active">
+        <li class="">
             <a routerLink="/userhome" (click)="prsnldtls()"><span>Personal Details</span></a>
         </li>
         <li class="">
             <a routerLink="/userhome" (click)="chngepassword()"><span>Change Password</span></a>
         </li>
         <li class="">
-            <a href="/trading-history"><span>Trading History</span></a>
+            <a routerLink="/userhome" (click)="tradinghistory()"><span>Trading History</span></a>
         </li>
         <li class="">
-            <a href="/deposit-methods"><span>Deposit Funds</span></a>
+            <a routerLink="/userhome" (click)="depositfunds()"><span>Deposit Funds</span></a>
         </li>
         <li class="">
-            <a href="/upload-documents"><span>Upload Documents</span></a>
+            <a routerLink="/userhome" (click)="uploaddocuments()"><span>Upload Documents</span></a>
         </li>
         <li class="">
-            <a href="/monetary-statement"><span>Monetary Transactions</span></a>
+            <a routerLink="/userhome" (click)="monetarytransactions()"><span>Monetary Transactions</span></a>
         </li>
         <li class="">
-            <a href="/withdrawal"><span>Withdrawal</span></a>
+            <a routerLink="/userhome" (click)="withdrawl()"><span>Withdrawal</span></a>
         </li>
         <li class="">
             <a routerLink="/userhome" (click)="contactwe()"><span>Contact Us</span></a>
@@ -192,19 +192,19 @@
             <a routerLink="/userhome" (click)="chngepassword()"><span>Change Password</span></a>
         </li>
         <li class="">
-            <a href="/trading-history"><span>Trading History</span></a>
+            <a routerLink="/userhome" (click)="tradinghistory()"><span>Trading History</span></a>
         </li>
         <li class="">
-            <a href="/deposit-methods"><span>Deposit Funds</span></a>
+            <a routerLink="/userhome" (click)="depositfunds()"><span>Deposit Funds</span></a>
         </li>
         <li class="">
-            <a href="/upload-documents"><span>Upload Documents</span></a>
+            <a routerLink="/userhome" (click)="uploaddocuments()"><span>Upload Documents</span></a>
         </li>
         <li class="">
-            <a href="/monetary-statement"><span>Monetary Transactions</span></a>
+            <a routerLink="/userhome" (click)="monetarytransactions()"><span>Monetary Transactions</span></a>
         </li>
         <li class="">
-            <a href="/withdrawal"><span>Withdrawal</span></a>
+            <a routerLink="/userhome" (click)="withdrawl()"><span>Withdrawal</span></a>
         </li>
         <li class="">
             <a routerLink="/userhome" (click)="contactwe()"><span>Contact Us</span></a>
@@ -217,6 +217,313 @@
     </div>
 </main>
 
+<!-- trading history -->
+<main *ngIf = trdinghistry>
+    <div class="quote__container">&nbsp;</div>
+    <div class="breadcrumbs">
+        <ul class=""><li><a href="/">Home</a></li><li>Trading History</li></ul>
+    </div>
+    <div class="main-holder">
+        <div class="contentholder">
+            <div id="content">
+                
+
+
+<h1>Closed Positions</h1>
+<form action="#" class="form">
+<fieldset>
+<div class="form-columns">
+    <div class="form-col col-md-6">
+        <div class="row"><label for="TradeAccount">Trade Account: *</label><div class="row-control"><div class="formset"><select class="sel" data-val="true" data-val-localizedrequired="Please re-enter Trade Account" data-val-localizedrequired-otherpropertyname="ProjectManager" data-val-number="The field Trade Account: * must be a number." id="TradeAccount" name="TradeAccount" onchange="refreshTable();"><option value="107557">107557</option>
+</select></div><span class="error"><span class="field-validation-valid" data-valmsg-for="TradeAccount" data-valmsg-replace="true"></span></span></div></div>
+    </div>
+</div>
+</fieldset>
+</form>
+
+<div class="table account-table trading-table">
+<table id="tradingHistory">
+<thead>
+    <tr>
+        <th>Symbol</th>
+        <th>Volume</th>
+        <th>Open Date</th>
+        <th>Close Date</th>
+        <th>Open Price</th>
+        <th>Close Price</th>
+        <th>Position Type</th>
+        <th>Swap</th>
+        <th>Commission</th>
+        <th>Profit</th>
+        <th>Margin</th>
+    </tr>
+</thead>
+</table>
+</div>
+            </div>
+        </div>
+        <aside id="sidebar">
+<div class="box">
+<div class="heading">
+    <h3>My account</h3>
+</div>
+<div class="sidenav">
+    <ul>
+        <li class="active">
+            <a routerLink="/userhome" (click)="userhome()"><span>Home</span></a>
+        </li>
+        <li class="">
+            <a routerLink="/userhome" (click)="prsnldtls()"><span>Personal Details</span></a>
+        </li>
+        <li class="">
+            <a routerLink="/userhome" (click)="chngepassword()"><span>Change Password</span></a>
+        </li>
+        <li class="">
+            <a routerLink="/userhome" (click)="tradinghistory()"><span>Trading History</span></a>
+        </li>
+        <li class="">
+            <a routerLink="/userhome" (click)="depositfunds()"><span>Deposit Funds</span></a>
+        </li>
+        <li class="">
+            <a routerLink="/userhome" (click)="uploaddocuments()"><span>Upload Documents</span></a>
+        </li>
+        <li class="">
+            <a routerLink="/userhome" (click)="monetarytransactions()"><span>Monetary Transactions</span></a>
+        </li>
+        <li class="">
+            <a routerLink="/userhome" (click)="withdrawl()"><span>Withdrawal</span></a>
+        </li>
+        <li class="">
+            <a routerLink="/userhome" (click)="contactwe()"><span>Contact Us</span></a>
+        </li>
+    </ul>
+</div>
+</div>
+</aside>
+
+    </div>
+</main>
+<!-- upload documents -->
+<main *ngIf = uplddocuments>
+    <div class="quote__container">&nbsp;</div>
+    <div class="breadcrumbs">
+        <ul class=""><li><a href="/">Home</a></li><li>Upload Documents</li></ul>
+    </div>
+    <div class="main-holder">
+        <div class="contentholder">
+            <div id="content">
+                
+
+<h2>Upload Documents</h2>
+<form action="/upload-documents" class="form" enctype="multipart/form-data" id="actionForm2" method="post">    <div class="row">
+<label for="UploadType">UploadType</label>
+<div class="formset">
+    <select data-val="true" data-val-number="The field UploadType must be a number." data-val-required="The UploadType field is required." id="UploadType" name="UploadType"><option value="1">Bank Statement</option>
+<option value="2">Bank Wire</option>
+<option value="3">Credit Card</option>
+<option value="4">Driving License</option>
+<option value="5">National ID Card</option>
+<option value="6">Passport ID</option>
+<option value="7">Utility Bill</option>
+<option value="8">DOD</option>
+<option value="9">POR</option>
+<option value="10">ID</option>
+<option value="11">Wire Details</option>
+<option value="12">WD Request Form</option>
+</select>
+</div>
+<span class="error"><span class="field-validation-valid" data-valmsg-for="UploadType" data-valmsg-replace="true"></span></span>
+</div>
+<div class="row"><label for="IdentificationsFile">File: *</label><div class="row-control"><div class="formset"><input type="file" class="file" id="IdentificationsFile" name="IdentificationsFile" accept="*.gif" size="25" /><span class="error"><span class="field-validation-valid" data-valmsg-for="IdentificationsFile" data-valmsg-replace="true"></span></span></div></div></div>    <span class="error col-md-offset-2"></span>
+<h3 class="status-success">
+
+</h3>
+<div class="row button-row"><div class="buttonset"><a class="button" href="#" onclick="submitForm2(); return false;"><span>Submit</span></a></div></div></form>
+
+<br />
+<div class="line">&nbsp;</div>
+            </div>
+        </div>
+        <aside id="sidebar">
+<div class="box">
+<div class="heading">
+    <h3>My account</h3>
+</div>
+<div class="sidenav">
+    <ul>
+        <li class="active">
+            <a routerLink="/userhome" (click)="userhome()"><span>Home</span></a>
+        </li>
+        <li class="">
+            <a routerLink="/userhome" (click)="prsnldtls()"><span>Personal Details</span></a>
+        </li>
+        <li class="">
+            <a routerLink="/userhome" (click)="chngepassword()"><span>Change Password</span></a>
+        </li>
+        <li class="">
+            <a routerLink="/userhome" (click)="tradinghistory()"><span>Trading History</span></a>
+        </li>
+        <li class="">
+            <a routerLink="/userhome" (click)="depositfunds()"><span>Deposit Funds</span></a>
+        </li>
+        <li class="">
+            <a routerLink="/userhome" (click)="uploaddocuments()"><span>Upload Documents</span></a>
+        </li>
+        <li class="">
+            <a routerLink="/userhome" (click)="monetarytransactions()"><span>Monetary Transactions</span></a>
+        </li>
+        <li class="">
+            <a routerLink="/userhome" (click)="withdrawl()"><span>Withdrawal</span></a>
+        </li>
+        <li class="">
+            <a routerLink="/userhome" (click)="contactwe()"><span>Contact Us</span></a>
+        </li>
+    </ul>
+</div>
+</div>
+</aside>
+
+    </div>
+</main>
+<!-- monetary transactions -->
+<main *ngIf = mnetrytransction>
+    <div class="quote__container">&nbsp;</div>
+    <div class="breadcrumbs">
+        <ul class=""><li><a href="/">Home</a></li><li>Monetary Statement</li></ul>
+    </div>
+    <div class="main-holder">
+        <div class="contentholder">
+            <div id="content">
+                
+
+<h1>Monetary Statement</h1>
+<form action="#" class="form">
+<fieldset>
+<div class="form-columns">
+    <div class="form-col col-md-6">
+        <div class="row"><label for="TradeAccount">Trade Account: *</label><div class="row-control"><div class="formset"><select class="sel" data-val="true" data-val-localizedrequired="Please re-enter Trade Account" data-val-localizedrequired-otherpropertyname="ProjectManager" data-val-number="The field Trade Account: * must be a number." id="TradeAccount" name="TradeAccount" onchange="refreshTable();"><option value="107557">107557</option>
+</select></div><span class="error"><span class="field-validation-valid" data-valmsg-for="TradeAccount" data-valmsg-replace="true"></span></span></div></div>
+    </div>
+</div>
+</fieldset>
+</form>
+
+<div class="table account-table">
+<table id="monetaryStatement">
+<thead>
+    <tr>
+        <th>Operation Date</th>
+        <th>Enquity</th>
+        <th>Transaction Type</th>
+    </tr>
+</thead>
+</table>
+</div>
+            </div>
+        </div>
+        <aside id="sidebar">
+<div class="box">
+<div class="heading">
+    <h3>My account</h3>
+</div>
+<div class="sidenav">
+    <ul>
+        <li class="active">
+            <a routerLink="/userhome" (click)="userhome()"><span>Home</span></a>
+        </li>
+        <li class="">
+            <a routerLink="/userhome" (click)="prsnldtls()"><span>Personal Details</span></a>
+        </li>
+        <li class="">
+            <a routerLink="/userhome" (click)="chngepassword()"><span>Change Password</span></a>
+        </li>
+        <li class="">
+            <a routerLink="/userhome" (click)="tradinghistory()"><span>Trading History</span></a>
+        </li>
+        <li class="">
+            <a routerLink="/userhome" (click)="depositfunds()"><span>Deposit Funds</span></a>
+        </li>
+        <li class="">
+            <a routerLink="/userhome" (click)="uploaddocuments()"><span>Upload Documents</span></a>
+        </li>
+        <li class="">
+            <a routerLink="/userhome" (click)="monetarytransactions()"><span>Monetary Transactions</span></a>
+        </li>
+        <li class="">
+            <a routerLink="/userhome" (click)="withdrawl()"><span>Withdrawal</span></a>
+        </li>
+        <li class="">
+            <a routerLink="/userhome" (click)="contactwe()"><span>Contact Us</span></a>
+        </li>
+    </ul>
+</div>
+</div>
+</aside>
+
+    </div>
+</main>
+<!-- withdrawal -->
+<main *ngIf = withdrwl>
+    <div class="quote__container">&nbsp;</div>
+    <div class="breadcrumbs">
+        <ul class=""><li><a href="/">Home</a></li><li>Withdrawal</li></ul>
+    </div>
+    <div class="main-holder">
+        <div class="contentholder">
+            <div id="content">
+                
+
+
+<h1>Withdrawal</h1>
+<p>Please complete the necessary fields below and submit this information via e-mail as a scanned image (JPG, GIF, PNG, non-password protected PDF) to <a href="mailto:info@eufxindex.com">info@eufxindex.com</a>. The request will generally be processed within 2 business days of receipt. In order to avoid any delays please review your information carefully before submitting. We assume no responsibility for errors or inaccuracies made by the account holder.</p>
+
+<form action="/withdrawal" class="form" id="actionForm" method="post" role="form"><input name="__RequestVerificationToken" type="hidden" value="i-xQXhBQcspwVtwnGbOUx8OflLCnNChIUEX3zhKd-lujPeOMfzwhvzIXpzb1BbAIDGJ-p_6QvED-w4lL3XfJWlErZp29w19hhmzfXSXkG-LsqaM022liRRUuQ-MBa8Lminqe5Q2" />    <p>By clicking &quot;Request a Withdrawal&quot; We are will be informed that you would like to withdraw funds. The money will be refunded to your funding credit or debit card.</p>
+<div class="row"><label for="TradeAccount">Trade Account: *</label><div class="row-control"><div class="formset"><select data-val="true" data-val-localizedrequired="Please re-enter Trade Account" data-val-localizedrequired-otherpropertyname="ProjectManager" data-val-number="The field Trade Account: * must be a number." id="TradeAccount" name="TradeAccount" onchange="getCurrentCurrency()"><option value="107557">107557</option>
+</select></div><span class="error"><span class="field-validation-valid" data-valmsg-for="TradeAccount" data-valmsg-replace="true"></span></span></div></div><div class="row"><label for="Amount">Amount: *</label><div class="row-control"><div class="formset"><div class="formitems"><div class="formitem span-8"><input data-val="true" data-val-localizedrequired="Please re-enter Amount" data-val-localizedrequired-otherpropertyname="ProjectManager" data-val-number="The field Amount: * must be a number." id="Amount" name="Amount" type="text" value="0" /></div><div class="formitem span-4 mark"><span id="currentCurrency" class="mark">US Dollar</span></div></div><span class="error"><span class="field-validation-valid" data-valmsg-for="Amount" data-valmsg-replace="true"></span></span></div></div></div><div class="row"><label for="BankName">Bank name: *</label><div class="row-control"><div class="formset"><input data-val="true" data-val-localizedrequired="Please re-enter Bank name" data-val-localizedrequired-otherpropertyname="ProjectManager" id="BankName" name="BankName" type="text" value="" /><span class="error"><span class="field-validation-valid" data-valmsg-for="BankName" data-valmsg-replace="true"></span></span></div></div></div><div class="row"><label for="BankAccount">IBAN: *</label><div class="row-control"><div class="formset"><input data-val="true" data-val-localizedrequired="Please re-enter IBAN" data-val-localizedrequired-otherpropertyname="ProjectManager" id="BankAccount" name="BankAccount" type="text" value="" /><span class="error"><span class="field-validation-valid" data-valmsg-for="BankAccount" data-valmsg-replace="true"></span></span></div></div></div><div class="row button-row"><div class="buttonset"><a class="button" href="#" onclick="SubmitThisForm(); return false;"><span>Submit</span></a></div></div></form>
+
+            </div>
+        </div>
+        <aside id="sidebar">
+<div class="box">
+<div class="heading">
+    <h3>My account</h3>
+</div>
+<div class="sidenav">
+    <ul>
+        <li class="active">
+            <a routerLink="/userhome" (click)="userhome()"><span>Home</span></a>
+        </li>
+        <li class="">
+            <a routerLink="/userhome" (click)="prsnldtls()"><span>Personal Details</span></a>
+        </li>
+        <li class="">
+            <a routerLink="/userhome" (click)="chngepassword()"><span>Change Password</span></a>
+        </li>
+        <li class="">
+            <a routerLink="/userhome" (click)="tradinghistory()"><span>Trading History</span></a>
+        </li>
+        <li class="">
+            <a routerLink="/userhome" (click)="depositfunds()"><span>Deposit Funds</span></a>
+        </li>
+        <li class="">
+            <a routerLink="/userhome" (click)="uploaddocuments()"><span>Upload Documents</span></a>
+        </li>
+        <li class="">
+            <a routerLink="/userhome" (click)="monetarytransactions()"><span>Monetary Transactions</span></a>
+        </li>
+        <li class="">
+            <a routerLink="/userhome" (click)="withdrawl()"><span>Withdrawal</span></a>
+        </li>
+        <li class="">
+            <a routerLink="/userhome" (click)="contactwe()"><span>Contact Us</span></a>
+        </li>
+    </ul>
+</div>
+</div>
+</aside>
+
+    </div>
+</main>
 <!-- contact us -->
 <main *ngIf = cntctus>
     <div class="quote__container">&nbsp;</div>
@@ -514,19 +821,19 @@
             <a routerLink="/userhome" (click)="chngepassword()"><span>Change Password</span></a>
         </li>
         <li class="">
-            <a href="/trading-history"><span>Trading History</span></a>
+            <a routerLink="/userhome" (click)="tradinghistory()"><span>Trading History</span></a>
         </li>
         <li class="">
-            <a href="/deposit-methods"><span>Deposit Funds</span></a>
+            <a routerLink="/userhome" (click)="depositfunds()"><span>Deposit Funds</span></a>
         </li>
         <li class="">
-            <a href="/upload-documents"><span>Upload Documents</span></a>
+            <a routerLink="/userhome" (click)="uploaddocuments()"><span>Upload Documents</span></a>
         </li>
         <li class="">
-            <a href="/monetary-statement"><span>Monetary Transactions</span></a>
+            <a routerLink="/userhome" (click)="monetarytransactions()"><span>Monetary Transactions</span></a>
         </li>
         <li class="">
-            <a href="/withdrawal"><span>Withdrawal</span></a>
+            <a routerLink="/userhome" (click)="withdrawl()"><span>Withdrawal</span></a>
         </li>
         <li class="">
             <a routerLink="/userhome" (click)="contactwe()"><span>Contact Us</span></a>
