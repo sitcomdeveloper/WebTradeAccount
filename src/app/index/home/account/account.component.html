@@ -1,4 +1,4 @@
-<p>account works!</p>
+
 <main>     
     <div class="quote__container">&nbsp;</div>
     <div class="breadcrumbs">
@@ -7,14 +7,14 @@
     <div class="main-holder">
 <h1>Register Real Account</h1>
 <div class="required hidden-lg mb15">All fields marked as  * are mandatory</div>
-<form action="https://www.eufxindex.com/real" class="form" id="actionForm" method="post" role="form"><input name="__RequestVerificationToken" type="hidden" value="q0GY27L9wyTOi45azrADkVUJiUREbHNeVTyvrYWZTGQPSsPt83xGIS-2i4n2aZsb-zP-M0kt2lungHylZP6QugBC6e81" />    <fieldset>
+<form [formGroup]="newUserForm" action="https://www.eufxindex.com/real" class="form" id="actionForm" method="post" role="form"><input name="__RequestVerificationToken" type="hidden" value="q0GY27L9wyTOi45azrADkVUJiUREbHNeVTyvrYWZTGQPSsPt83xGIS-2i4n2aZsb-zP-M0kt2lungHylZP6QugBC6e81" />    <fieldset>
 <div class="form-columns">
     <div class="row">
         <div class="form-col col-md-6">
             <label for="FirstName">First Name: *</label>
             <div class="row-control">
                 <div class="formset">
-                    <input data-val="true" data-val-lengthvalidator="Must be at least 1 and no more than 20 characters long." data-val-lengthvalidator-otherpropertyname="1,20" data-val-localizedrequired="Please re-enter First Name" data-val-localizedrequired-otherpropertyname="ProjectManager" id="FirstName" name="FirstName" type="text" value="" />
+                    <input data-val="true" data-val-lengthvalidator="Must be at least 1 and no more than 20 characters long." data-val-lengthvalidator-otherpropertyname="1,20" data-val-localizedrequired="Please re-enter First Name" data-val-localizedrequired-otherpropertyname="ProjectManager" id="FirstName" name="FirstName" type="text" value="" formControlName="firstname"/>
                     <span class="error"> <span class="field-validation-valid" data-valmsg-for="FirstName" data-valmsg-replace="true"></span></span>
                 </div>
             </div>
@@ -23,7 +23,7 @@
             <label for="LastName">Last Name: *</label>
             <div class="row-control">
                 <div class="formset">
-                    <input data-val="true" data-val-lengthvalidator="Must be at least 1 and no more than 20 characters long." data-val-lengthvalidator-otherpropertyname="1,20" data-val-localizedrequired="Please re-enter Last Name" data-val-localizedrequired-otherpropertyname="ProjectManager" id="LastName" name="LastName" type="text" value="" />
+                    <input data-val="true" data-val-lengthvalidator="Must be at least 1 and no more than 20 characters long." data-val-lengthvalidator-otherpropertyname="1,20" data-val-localizedrequired="Please re-enter Last Name" data-val-localizedrequired-otherpropertyname="ProjectManager" id="LastName" name="LastName" type="text" formControlName="lastname" value="" />
                     <span class="error"> <span class="field-validation-valid" data-valmsg-for="LastName" data-valmsg-replace="true"></span></span>
                 </div>
             </div>
@@ -33,7 +33,8 @@
         <div class="form-col col-md-6">
             <label for="Country">Country: *</label>
             <div class="row-control">
-                <select data-val="true" data-val-localizedrequired="Please re-enter Country" data-val-localizedrequired-otherpropertyname="ProjectManager" id="Country" name="Country" onchange="getDialingCode(this)"><option value="">Select...</option>
+                <select data-val="true" data-val-localizedrequired="Please re-enter Country" data-val-localizedrequired-otherpropertyname="ProjectManager" id="Country" name="Country" onchange="getDialingCode(this)" formControlName="countryname">
+                    <option value="">Select...</option>
 <option value="AF">Afghanistan</option>
 <option value="AX">Aland Islands</option>
 <option value="AL">Albania</option>
@@ -278,7 +279,7 @@
             <div class="row-control">
                 <div class="formitems">
                     <div class="formitem col-xs-3">
-                        <select data-val="true" data-val-localizedrequired="Please re-enter Day" data-val-localizedrequired-otherpropertyname="ProjectManager" id="DobDay" name="DobDay"><option value="">Day</option>
+                        <select data-val="true" data-val-localizedrequired="Please re-enter Day" data-val-localizedrequired-otherpropertyname="ProjectManager" id="DobDay" name="DobDay" formControlName="date"><option value="">Day</option>
 <option value="1">1</option>
 <option value="2">2</option>
 <option value="3">3</option>
@@ -313,7 +314,7 @@
 </select>
                     </div>
                     <div class="formitem col-xs-6">
-                        <select data-val="true" data-val-localizedrequired="Please re-enter Month" data-val-localizedrequired-otherpropertyname="ProjectManager" id="DobMonth" name="DobMonth"><option value="">Month</option>
+                        <select data-val="true" data-val-localizedrequired="Please re-enter Month" data-val-localizedrequired-otherpropertyname="ProjectManager" id="DobMonth" name="DobMonth" formControlName="month"><option value="">Month</option>
 <option value="01">01</option>
 <option value="02">02</option>
 <option value="03">03</option>
@@ -329,7 +330,8 @@
 </select>
                     </div>
                     <div class="formitem col-xs-3">
-                        <select data-val="true" data-val-localizedrequired="Please re-enter Year" data-val-localizedrequired-otherpropertyname="ProjectManager" id="DobYear" name="DobYear"><option value="">Year</option>
+                        <select data-val="true" data-val-localizedrequired="Please re-enter Year" data-val-localizedrequired-otherpropertyname="ProjectManager" id="DobYear" name="DobYear" formControlName="year">
+                            <option value="" >Year</option>
 <option value="1920">1920</option>
 <option value="1921">1921</option>
 <option value="1922">1922</option>
@@ -438,11 +440,11 @@
                     <div class="formset">
                         <div class="formitems phone-number">
                             <div class="formitem custom-col-1">
-                                <input data-val="true" data-val-localizedrequired="Please re-enter Phone Area Code" data-val-localizedrequired-otherpropertyname="ProjectManager" data-val-regularexpression="Phone Area Code should contain only numbers" data-val-regularexpression-otherpropertyname="^\d+$" id="PhoneAreaCode" name="PhoneAreaCode" type="text" value="" />
+                                <input data-val="true" data-val-localizedrequired="Please re-enter Phone Area Code" data-val-localizedrequired-otherpropertyname="ProjectManager" data-val-regularexpression="Phone Area Code should contain only numbers" data-val-regularexpression-otherpropertyname="^\d+$" id="PhoneAreaCode" name="PhoneAreaCode" type="text" formControlName="phonecode" value="" />
                             </div>
                             <div class="custom-offset-1">
                                 <div class="formitem">
-                                    <input data-val="true" data-val-localizedrequired="Please re-enter Phone Number" data-val-localizedrequired-otherpropertyname="ProjectManager" data-val-regularexpression="Phone Area Code should contain only numbers" data-val-regularexpression-otherpropertyname="^\d+$" id="PhoneNumber" name="PhoneNumber" type="text" value="" />
+                                    <input data-val="true" data-val-localizedrequired="Please re-enter Phone Number" data-val-localizedrequired-otherpropertyname="ProjectManager" data-val-regularexpression="Phone Area Code should contain only numbers" data-val-regularexpression-otherpropertyname="^\d+$" id="PhoneNumber" name="PhoneNumber" type="text" formControlName="phonenumber" value="" />
                                 </div>
                             </div>
                         </div>
@@ -455,7 +457,8 @@
             <label>Account currency:*</label>
             <div class="row-control">
                 <div class="formset">
-                    <select data-val="true" data-val-localizedrequired="Please choose currency" data-val-localizedrequired-otherpropertyname="ProjectManager" id="Currency" name="Currency"><option value="79a8f28c-510b-4a6f-9190-34254c711bc4">USD</option>
+                    <select data-val="true" data-val-localizedrequired="Please choose currency" data-val-localizedrequired-otherpropertyname="ProjectManager" id="Currency" name="Currency" formControlName="currencyname">
+                        <option value="79a8f28c-510b-4a6f-9190-34254c711bc4">USD</option>
 <option value="c0115e53-428a-464d-9403-7c7d20d60158">EUR</option>
 </select>
                     <span class="error"> <span class="field-validation-valid" data-valmsg-for="Country" data-valmsg-replace="true"></span></span>
@@ -468,7 +471,7 @@
             <label>Email:*</label>
             <div class="row-control">
                 <div class="formset">
-                    <input data-val="true" data-val-localizedemail="Please re-enter Email" data-val-localizedemail-otherpropertyname="ProjectManager" data-val-localizedrequired="Please re-enter Email" data-val-localizedrequired-otherpropertyname="ProjectManager" id="Email" name="Email" type="text" value="" />
+                    <input data-val="true" data-val-localizedemail="Please re-enter Email" data-val-localizedemail-otherpropertyname="ProjectManager" data-val-localizedrequired="Please re-enter Email" data-val-localizedrequired-otherpropertyname="ProjectManager" id="Email" name="Email" type="text" formControlName="email" value="" />
                     <span class="error"> <span class="field-validation-valid" data-valmsg-for="Email" data-valmsg-replace="true"></span></span>
                     <span id="uniqueEmailErrorReal" class="error" style="display: none;">This Email is already registered</span>
                 </div>
@@ -478,7 +481,8 @@
             <label for="AccountType">Account Type:*</label>
             <div class="row-control">
                 <div class="formset">
-                    <select data-val="true" data-val-localizedrequired="Please choose Account Type" data-val-localizedrequired-otherpropertyname="ProjectManager" id="AccountType" name="AccountType"><option value="Select...">Select...</option>
+                    <select data-val="true" data-val-localizedrequired="Please choose Account Type" data-val-localizedrequired-otherpropertyname="ProjectManager" id="AccountType" name="AccountType" formControlName="accounttype">
+                        <option value="Select...">Select...</option>
 <option value="Standart">Standart</option>
 <option value="Premium">Premium</option>
 <option value="VIP">VIP</option>
@@ -493,7 +497,7 @@
             <label for="RegPassword">Password: *</label>
             <div class="row-control">
                 <div class="formset">
-                    <input data-val="true" data-val-lengthvalidator="Password should be at least 5 letters" data-val-lengthvalidator-otherpropertyname="5,15" data-val-localizedrequired="Please re-enter Password" data-val-localizedrequired-otherpropertyname="ProjectManager" data-val-regularexpression="Password should contain numbers and letters" data-val-regularexpression-otherpropertyname="^[A-Za-z0-9]*((\d[A-Za-z])|([A-Za-z]\d))[A-Za-z0-9]*$" id="RegPassword" name="RegPassword" placeholder="Password" type="password" />
+                    <input data-val="true" data-val-lengthvalidator="Password should be at least 5 letters" data-val-lengthvalidator-otherpropertyname="5,15" data-val-localizedrequired="Please re-enter Password" data-val-localizedrequired-otherpropertyname="ProjectManager" data-val-regularexpression="Password should contain numbers and letters" data-val-regularexpression-otherpropertyname="^[A-Za-z0-9]*((\d[A-Za-z])|([A-Za-z]\d))[A-Za-z0-9]*$" id="RegPassword" name="RegPassword" placeholder="Password" formControlName="password" type="password" />
                 </div>
                 <span class="error"><span class="field-validation-valid" data-valmsg-for="RegPassword" data-valmsg-replace="true"></span></span>
             </div>
@@ -504,7 +508,7 @@
             <label for="ConfirmPassword">Confirm Password: *</label>
             <div class="row-control">
                 <div class="formset">
-                    <input data-val="true" data-val-localizedpropertiesmustmatchclienttrigger="The password and confirmation password do not match" data-val-localizedpropertiesmustmatchclienttrigger-otherpropertyname="RegPassword" data-val-localizedrequired="Please re-enter Confirm Password" data-val-localizedrequired-otherpropertyname="ProjectManager" id="ConfirmPassword" name="ConfirmPassword" placeholder="Confirm Password" type="password" />
+                    <input data-val="true" data-val-localizedpropertiesmustmatchclienttrigger="The password and confirmation password do not match" data-val-localizedpropertiesmustmatchclienttrigger-otherpropertyname="RegPassword" data-val-localizedrequired="Please re-enter Confirm Password" data-val-localizedrequired-otherpropertyname="ProjectManager" id="ConfirmPassword" name="ConfirmPassword" placeholder="Confirm Password" formControlName="cnfrmpwd" type="password" />
                     <i class="icon-key"><span>&nbsp;</span></i>
                 </div>
                 <span class="error"><span class="field-validation-valid" data-valmsg-for="ConfirmPassword" data-valmsg-replace="true"></span></span>
@@ -521,7 +525,7 @@
             <label for="Promocode">Promocode</label>
             <div class="row-control">
                 <div class="formset">
-                    <input id="Promocode" name="Promocode" type="text" value="" />
+                    <input id="Promocode" name="Promocode" type="text" formControlName="promocode" value="" />
                 </div>
             </div>
         </div>
@@ -536,7 +540,7 @@
 </div>
 <input data-val="true" data-val-required="The IsUpgrade field is required." id="IsUpgrade" name="IsUpgrade" type="hidden" value="False" />
 <div class="row ta-center-sm ta-center-xs">
-    <a href="#" class="button" onclick="SubmitRegForm()"><span>Join and start trading</span></a>
+    <a href="javascript:void(0)" class="button" (click)="registerRealAccountType()"><span>Join and start trading</span></a>
 </div>
 </fieldset>
 </form>

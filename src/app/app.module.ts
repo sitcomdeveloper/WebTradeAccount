@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { IndexComponent } from './index/index.component';
@@ -9,6 +10,7 @@ import { FooterComponent } from './index/footer/footer.component';
 import { HomeComponent } from './index/home/home.component';
 import { AccountComponent } from './index/home/account/account.component';
 import { DemoaccountComponent } from './index/home/demoaccount/demoaccount.component';
+import { UserhomeComponent } from './index/header/userhome/userhome.component';
 
 
 @NgModule({
@@ -20,10 +22,11 @@ import { DemoaccountComponent } from './index/home/demoaccount/demoaccount.compo
     HomeComponent,
     AccountComponent,
     DemoaccountComponent,
+    UserhomeComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,FormsModule, ReactiveFormsModule,HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

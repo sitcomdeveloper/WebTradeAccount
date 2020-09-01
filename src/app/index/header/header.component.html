@@ -1,5 +1,5 @@
 <header>
-    <div class="logo-holder">
+    <div class="logo-holder" *ngIf = beforelogin>
         <div class="main-holder">
             <strong class="logo">
                 <a href="Home.html">EU FX Index</a>
@@ -30,7 +30,7 @@
                             
                         </div>
                         <div class="cell btn-cell">
-                            <a class="button btn-login" href="#" onclick="submitLoginForm(); return false;"><span>Login</span></a>
+                            <a class="button btn-login" href="#" (click)="loginfortrade()" onclick="submitLoginForm(); return false;"><span>Login</span></a>
                         </div>
                     </div>
                     <div class="row">
@@ -55,52 +55,51 @@
 
         </div>
     </div>
-    <!------------->
-    <div class="logo-holder">
+    <div  *ngIf = afterlogin class="logo-holder" >
         <div class="main-holder">
             <strong class="logo">
-                <a href="/Home">EU FX Index</a>
+                <a routerLink="/Home">EU FX Index</a>
             </strong>
             <div class="header-panel">
     <ul>
             <li class="welcome-name">Welcome Back, <br /> rohan gupta</li>
         <li>
-            <a href="/contact-us" class="link-contactus">Contact Us</a>
+            <a routerLink="/contact-us" class="link-contactus">Contact Us</a>
         </li>
         <li class="lang-nav">
-<a href="#" class="link lng"><img src="/SKImageHandler/GetLanguageImage/cfa9ac68-a546-4aa0-a20c-34fb40e40818" alt="En" /><span>En</span></a>
+<a routerLink="#" class="link lng"><img src="/SKImageHandler/GetLanguageImage/cfa9ac68-a546-4aa0-a20c-34fb40e40818" alt="En" /><span>En</span></a>
 <div class="drop"><ul>
-<li class="active"><a href="/SKUtils/SwitchLanguage?idl=en-US&url=https%3A%2F%2Fwww.eufxindex.com%2F"><img src="/SKImageHandler/GetLanguageImage/cfa9ac68-a546-4aa0-a20c-34fb40e40818" alt="English" title="English" /><span>En</span></a></li>
-<li ><a href="/SKUtils/SwitchLanguage?idl=de-DE&url=https%3A%2F%2Fwww.eufxindex.com%2F"><img src="/SKImageHandler/GetLanguageImage/0c4ead1b-791f-4c37-a14c-c267474b5166" alt="German" title="German" /><span>Ge</span></a></li>
-<li ><a href="/SKUtils/SwitchLanguage?idl=it-IT&url=https%3A%2F%2Fwww.eufxindex.com%2F"><img src="/SKImageHandler/GetLanguageImage/7c27ca0a-1c37-4643-aac0-6d616f3b381d" alt="Italian" title="Italian" /><span>It</span></a></li>
-<li ><a href="/SKUtils/SwitchLanguage?idl=es-ES&url=https%3A%2F%2Fwww.eufxindex.com%2F"><img src="/SKImageHandler/GetLanguageImage/d9a2aa99-77f9-411d-a283-6bb6904b27cc" alt="Spanish" title="Spanish" /><span>Sp</span></a></li>
+<li class="active"><a routerLink="/SKUtils/SwitchLanguage?idl=en-US&url=https%3A%2F%2Fwww.eufxindex.com%2F"><img src="/SKImageHandler/GetLanguageImage/cfa9ac68-a546-4aa0-a20c-34fb40e40818" alt="English" title="English" /><span>En</span></a></li>
+<li ><a routerLink="/SKUtils/SwitchLanguage?idl=de-DE&url=https%3A%2F%2Fwww.eufxindex.com%2F"><img src="/SKImageHandler/GetLanguageImage/0c4ead1b-791f-4c37-a14c-c267474b5166" alt="German" title="German" /><span>Ge</span></a></li>
+<li ><a routerLink="/SKUtils/SwitchLanguage?idl=it-IT&url=https%3A%2F%2Fwww.eufxindex.com%2F"><img src="/SKImageHandler/GetLanguageImage/7c27ca0a-1c37-4643-aac0-6d616f3b381d" alt="Italian" title="Italian" /><span>It</span></a></li>
+<li ><a routerLink="/SKUtils/SwitchLanguage?idl=es-ES&url=https%3A%2F%2Fwww.eufxindex.com%2F"><img src="/SKImageHandler/GetLanguageImage/d9a2aa99-77f9-411d-a283-6bb6904b27cc" alt="Spanish" title="Spanish" /><span>Sp</span></a></li>
 </ul></div>
 </li>
 
             <li><a class="button button2" target="_blank" href="https://webtrader.eufxindex.com/"><span>Access WebTrader</span></a></li>
             <li class="account-nav">
-                <a class="button btn-account link" href="#"><span>MY account</span></a>
-                <div class="drop">
+                <a class="button btn-account link" routerLink="/userhome"><span>MY account</span></a>
+                <a class="button btn-account link" routerLink="" (click)="logoutfromtrade()"><span>Logout</span></a>
+                <!-- <div class="drop">
                     <ul>
                         <li><a href="/welcome">Home</a></li>
-                        <li><a href="/my-account">Personal Details</a></li>
-                        <li><a href="/change-password">Change Password</a></li>
-                        <li><a href="/trading-history">Trading History</a></li>
-                            <li><a href="/deposit-methods">Deposit Funds</a></li>
-                            <li><a href="/upload-documents">Upload Documents</a></li>
-                            <li><a href="/monetary-statement">Monetary Transactions</a></li>
-                            <li><a href="/withdrawal">Withdrawal</a></li>
-                        <li><a href="/ContactUs">Contact Us</a></li>
-                        <li><a href="/Account/Logoff">Logout</a></li>
+                        <li><a routerLink="/my-account">Personal Details</a></li>
+                        <li><a routerLink="/change-password">Change Password</a></li>
+                        <li><a routerLink="/trading-history">Trading History</a></li>
+                            <li><a routerLink="/deposit-methods">Deposit Funds</a></li>
+                            <li><a routerLink="/upload-documents">Upload Documents</a></li>
+                            <li><a routerLink="/monetary-statement">Monetary Transactions</a></li>
+                            <li><a routerLink="/withdrawal">Withdrawal</a></li>
+                        <li><a routerLink="/ContactUs">Contact Us</a></li>
+                        <li><a routerLink="/Account/Logoff">Logout</a></li>
                     </ul>
-                </div>
+                </div> -->
             </li>
     </ul>
 </div>
 
         </div>
     </div>
-    <!---------------->
     <div class="nav-holder">
         <div class="main-holder">
             <nav id="nav">
