@@ -6,10 +6,10 @@
             </strong>
             <div class="header-panel">
     <ul>
-        <li>
+        <!-- <li>
             <a href="contact-us.html" class="link-contactus">Contact Us</a>
-        </li>
-        <li class="lang-nav">
+        </li> -->
+        <!-- <li class="lang-nav">
 <a href="#" class="link lng"><img src="SKImageHandler/GetLanguageImage/cfa9ac68-a546-4aa0-a20c-34fb40e40818" alt="En" /><span>En</span></a>
 <div class="drop"><ul>
 <li class="active"><a href="index.html?idl=en-US&amp;url=https%3A%2F%2Fwww.eufxindex.com%2F"><img src="SKImageHandler/GetLanguageImage/cfa9ac68-a546-4aa0-a20c-34fb40e40818" alt="English" title="English" /><span>En</span></a></li>
@@ -17,7 +17,7 @@
 <li ><a href="it.html?idl=it-IT&amp;url=https%3A%2F%2Fwww.eufxindex.com%2F"><img src="SKImageHandler/GetLanguageImage/7c27ca0a-1c37-4643-aac0-6d616f3b381d" alt="Italian" title="Italian" /><span>It</span></a></li>
 <li ><a href="es.html?idl=es-ES&amp;url=https%3A%2F%2Fwww.eufxindex.com%2F"><img src="SKImageHandler/GetLanguageImage/d9a2aa99-77f9-411d-a283-6bb6904b27cc" alt="Spanish" title="Spanish" /><span>Sp</span></a></li>
 </ul></div>
-</li>
+</li> -->
 
             <li class="login-nav">
 <form action="https://www.eufxindex.com/login" class="form login-form" id="loginForm" method="post" role="form">                    <div class="row">
@@ -63,10 +63,10 @@
             <div class="header-panel">
     <ul>
             <li class="welcome-name">Welcome Back, <br /> rohan gupta</li>
-        <li>
+        <!-- <li>
             <a routerLink="/contact-us" class="link-contactus">Contact Us</a>
-        </li>
-        <li class="lang-nav">
+        </li> -->
+        <!-- <li class="lang-nav">
 <a routerLink="#" class="link lng"><img src="/SKImageHandler/GetLanguageImage/cfa9ac68-a546-4aa0-a20c-34fb40e40818" alt="En" /><span>En</span></a>
 <div class="drop"><ul>
 <li class="active"><a routerLink="/SKUtils/SwitchLanguage?idl=en-US&url=https%3A%2F%2Fwww.eufxindex.com%2F"><img src="/SKImageHandler/GetLanguageImage/cfa9ac68-a546-4aa0-a20c-34fb40e40818" alt="English" title="English" /><span>En</span></a></li>
@@ -74,12 +74,12 @@
 <li ><a routerLink="/SKUtils/SwitchLanguage?idl=it-IT&url=https%3A%2F%2Fwww.eufxindex.com%2F"><img src="/SKImageHandler/GetLanguageImage/7c27ca0a-1c37-4643-aac0-6d616f3b381d" alt="Italian" title="Italian" /><span>It</span></a></li>
 <li ><a routerLink="/SKUtils/SwitchLanguage?idl=es-ES&url=https%3A%2F%2Fwww.eufxindex.com%2F"><img src="/SKImageHandler/GetLanguageImage/d9a2aa99-77f9-411d-a283-6bb6904b27cc" alt="Spanish" title="Spanish" /><span>Sp</span></a></li>
 </ul></div>
-</li>
+</li> -->
 
             <li><a class="button button2" target="_blank" href="https://webtrader.eufxindex.com/"><span>Access WebTrader</span></a></li>
             <li class="account-nav">
-                <a class="button btn-account link" routerLink="/userhome"><span>MY account</span></a>
-                <a class="button btn-account link" routerLink="" (click)="logoutfromtrade()"><span>Logout</span></a>
+                <a class="btn btn-info" routerLink="/userhome"><span>MY account</span></a>
+                
                 <!-- <div class="drop">
                     <ul>
                         <li><a href="/welcome">Home</a></li>
@@ -94,6 +94,9 @@
                         <li><a routerLink="/Account/Logoff">Logout</a></li>
                     </ul>
                 </div> -->
+            </li>
+            <li>
+                <a class="btn btn-danger" routerLink="" (click)="logoutfromtrade()"><span>Logout</span></a>
             </li>
     </ul>
 </div>
@@ -149,7 +152,7 @@
 					<a class="forgot" href="ForgotPassword.html">Forgot password?</a>
 				</div>
                  <div class="row ta-center">
-                    <a class="button btn-block" onclick="submitMobileLoginForm(); return false;" href="#"><span>Login</span></a>
+                    <a class="button btn-block" href="javascript:void(0);"><span>Login</span></a>
                 </div>
                 <div style="display:none;" class="error" id="loginErrorMobile">
                     The user name or password provided is incorrect
