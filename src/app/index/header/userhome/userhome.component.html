@@ -12,8 +12,12 @@
 
 
                 <h1>Welcome Back, rohan gupta </h1>
-                <div class="centered-buttons"><a class="button btn-md" href="/deposit-methods"><span><span>FUND MY
-                                ACCOUNT</span></span></a><a class="button button2 btn-md"
+                <div class="centered-buttons">
+                    <!-- <a class="button btn-md" href="/deposit-methods"><span><span>FUND MY
+                                ACCOUNT</span>
+                            </span>
+                        </a> -->
+                                <a class="button button2 btn-md"
                         href="https://webtrader.eufxindex.com/setup/terminal.msi"
                         target="_blank"><span><span>Download<br />trading platform</span></span></a><a
                         class="button button3 btn-md" href="https://webtrader.eufxindex.com/"
@@ -92,7 +96,7 @@
                 
 
 <h1>Personal details</h1>
-<form action="#" class="form">
+<form [formGroup]="UserFormInfo" action="#" class="form">
 <fieldset>
 <div class="row"><label for="FirstName">First Name: *</label><div class="profile-info">rohan</div></div>
 <div class="row"><label for="LastName">Last Name: *</label><div class="profile-info">gupta</div></div>
@@ -114,10 +118,10 @@
 </div>
 <div class="sidenav">
     <ul>
-        <li class="active">
+        <li class="">
             <a routerLink="/userhome" (click)="userhome()"><span>Home</span></a>
         </li>
-        <li class="">
+        <li class="active">
             <a routerLink="/userhome" (click)="prsnldtls()"><span>Personal Details</span></a>
         </li>
         <li class="">
@@ -165,12 +169,12 @@
 <h1 class="fl-l-lg fl-l-md reversed">Change Password</h1>
 <div class="required fl-r-lg fl-r-md reversed">All fields marked as <span>*</span>are mandatory</div>
 </div>
-<form action="/change-password" class="form" id="actionForm" method="post" role="form"><input name="__RequestVerificationToken" type="hidden" value="r5CggDhr-lCDUoO-cSAzpAvcUp3uFp0-0odTVheUWGyX_aEFLOLM7AaexS4gQ_8fHC2zB0ksYuMdOjY7IOhQKKus1IA43mJ3T-w62WFlwlr3LlQLDeSQHUqsXGdJNV7KuNJmbQ2" />    <fieldset>
-<div class="row"><label for="OldPassword"> Old Password:</label><div class="row-control"><div class="formset"><input data-val="true" data-val-localizedrequired="Please re-enter Old Password" data-val-localizedrequired-otherpropertyname="ProjectManager" id="OldPassword" name="OldPassword" type="password" /><span class="error"><span class="field-validation-valid" data-valmsg-for="OldPassword" data-valmsg-replace="true"></span></span></div></div></div>
-<div class="row"><label for="NewPassword">New Password:</label><div class="row-control"><div class="formset"><input class=" password" data-val="true" data-val-localizedrequired="Please re-enter New Password" data-val-localizedrequired-otherpropertyname="ProjectManager" id="NewPassword" name="NewPassword" title="Your Password must contain:&lt;br/> - at least 5 characters &lt;br/> - contain at least 1 letter &lt;br/> - contain at least 1 number" type="password" /><span class="error"><span class="field-validation-valid" data-valmsg-for="NewPassword" data-valmsg-replace="true"></span></span></div></div></div>
+<form [formGroup]="UserFormInfo" action="/change-password" class="form" id="actionForm" method="post" role="form"><input name="__RequestVerificationToken" type="hidden" value="r5CggDhr-lCDUoO-cSAzpAvcUp3uFp0-0odTVheUWGyX_aEFLOLM7AaexS4gQ_8fHC2zB0ksYuMdOjY7IOhQKKus1IA43mJ3T-w62WFlwlr3LlQLDeSQHUqsXGdJNV7KuNJmbQ2"/>    <fieldset>
+<div class="row"><label for="OldPassword"> Old Password:</label><div class="row-control"><div class="formset"><input data-val="true" data-val-localizedrequired="Please re-enter Old Password" data-val-localizedrequired-otherpropertyname="ProjectManager" id="OldPassword" name="OldPassword" type="password" formControlName = "oldpwd"/><span class="error"><span class="field-validation-valid" data-valmsg-for="OldPassword" data-valmsg-replace="true"></span></span></div></div></div>
+<div class="row"><label for="NewPassword">New Password:</label><div class="row-control"><div class="formset"><input class=" password" data-val="true" data-val-localizedrequired="Please re-enter New Password" data-val-localizedrequired-otherpropertyname="ProjectManager" id="NewPassword" name="NewPassword" title="Your Password must contain:&lt;br/> - at least 5 characters &lt;br/> - contain at least 1 letter &lt;br/> - contain at least 1 number" type="password" formControlName = "newpwd"/><span class="error"><span class="field-validation-valid" data-valmsg-for="NewPassword" data-valmsg-replace="true"></span></span></div></div></div>
 <div class="row"><div class="row-control"><div class="formset"><div id="iSM"><ul class="weak"><li id="iWeak">Weak</li><li id="iMedium">Medium</li><li id="iStrong">Strong</li></ul></div></div></div></div>
-<div class="row"><label for="ConfirmPassword">Confirm Password:</label><div class="row-control"><div class="formset"><input data-val="true" data-val-localizedpropertiesmustmatchclienttrigger="Please re-enter Confirm Password" data-val-localizedpropertiesmustmatchclienttrigger-otherpropertyname="NewPassword" data-val-localizedrequired="Please re-enter Confirm Password" data-val-localizedrequired-otherpropertyname="ProjectManager" id="ConfirmPassword" name="ConfirmPassword" type="password" /><span class="error"><span class="field-validation-valid" data-valmsg-for="ConfirmPassword" data-valmsg-replace="true"></span></span></div></div></div>
-<div class="row button-row"><div class="buttonset"><a class="button" href="#" onclick="SubmitThisForm(); return false;"><span>Submit</span></a></div></div>
+<div class="row"><label for="ConfirmPassword">Confirm Password:</label><div class="row-control"><div class="formset"><input data-val="true" data-val-localizedpropertiesmustmatchclienttrigger="Please re-enter Confirm Password" data-val-localizedpropertiesmustmatchclienttrigger-otherpropertyname="NewPassword" data-val-localizedrequired="Please re-enter Confirm Password" data-val-localizedrequired-otherpropertyname="ProjectManager" id="ConfirmPassword" name="ConfirmPassword" type="password" formControlName = "confirmpwd"/><span class="error"><span class="field-validation-valid" data-valmsg-for="ConfirmPassword" data-valmsg-replace="true"></span></span></div></div></div>
+<div class="row button-row"><div class="buttonset"><a class="button" href="javascript:void(0);" (click)="updatethepassword()"><span>Submit</span></a></div></div>
 </fieldset>
 </form>
             </div>
@@ -182,13 +186,13 @@
 </div>
 <div class="sidenav">
     <ul>
-        <li class="active">
+        <li class="">
             <a routerLink="/userhome" (click)="userhome()"><span>Home</span></a>
         </li>
         <li class="">
             <a routerLink="/userhome" (click)="prsnldtls()"><span>Personal Details</span></a>
         </li>
-        <li class="">
+        <li class="active">
             <a routerLink="/userhome" (click)="chngepassword()"><span>Change Password</span></a>
         </li>
         <li class="">
@@ -215,6 +219,7 @@
 </aside>
 
     </div>
+    <div class="message">{{response}}</div>
 </main>
 
 <!-- trading history -->
@@ -269,7 +274,7 @@
 </div>
 <div class="sidenav">
     <ul>
-        <li class="active">
+        <li class="">
             <a routerLink="/userhome" (click)="userhome()"><span>Home</span></a>
         </li>
         <li class="">
@@ -278,7 +283,7 @@
         <li class="">
             <a routerLink="/userhome" (click)="chngepassword()"><span>Change Password</span></a>
         </li>
-        <li class="">
+        <li class="active">
             <a routerLink="/userhome" (click)="tradinghistory()"><span>Trading History</span></a>
         </li>
         <li class="">
@@ -295,6 +300,90 @@
         </li>
         <li class="">
             <a routerLink="/userhome" (click)="contactwe()"><span>Contact Us</span></a>
+        </li>
+    </ul>
+</div>
+</div>
+</aside>
+
+    </div>
+</main>
+<!-- deposit funds -->
+<main *ngIf = dpsitfunds>
+    <div class="quote__container">&nbsp;</div>
+    <div class="breadcrumbs">
+        <ul class=""><li><a href="/">Home</a></li><li>Deposit</li></ul>
+    </div>
+    <div class="main-holder">
+        <div class="contentholder">
+            <div id="content">
+                
+
+
+<div class="mb30">
+<div class="row">
+<h1 class="fl-l-lg reversed">Deposit</h1>
+<div class="required fl-r-lg reversed">* Indicates required field</div>
+</div>
+</div>
+
+
+<form [formGroup]="UserFormInfo" action="/deposit" class="form" id="actionForm" method="post" role="form"><input name="__RequestVerificationToken" type="hidden" value="1RzjbKdX_VHh3MFpFZdNguetNRDlpk1DNg6K8w9nojIz69-cMSFUnRgvLi6RB-jMhBtsnT9xMM-3QSuW2DQQyNa-vx6TZKPBndP1GXn-x2JCmyDPmhiwWF45FN8eBiXDBb9WzQ2" />    <fieldset>
+<div class="row"><label for="DepositModel_TradeAccount">Trade Account: *</label><div class="row-control"><div class="formset"><select data-val="true" data-val-localizedrequired="Please re-enter Trade Account" data-val-localizedrequired-otherpropertyname="ProjectManager" data-val-number="The field Trade Account: * must be a number." id="DepositModel_TradeAccount" name="DepositModel.TradeAccount" formControlName="trdeaccount"><option value="107557">107557</option>
+</select></div><span class="error"><span class="field-validation-valid" data-valmsg-for="DepositModel.TradeAccount" data-valmsg-replace="true"></span></span></div></div>
+<div class="row"><label for="DepositModel_Amount">Amount: *</label><div class="row-control"><div class="formset"><div class="formitems"><div class="formitem span-8"><input data-val="true" data-val-localizedrequired="Please re-enter Amount" data-val-localizedrequired-otherpropertyname="ProjectManager" data-val-mindepositvalidator="Deposit should be greater than or equal to 1" data-val-mindepositvalidator-otherpropertyname="1" data-val-number="The field Amount: * must be a number." id="DepositModel_Amount" name="DepositModel.Amount" type="text" value="0" formControlName="amount"/></div><div class="formitem span-4 mark"><span id="currentCurrency" class="mark">US Dollar</span></div></div><span class="error"><span class="field-validation-valid" data-valmsg-for="DepositModel.Amount" data-valmsg-replace="true"></span></span></div></div></div>
+
+<input data-val="true" data-val-localizedrequired="Please re-enter Zip / Postal Code" data-val-localizedrequired-otherpropertyname="ProjectManager" id="DepositModel_Zip" name="DepositModel.Zip" type="hidden" value="12345" />
+<input data-val="true" data-val-localizedrequired="Please re-enter City" data-val-localizedrequired-otherpropertyname="ProjectManager" id="DepositModel_City" name="DepositModel.City" type="hidden" value="London" />
+<input data-val="true" data-val-localizedrequired="Please re-enter Address" data-val-localizedrequired-otherpropertyname="ProjectManager" id="DepositModel_Address" name="DepositModel.Address" type="hidden" value="London123" />
+<input data-val="true" data-val-localizedemail="Please re-enter Email" data-val-localizedemail-otherpropertyname="ProjectManager" data-val-localizedrequired="Please re-enter Email" data-val-localizedrequired-otherpropertyname="ProjectManager" id="DepositModel_Email" name="DepositModel.Email" type="hidden" value="sitcomdeveloper43@gmail.com" />
+<input data-val="true" data-val-localizedrequired="Please re-enter Country" data-val-localizedrequired-otherpropertyname="ProjectManager" id="DepositModel_Country" name="DepositModel.Country" type="hidden" value="GE" /> 
+<input data-val="true" data-val-localizedrequired="Please re-enter Phone Number" data-val-localizedrequired-otherpropertyname="ProjectManager" id="DepositModel_PhoneNumber" name="DepositModel.PhoneNumber" type="hidden" value="995-544545454" />
+<input id="PaymentId" name="PaymentId" type="hidden" value="62ae55b5-afa9-4b0c-b8dc-df108e924956" />
+
+<div class="row button-row"><div class="buttonset"><a class="button" href="javascript:void(0);" (click)="addfund()"><span>Submit</span></a></div></div>
+</fieldset>
+</form>
+
+
+            </div>
+        </div>
+        <aside id="sidebar">
+<div class="box">
+<div class="heading">
+    <h3>My account</h3>
+</div>
+<div class="sidenav">
+    <ul>
+        <li class="">
+            <a routerLink="/userhome" (click)="userhome()"><span>Home</span></a>
+        </li>
+        <li class="">
+            <a routerLink="/userhome" (click)="prsnldtls()"><span>Personal Details</span></a>
+        </li>
+        <li class="">
+            <a routerLink="/userhome" (click)="chngepassword()"><span>Change Password</span></a>
+        </li>
+        <li class="">
+            <a routerLink="/userhome" (click)="tradinghistory()"><span>Trading History</span></a>
+        </li>
+        <li class="active">
+            <a routerLink="/userhome" (click)="depositfunds()"><span>Deposit Funds</span></a>
+        </li>
+        <li class="">
+            <a routerLink="/userhome" (click)="uploaddocuments()"><span>Upload Documents</span></a>
+        </li>
+        <li class="">
+            <a routerLink="/userhome" (click)="monetarytransactions()"><span>Monetary Transactions</span></a>
+        </li>
+        <li class="">
+            <a routerLink="/userhome" (click)="withdrawl()"><span>Withdrawal</span></a>
+        </li>
+        <li class="">
+            <a routerLink="/userhome" (click)="contactwe()"><span>Contact Us</span></a>
+        </li>
+        <li class="">
+            <a href="/ContactUs"><span>Contact Us</span></a>
         </li>
     </ul>
 </div>
@@ -351,7 +440,7 @@
 </div>
 <div class="sidenav">
     <ul>
-        <li class="active">
+        <li class="">
             <a routerLink="/userhome" (click)="userhome()"><span>Home</span></a>
         </li>
         <li class="">
@@ -366,7 +455,7 @@
         <li class="">
             <a routerLink="/userhome" (click)="depositfunds()"><span>Deposit Funds</span></a>
         </li>
-        <li class="">
+        <li class="active">
             <a routerLink="/userhome" (click)="uploaddocuments()"><span>Upload Documents</span></a>
         </li>
         <li class="">
@@ -428,7 +517,7 @@
 </div>
 <div class="sidenav">
     <ul>
-        <li class="active">
+        <li class="">
             <a routerLink="/userhome" (click)="userhome()"><span>Home</span></a>
         </li>
         <li class="">
@@ -446,7 +535,7 @@
         <li class="">
             <a routerLink="/userhome" (click)="uploaddocuments()"><span>Upload Documents</span></a>
         </li>
-        <li class="">
+        <li class="active">
             <a routerLink="/userhome" (click)="monetarytransactions()"><span>Monetary Transactions</span></a>
         </li>
         <li class="">
@@ -478,7 +567,7 @@
 <p>Please complete the necessary fields below and submit this information via e-mail as a scanned image (JPG, GIF, PNG, non-password protected PDF) to <a href="mailto:info@eufxindex.com">info@eufxindex.com</a>. The request will generally be processed within 2 business days of receipt. In order to avoid any delays please review your information carefully before submitting. We assume no responsibility for errors or inaccuracies made by the account holder.</p>
 
 <form action="/withdrawal" class="form" id="actionForm" method="post" role="form"><input name="__RequestVerificationToken" type="hidden" value="i-xQXhBQcspwVtwnGbOUx8OflLCnNChIUEX3zhKd-lujPeOMfzwhvzIXpzb1BbAIDGJ-p_6QvED-w4lL3XfJWlErZp29w19hhmzfXSXkG-LsqaM022liRRUuQ-MBa8Lminqe5Q2" />    <p>By clicking &quot;Request a Withdrawal&quot; We are will be informed that you would like to withdraw funds. The money will be refunded to your funding credit or debit card.</p>
-<div class="row"><label for="TradeAccount">Trade Account: *</label><div class="row-control"><div class="formset"><select data-val="true" data-val-localizedrequired="Please re-enter Trade Account" data-val-localizedrequired-otherpropertyname="ProjectManager" data-val-number="The field Trade Account: * must be a number." id="TradeAccount" name="TradeAccount" onchange="getCurrentCurrency()"><option value="107557">107557</option>
+<div class="row"><label for="TradeAccount">Trade Account: *</label><div class="row-control"><div class="formset"><select data-val="true" data-val-localizedrequired="Please re-enter Trade Account" data-val-localizedrequired-otherpropertyname="ProjectManager" data-val-number="The field Trade Account: * must be a number." id="TradeAccount" name="TradeAccount"><option value="107557">107557</option>
 </select></div><span class="error"><span class="field-validation-valid" data-valmsg-for="TradeAccount" data-valmsg-replace="true"></span></span></div></div><div class="row"><label for="Amount">Amount: *</label><div class="row-control"><div class="formset"><div class="formitems"><div class="formitem span-8"><input data-val="true" data-val-localizedrequired="Please re-enter Amount" data-val-localizedrequired-otherpropertyname="ProjectManager" data-val-number="The field Amount: * must be a number." id="Amount" name="Amount" type="text" value="0" /></div><div class="formitem span-4 mark"><span id="currentCurrency" class="mark">US Dollar</span></div></div><span class="error"><span class="field-validation-valid" data-valmsg-for="Amount" data-valmsg-replace="true"></span></span></div></div></div><div class="row"><label for="BankName">Bank name: *</label><div class="row-control"><div class="formset"><input data-val="true" data-val-localizedrequired="Please re-enter Bank name" data-val-localizedrequired-otherpropertyname="ProjectManager" id="BankName" name="BankName" type="text" value="" /><span class="error"><span class="field-validation-valid" data-valmsg-for="BankName" data-valmsg-replace="true"></span></span></div></div></div><div class="row"><label for="BankAccount">IBAN: *</label><div class="row-control"><div class="formset"><input data-val="true" data-val-localizedrequired="Please re-enter IBAN" data-val-localizedrequired-otherpropertyname="ProjectManager" id="BankAccount" name="BankAccount" type="text" value="" /><span class="error"><span class="field-validation-valid" data-valmsg-for="BankAccount" data-valmsg-replace="true"></span></span></div></div></div><div class="row button-row"><div class="buttonset"><a class="button" href="#" onclick="SubmitThisForm(); return false;"><span>Submit</span></a></div></div></form>
 
             </div>
@@ -490,7 +579,7 @@
 </div>
 <div class="sidenav">
     <ul>
-        <li class="active">
+        <li class="">
             <a routerLink="/userhome" (click)="userhome()"><span>Home</span></a>
         </li>
         <li class="">
@@ -511,7 +600,7 @@
         <li class="">
             <a routerLink="/userhome" (click)="monetarytransactions()"><span>Monetary Transactions</span></a>
         </li>
-        <li class="">
+        <li class="active">
             <a routerLink="/userhome" (click)="withdrawl()"><span>Withdrawal</span></a>
         </li>
         <li class="">
@@ -533,20 +622,18 @@
     <div class="main-holder">
         <div class="contentholder">
             <div id="content">
-                
-
-
-
+            
 <div class="clearfix">
 <h1 class="fl-l-lg fl-l-md reversed">Send us a Message</h1>
 <div class="required fl-r-lg fl-r-md reversed">All fields marked as <span>*</span>are mandatory</div>
 </div>
-<form action="/ContactUs" class="form" id="actionForm" method="post" role="form"><input name="__RequestVerificationToken" type="hidden" value="M9fF9Fg2DTLVY5I1uuQhqhIyH2mGkyZJwbvpZ-S5-sZoR-e2E6Jhyf2BJl9Jcr7ej29uF4YptI3P7Tv9-igKmlL81SGPj08DcoxkC6nUBRTQd5htDwNfYT5CoQr_835G_Tu3Sw2" />    <fieldset>
+<form [formGroup]="UserFormInfo" action="/ContactUs" class="form" id="actionForm" method="post" role="form"><input name="__RequestVerificationToken" type="hidden" value="M9fF9Fg2DTLVY5I1uuQhqhIyH2mGkyZJwbvpZ-S5-sZoR-e2E6Jhyf2BJl9Jcr7ej29uF4YptI3P7Tv9-igKmlL81SGPj08DcoxkC6nUBRTQd5htDwNfYT5CoQr_835G_Tu3Sw2" />    <fieldset>
 <div class="form-columns">
     <div class="form-col col-md-6">
-        <div class="row"><label for="FirstName">First Name: *</label><div class="row-control"><div class="formset"><input data-val="true" data-val-lengthvalidator="Must be at least 1 and no more than 20 characters long." data-val-lengthvalidator-otherpropertyname="1,20" data-val-localizedrequired="Please re-enter First Name" data-val-localizedrequired-otherpropertyname="ProjectManager" id="FirstName" name="FirstName" type="text" value="rohan" /><span class="error"><span class="field-validation-valid" data-valmsg-for="FirstName" data-valmsg-replace="true"></span></span></div></div></div>
-        <div class="row"><label for="LastName">Last Name: *</label><div class="row-control"><div class="formset"><input data-val="true" data-val-lengthvalidator="Must be at least 1 and no more than 20 characters long." data-val-lengthvalidator-otherpropertyname="1,20" data-val-localizedrequired="Please re-enter Last Name" data-val-localizedrequired-otherpropertyname="ProjectManager" id="LastName" name="LastName" type="text" value="gupta" /><span class="error"><span class="field-validation-valid" data-valmsg-for="LastName" data-valmsg-replace="true"></span></span></div></div></div>
-        <div class="row"><label for="Country">Country: *</label><div class="row-control"><div class="formset"><select class="sel" data-val="true" data-val-localizedrequired="Please re-enter Country" data-val-localizedrequired-otherpropertyname="ProjectManager" id="Country" name="Country" onchange="getDialingCode()"><option value="">Select...</option>
+        <div class="row"><label for="FirstName">First Name: *</label><div class="row-control"><div class="formset"><input data-val="true" data-val-lengthvalidator="Must be at least 1 and no more than 20 characters long." data-val-lengthvalidator-otherpropertyname="1,20" data-val-localizedrequired="Please re-enter First Name" data-val-localizedrequired-otherpropertyname="ProjectManager" id="FirstName" name="FirstName" type="text" value="rohan" formControlName="firstname" /><span class="error"><span class="field-validation-valid" data-valmsg-for="FirstName" data-valmsg-replace="true"></span></span></div></div></div>
+        <div class="row"><label for="LastName">Last Name: *</label><div class="row-control"><div class="formset"><input data-val="true" data-val-lengthvalidator="Must be at least 1 and no more than 20 characters long." data-val-lengthvalidator-otherpropertyname="1,20" data-val-localizedrequired="Please re-enter Last Name" data-val-localizedrequired-otherpropertyname="ProjectManager" id="LastName" name="LastName" type="text" value="gupta" formControlName="lastname"/><span class="error"><span class="field-validation-valid" data-valmsg-for="LastName" data-valmsg-replace="true"></span></span></div></div></div>
+        <div class="row"><label for="Country">Country: *</label><div class="row-control"><div class="formset"><select class="sel" data-val="true" data-val-localizedrequired="Please re-enter Country" data-val-localizedrequired-otherpropertyname="ProjectManager" id="Country" name="Country" onchange="getDialingCode()" formControlName="countryname">
+            <option value="">Select...</option>
 <option value="AF">Afghanistan</option>
 <option value="AX">Aland Islands</option>
 <option value="AL">Albania</option>
@@ -783,20 +870,23 @@
 <option value="ZM">Zambia</option>
 <option value="ZW">Zimbabwe</option>
 </select></div><span class="error"><span class="field-validation-valid" data-valmsg-for="Country" data-valmsg-replace="true"></span></span></div></div>
-        <div class="row"><label for="Email">Email: *</label><div class="row-control"><div class="formset"><input data-val="true" data-val-localizedemail="Please re-enter Email" data-val-localizedemail-otherpropertyname="ProjectManager" data-val-localizedrequired="Please re-enter Email" data-val-localizedrequired-otherpropertyname="ProjectManager" id="Email" name="Email" type="text" value="sitcomdeveloper43@gmail.com" /><span class="error"><span class="field-validation-valid" data-valmsg-for="Email" data-valmsg-replace="true"></span></span><span id="uniqueEmailError" class="error" style="display: none;">This Email is already registered</span></div></div></div>
-        <div class="row"><label for="PhoneNumber">Phone: *</label><div class="row-control"><div class="formset"><div class="formitems phone-number"><div class="formitem custom-col-1"><input class="phone-txt" data-val="true" data-val-localizedrequired="Please re-enter Phone Area Code" data-val-localizedrequired-otherpropertyname="ProjectManager" data-val-regularexpression="Phone Area Code should contain only numbers" data-val-regularexpression-otherpropertyname="^\d+$" id="PhoneAreaCode" name="PhoneAreaCode" type="text" value="995" /></div><div class="custom-offset-1"><div class="formitem"><input autocomplete="off" data-val="true" data-val-localizedrequired="Please re-enter Phone Number" data-val-localizedrequired-otherpropertyname="ProjectManager" data-val-regularexpression="Phone Area Code should contain only numbers" data-val-regularexpression-otherpropertyname="^\d+$" id="PhoneNumber" name="PhoneNumber" type="text" value="544545454" /></div></div></div></div><span class="error"><span class="field-validation-valid" data-valmsg-for="PhoneAreaCode" data-valmsg-replace="true"></span></span><span class="error"><span class="field-validation-valid" data-valmsg-for="PhoneNumber" data-valmsg-replace="true"></span></span></div></div>
+        <div class="row"><label for="Email">Email: *</label><div class="row-control"><div class="formset"><input data-val="true" data-val-localizedemail="Please re-enter Email" data-val-localizedemail-otherpropertyname="ProjectManager" data-val-localizedrequired="Please re-enter Email" data-val-localizedrequired-otherpropertyname="ProjectManager" id="Email" name="Email" type="text" value="sitcomdeveloper43@gmail.com" formControlName="email"/><span class="error"><span class="field-validation-valid" data-valmsg-for="Email" data-valmsg-replace="true"></span></span><span id="uniqueEmailError" class="error" style="display: none;">This Email is already registered</span></div></div></div>
+
+        <div class="row"><label for="PhoneNumber">Phone: *</label><div class="row-control"><div class="formset"><div class="formitems phone-number"><div class="formitem custom-col-1">
+            <input class="phone-txt" data-val="true" data-val-localizedrequired="Please re-enter Phone Area Code" data-val-localizedrequired-otherpropertyname="ProjectManager" data-val-regularexpression="Phone Area Code should contain only numbers" data-val-regularexpression-otherpropertyname="^\d+$" id="PhoneAreaCode" name="PhoneAreaCode" type="text" value="995" formControlName="phonecode"/></div><div class="custom-offset-1"><div class="formitem"><input autocomplete="off" data-val="true" data-val-localizedrequired="Please re-enter Phone Number" data-val-localizedrequired-otherpropertyname="ProjectManager" data-val-regularexpression="Phone Area Code should contain only numbers" data-val-regularexpression-otherpropertyname="^\d+$" id="PhoneNumber" name="PhoneNumber" type="text" value="544545454" formControlName="phonenumber"/></div></div></div></div><span class="error"><span class="field-validation-valid" data-valmsg-for="PhoneAreaCode" data-valmsg-replace="true"></span></span><span class="error"><span class="field-validation-valid" data-valmsg-for="PhoneNumber" data-valmsg-replace="true"></span></span></div></div>
     </div>
     <div class="form-col col-md-6">
-        <div class="row"><label for="Subject">Subject: *</label><div class="row-control"><div class="formset"><select class="sel" data-val="true" data-val-localizedrequired="Please re-enter Subject" data-val-localizedrequired-otherpropertyname="ProjectManager" id="Subject" name="Subject"><option value="">Select...</option>
+        <div class="row"><label for="Subject">Subject: *</label><div class="row-control"><div class="formset"><select class="sel" data-val="true" data-val-localizedrequired="Please re-enter Subject" data-val-localizedrequired-otherpropertyname="ProjectManager" id="Subject" name="Subject" formControlName="subject">
+            <option value="">Select...</option>
 <option value="Withdrawal">Withdrawal</option>
 <option value="Deposit">Deposit</option>
 <option value="Tech Issue">Tech Issue</option>
 <option value="Request A Call Back">Request A Call Back</option>
 <option value="Other">Other</option>
 </select></div><span class="error"><span class="field-validation-valid" data-valmsg-for="Subject" data-valmsg-replace="true"></span></span></div></div>            
-        <div class="row"><label for="Message">Message: *</label><div class="row-control"><div class="formset"><textarea class="textarea" cols="30" data-val="true" data-val-localizedrequired="Please re-enter Message" data-val-localizedrequired-otherpropertyname="ProjectManager" id="Message" name="Message" rows="10">
+        <div class="row"><label for="Message">Message: *</label><div class="row-control"><div class="formset"><textarea class="textarea" cols="30" data-val="true" data-val-localizedrequired="Please re-enter Message" data-val-localizedrequired-otherpropertyname="ProjectManager" id="Message" name="Message" rows="10" formControlName="message">
 </textarea></div><span class="error"><span class="field-validation-valid" data-valmsg-for="Message" data-valmsg-replace="true"></span></span></div></div>
-        <div class="row button-row"><div class="buttonset"><a class="button" href="#" onclick="SubmitThisForm(); return false;"><span>Submit</span></a></div></div>
+        <div class="row button-row"><div class="buttonset"><a class="button" href="javascript:void(0)" (click)="fillcontactusform()"><span>Submit</span></a></div></div>
     </div>
 </div>
 </fieldset>
@@ -811,7 +901,7 @@
 </div>
 <div class="sidenav">
     <ul>
-        <li class="active">
+        <li class="">
             <a routerLink="/userhome" (click)="userhome()"><span>Home</span></a>
         </li>
         <li class="">
@@ -835,7 +925,7 @@
         <li class="">
             <a routerLink="/userhome" (click)="withdrawl()"><span>Withdrawal</span></a>
         </li>
-        <li class="">
+        <li class="active">
             <a routerLink="/userhome" (click)="contactwe()"><span>Contact Us</span></a>
         </li>
     </ul>

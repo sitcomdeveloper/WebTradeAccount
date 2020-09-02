@@ -1,0 +1,8 @@
+/* showing messsge */
+.message{
+    color: green;
+    text-align: center;
+    margin-left: -139px;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
