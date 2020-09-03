@@ -15,6 +15,9 @@ export class ServicesService {
   clientRegister(clntregisterParameter: any): Observable<any> {
     return this.http.post<any>(API_URL + 'Client/AddClient', clntregisterParameter);
   }
+  clientLogin(clntloginParamtr: any): Observable<any> {
+    return this.http.post<any>(API_URL + '',clntloginParamtr);
+  }
   // fund account
   fundAccount(fndaccntparamtr: any): Observable<any> {
     return this.http.post<any>(API_URL + 'TradeAccount/AddDeposit', fndaccntparamtr);
