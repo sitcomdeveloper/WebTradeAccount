@@ -106,7 +106,8 @@
 
 
 
-<div class="row button-row"><div class="buttonset"><a class="button" href="/edit-account"><span>Edit</span></a></div></div>
+<div class="row button-row"><div class="buttonset"><a class="button" href="javascript:void(0);" (click)="closenormalmode()">
+    <span>Edit</span></a></div></div>
 </fieldset>
 </form>
             </div>
@@ -151,6 +152,10 @@
 </aside>
 
     </div>
+</main>
+<main *ngIf = editpersonaldetails>
+    <button (click)="savepersonaldetails()">Apply</button>
+    <button (click)="backtopersonaldetails()">Cancel</button>
 </main>
 
 <!-- change password -->

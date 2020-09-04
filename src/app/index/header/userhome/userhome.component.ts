@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { ServicesService } from 'src/app/services.service';
+import { ThrowStmt } from '@angular/compiler';
 
 @Component({
   selector: 'app-userhome',
@@ -25,6 +26,7 @@ export class UserhomeComponent implements OnInit {
   response: string;
   usercontactus: any;
   fundtheAccount: any;
+  editpersonaldetails = false;
   constructor(private fb: FormBuilder, private service: ServicesService) { }
 
   ngOnInit(): void {
@@ -210,5 +212,17 @@ export class UserhomeComponent implements OnInit {
     this.mnetrytransction = false;
     this.withdrwl = true;
     this.dpsitfunds = false;
+  }
+  closenormalmode() {
+    this.personalddetails = false;
+    this.editpersonaldetails = true;
+  }
+  savepersonaldetails() {
+    this.personalddetails = true;
+    this.editpersonaldetails = false;
+  }
+  backtopersonaldetails() {
+    this.personalddetails = true;
+    this.editpersonaldetails = false;
   }
 }
