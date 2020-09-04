@@ -40,6 +40,10 @@ export class UserhomeComponent implements OnInit {
       phonenumber: [''],
       subject: [''],
       message: [''],
+      // persnl details
+      state: [''],
+      city: [''],
+      postcode: [''],
       // deposit funds
       trdeaccount: [''],
       amount: [''],
@@ -124,6 +128,7 @@ export class UserhomeComponent implements OnInit {
     this.mnetrytransction = false;
     this.withdrwl = false;
     this.dpsitfunds = false;
+    this.editpersonaldetails = false;
   }
   prsnldtls() {
     this.home = false;
@@ -135,6 +140,7 @@ export class UserhomeComponent implements OnInit {
     this.mnetrytransction = false;
     this.withdrwl = false;
     this.dpsitfunds = false;
+    this.editpersonaldetails = false;
   }
   chngepassword() {
     this.home = false;
@@ -146,6 +152,7 @@ export class UserhomeComponent implements OnInit {
     this.mnetrytransction = false;
     this.withdrwl = false;
     this.dpsitfunds = false;
+    this.editpersonaldetails = false;
   }
   contactwe() {
     this.home = false;
@@ -157,6 +164,7 @@ export class UserhomeComponent implements OnInit {
     this.mnetrytransction = false;
     this.withdrwl = false;
     this.dpsitfunds = false;
+    this.editpersonaldetails = false;
   }
   tradinghistory() {
     this.home = false;
@@ -168,6 +176,7 @@ export class UserhomeComponent implements OnInit {
     this.mnetrytransction = false;
     this.withdrwl = false;
     this.dpsitfunds = false;
+    this.editpersonaldetails = false;
   }
   depositfunds() {
     this.home = false;
@@ -179,6 +188,7 @@ export class UserhomeComponent implements OnInit {
     this.mnetrytransction = false;
     this.withdrwl = false;
     this.dpsitfunds = true;
+    this.editpersonaldetails = false;
   }
   uploaddocuments() {
     this.home = false;
@@ -190,6 +200,7 @@ export class UserhomeComponent implements OnInit {
     this.mnetrytransction = false;
     this.withdrwl = false;
     this.dpsitfunds = false;
+    this.editpersonaldetails = false;
   }
   monetarytransactions() {
     this.home = false;
@@ -201,6 +212,7 @@ export class UserhomeComponent implements OnInit {
     this.mnetrytransction = true;
     this.withdrwl = false;
     this.dpsitfunds = false;
+    this.editpersonaldetails = false;
   }
   withdrawl() {
     this.home = false;
@@ -212,7 +224,9 @@ export class UserhomeComponent implements OnInit {
     this.mnetrytransction = false;
     this.withdrwl = true;
     this.dpsitfunds = false;
+    this.editpersonaldetails = false;
   }
+  // personal details editing div
   closenormalmode() {
     this.personalddetails = false;
     this.editpersonaldetails = true;
@@ -225,4 +239,5 @@ export class UserhomeComponent implements OnInit {
     this.personalddetails = true;
     this.editpersonaldetails = false;
   }
+  // 
 }
