@@ -44,14 +44,16 @@ export class HeaderComponent implements OnInit {
     err => {
       alert('Error');
     });
-    this.beforelogin = false;
-    this.afterlogin = true;
+    
      // code for receiving login details and bind to header at place of name
      this.getLoginDetails = JSON.parse(window.sessionStorage.getItem('project'));
      this.bindLoginData = this.getLoginDetails;
      console.log('LD',this.bindLoginData);
+     this.beforelogin = false;
+    this.afterlogin = true;
   }
   logoutfromtrade() {
+    // window.sessionStorage.clear();
     this.beforelogin = true;
     this.afterlogin = false;
   }
