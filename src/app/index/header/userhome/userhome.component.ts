@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { ServicesService } from 'src/app/services.service';
-import { ThrowStmt } from '@angular/compiler';
 
 @Component({
   selector: 'app-userhome',
@@ -27,9 +26,15 @@ export class UserhomeComponent implements OnInit {
   usercontactus: any;
   fundtheAccount: any;
   editpersonaldetails = false;
+  getLoginDetails: any;
+  bindLoginData: any;
   constructor(private fb: FormBuilder, private service: ServicesService) { }
 
   ngOnInit(): void {
+     // code for receiving login details
+     this.getLoginDetails = JSON.parse(window.sessionStorage.getItem('project'));
+     this.bindLoginData = this.getLoginDetails;
+     
     this.UserFormInfo = this.fb.group({
       // contact us
       firstname: [''],
@@ -52,7 +57,6 @@ export class UserhomeComponent implements OnInit {
       newpwd: [''],
       confirmpwd: [''],
     })
-    this.getdetailsofUser();
   }
   // fund account
   addfund() {
@@ -65,13 +69,6 @@ export class UserhomeComponent implements OnInit {
       console.log('fundtheAccount',giveFund);
     })
   }
-  // fetch personal details
-  getdetailsofUser() {
-    // this.service.fetchpersonaldetails().subscribe(dtlsoffetchuser => {
-    //   this.detailsonEmail = dtlsoffetchuser;
-    //   console.log('detailsonEmail',dtlsoffetchuser);
-    // })
-  }
   // update details
   updatedetailsforemailUser() {
     // const updtprsnldetls = {}
@@ -83,15 +80,15 @@ export class UserhomeComponent implements OnInit {
   // update password
   updatethepassword() {
     const chngepwdparamtr = {
-      Id: 1,
-      Email: 1,
+      Id: this.bindLoginData.Id,
+      Email: this.bindLoginData.Email,
       OldPassword: this.UserFormInfo.value.oldpwd,
       NewPassword: this.UserFormInfo.value.newpwd,
       ConfirmPassword: this.UserFormInfo.value.confirmpwd,
     }
     this.service.changePassword(chngepwdparamtr).subscribe(updtpwdbyeml => {
       this.updatedpasswrd = updtpwdbyeml;
-      if (updtpwdbyeml === 'null') {
+      if (updtpwdbyeml === null) {
         this.response = 'Password is updated successfully..!';
       } else {
         this.response = '';
@@ -103,7 +100,7 @@ export class UserhomeComponent implements OnInit {
   // contact us
   fillcontactusform() {
     const contctusParamtr = {
-      OwnerId: 1,
+      OwnerId: this.bindLoginData.OwnerId,
        FirstName: this.UserFormInfo.value.firstname,
        LastName: this.UserFormInfo.value.lastname,
        Email: this.UserFormInfo.value.email,
@@ -227,7 +224,27 @@ export class UserhomeComponent implements OnInit {
     this.editpersonaldetails = false;
   }
   // personal details editing div
+  // edit button
+    // fetch personal details
   closenormalmode() {
+    this.service.fetchpersonaldetails(this.bindLoginData.Email).subscribe(dtlsoffetchuser => {
+      this.detailsonEmail = dtlsoffetchuser;
+      console.log('detailsonEmail',dtlsoffetchuser);
+    })
+    // this.getLoginDetails = JSON.parse(window.sessionStorage.getItem('username'));
+    // this.bindLoginData = this.getLoginDetails;
+    //   this.UserFormInfo.patchValue({
+    //     owner: this.bindLoginData.FullName,
+    //     firstname: ,
+    //   lastname: ,
+    //   countryname:,
+    //   email: ,
+    //   phonecode:,
+    //   phonenumber: ,
+    //   state: ,
+    //   city: ,
+    //   postcode: ,
+    //   });
     this.personalddetails = false;
     this.editpersonaldetails = true;
   }

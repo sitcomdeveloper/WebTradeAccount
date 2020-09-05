@@ -11,7 +11,7 @@
             <div id="content">
 
 
-                <h1>Welcome Back, rohan gupta </h1>
+                <h1>Welcome Back, {{this.bindLoginData?.FirstName}} {{this.bindLoginData?.LastName}} </h1>
                 <div class="centered-buttons">
                     <!-- <a class="button btn-md" href="/deposit-methods"><span><span>FUND MY
                                 ACCOUNT</span>
@@ -98,11 +98,11 @@
 <h1>Personal details</h1>
 <form [formGroup]="UserFormInfo" action="#" class="form">
 <fieldset>
-<div class="row"><label for="FirstName">First Name: *</label><div class="profile-info">rohan</div></div>
-<div class="row"><label for="LastName">Last Name: *</label><div class="profile-info">gupta</div></div>
-<div class="row"><label for="Email">Email: *</label><div class="profile-info">sitcomdeveloper43@gmail.com</div></div>
-<div class="row"><label for="PhoneNumber">Phone: *</label><div class="row-control"><div class="profile-info">995-544545454</div></div></div>
-<div class="row"><label for="Country">Country: *</label><div class="profile-info">Georgia</div></div>
+<div class="row"><label for="FirstName">First Name: *</label><div class="profile-info">{{this.bindLoginData?.FirstName}}</div></div>
+<div class="row"><label for="LastName">Last Name: *</label><div class="profile-info">{{this.bindLoginData?.LastName}}</div></div>
+<div class="row"><label for="Email">Email: *</label><div class="profile-info">{{this.bindLoginData?.Email}}</div></div>
+<div class="row"><label for="PhoneNumber">Phone: *</label><div class="row-control"><div class="profile-info">{{this.bindLoginData?.Phone}}</div></div></div>
+<div class="row"><label for="Country">Country: *</label><div class="profile-info">{{this.bindLoginData?.CountryName}}</div></div>
 
 
 
@@ -154,8 +154,6 @@
     </div>
 </main>
 <main *ngIf = editpersonaldetails>
-    <!-- <button (click)="savepersonaldetails()">Apply</button>
-    <button (click)="backtopersonaldetails()">Cancel</button> -->
     <div class="quote__container">&nbsp;</div>
     <div class="breadcrumbs">
         <ul class=""><li><a href="/">Home</a></li><li>Edit Account</li></ul>
@@ -470,50 +468,6 @@
 
     </div>
 </main>
-<!-- <main *ngIf = editpersonaldetails>
-   
-    <button (click)="savepersonaldetails()">Apply</button>
-    <button (click)="backtopersonaldetails()">Cancel</button>
-    <aside id="">
-        <div class="box">
-        <div class="heading">
-            <h3>My account</h3>
-        </div>
-        <div class="sidenav">
-            <ul>
-                <li class="">
-                    <a routerLink="/userhome" (click)="userhome()"><span>Home</span></a>
-                </li>
-                <li class="active">
-                    <a routerLink="/userhome" (click)="prsnldtls()"><span>Personal Details</span></a>
-                </li>
-                <li class="">
-                    <a routerLink="/userhome" (click)="chngepassword()"><span>Change Password</span></a>
-                </li>
-                <li class="">
-                    <a routerLink="/userhome" (click)="tradinghistory()"><span>Trading History</span></a>
-                </li>
-                <li class="">
-                    <a routerLink="/userhome" (click)="depositfunds()"><span>Deposit Funds</span></a>
-                </li>
-                <li class="">
-                    <a routerLink="/userhome" (click)="uploaddocuments()"><span>Upload Documents</span></a>
-                </li>
-                <li class="">
-                    <a routerLink="/userhome" (click)="monetarytransactions()"><span>Monetary Transactions</span></a>
-                </li>
-                <li class="">
-                    <a routerLink="/userhome" (click)="withdrawl()"><span>Withdrawal</span></a>
-                </li>
-                <li class="">
-                    <a routerLink="/userhome" (click)="contactwe()"><span>Contact Us</span></a>
-                </li>
-            </ul>
-        </div>
-        </div>
-        </aside>
-</main> -->
-
 <!-- change password -->
 <main *ngIf = chngpwd>
     <div class="quote__container">&nbsp;</div>
@@ -535,7 +489,9 @@
 <div class="row"><label for="NewPassword">New Password:</label><div class="row-control"><div class="formset"><input class=" password" data-val="true" data-val-localizedrequired="Please re-enter New Password" data-val-localizedrequired-otherpropertyname="ProjectManager" id="NewPassword" name="NewPassword" title="Your Password must contain:&lt;br/> - at least 5 characters &lt;br/> - contain at least 1 letter &lt;br/> - contain at least 1 number" type="password" formControlName = "newpwd"/><span class="error"><span class="field-validation-valid" data-valmsg-for="NewPassword" data-valmsg-replace="true"></span></span></div></div></div>
 <div class="row"><div class="row-control"><div class="formset"><div id="iSM"><ul class="weak"><li id="iWeak">Weak</li><li id="iMedium">Medium</li><li id="iStrong">Strong</li></ul></div></div></div></div>
 <div class="row"><label for="ConfirmPassword">Confirm Password:</label><div class="row-control"><div class="formset"><input data-val="true" data-val-localizedpropertiesmustmatchclienttrigger="Please re-enter Confirm Password" data-val-localizedpropertiesmustmatchclienttrigger-otherpropertyname="NewPassword" data-val-localizedrequired="Please re-enter Confirm Password" data-val-localizedrequired-otherpropertyname="ProjectManager" id="ConfirmPassword" name="ConfirmPassword" type="password" formControlName = "confirmpwd"/><span class="error"><span class="field-validation-valid" data-valmsg-for="ConfirmPassword" data-valmsg-replace="true"></span></span></div></div></div>
-<div class="row button-row"><div class="buttonset"><a class="button" href="javascript:void(0);" (click)="updatethepassword()"><span>Submit</span></a></div></div>
+<div class="row button-row"><div class="buttonset"><a class="button" href="javascript:void(0);" (click)="updatethepassword()"><span>Submit</span></a>
+</div>
+</div>
 </fieldset>
 </form>
             </div>
@@ -991,7 +947,12 @@
 <form [formGroup]="UserFormInfo" action="/ContactUs" class="form" id="actionForm" method="post" role="form"><input name="__RequestVerificationToken" type="hidden" value="M9fF9Fg2DTLVY5I1uuQhqhIyH2mGkyZJwbvpZ-S5-sZoR-e2E6Jhyf2BJl9Jcr7ej29uF4YptI3P7Tv9-igKmlL81SGPj08DcoxkC6nUBRTQd5htDwNfYT5CoQr_835G_Tu3Sw2" />    <fieldset>
 <div class="form-columns">
     <div class="form-col col-md-6">
-        <div class="row"><label for="FirstName">First Name: *</label><div class="row-control"><div class="formset"><input data-val="true" data-val-lengthvalidator="Must be at least 1 and no more than 20 characters long." data-val-lengthvalidator-otherpropertyname="1,20" data-val-localizedrequired="Please re-enter First Name" data-val-localizedrequired-otherpropertyname="ProjectManager" id="FirstName" name="FirstName" type="text" value="rohan" formControlName="firstname" /><span class="error"><span class="field-validation-valid" data-valmsg-for="FirstName" data-valmsg-replace="true"></span></span></div></div></div>
+        <div class="row"><label for="FirstName">First Name: *</label><div class="row-control"><div class="formset">
+            <input data-val="true" data-val-lengthvalidator="Must be at least 1 and no more than 20 characters long." data-val-lengthvalidator-otherpropertyname="1,20" data-val-localizedrequired="Please re-enter First Name" data-val-localizedrequired-otherpropertyname="ProjectManager" id="FirstName" name="FirstName" type="text" value="{{this.bindLoginData?.FirstName}}" formControlName="firstname" />{{this.bindLoginData?.FirstName}}
+            <span class="error">
+                <span class="field-validation-valid" data-valmsg-for="FirstName" data-valmsg-replace="true">
+                </span>
+            </span></div></div></div>
         <div class="row"><label for="LastName">Last Name: *</label><div class="row-control"><div class="formset"><input data-val="true" data-val-lengthvalidator="Must be at least 1 and no more than 20 characters long." data-val-lengthvalidator-otherpropertyname="1,20" data-val-localizedrequired="Please re-enter Last Name" data-val-localizedrequired-otherpropertyname="ProjectManager" id="LastName" name="LastName" type="text" value="gupta" formControlName="lastname"/><span class="error"><span class="field-validation-valid" data-valmsg-for="LastName" data-valmsg-replace="true"></span></span></div></div></div>
         <div class="row"><label for="Country">Country: *</label><div class="row-control"><div class="formset"><select class="sel" data-val="true" data-val-localizedrequired="Please re-enter Country" data-val-localizedrequired-otherpropertyname="ProjectManager" id="Country" name="Country" onchange="getDialingCode()" formControlName="countryname">
             <option value="">Select...</option>

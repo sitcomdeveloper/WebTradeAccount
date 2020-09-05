@@ -20,17 +20,17 @@
 </li> -->
 
             <li class="login-nav">
-<form action="https://www.eufxindex.com/login" class="form login-form" id="loginForm" method="post" role="form">                    <div class="row">
+<form [formGroup]="loginForm" class="form login-form" id="loginForm" method="post" role="form">                    <div class="row">
                         <div class="cell">
-                            <input data-val="true" data-val-localizedrequired="Please re-enter User Name" data-val-localizedrequired-otherpropertyname="ProjectManager" id="UserName" name="UserName" placeholder="Login" type="text" value="" />
+                            <input data-val="true" data-val-localizedrequired="Please re-enter User Name" data-val-localizedrequired-otherpropertyname="ProjectManager" id="UserName" name="UserName" placeholder="Login" type="text" value="" formControlName="clientid"/>
                             
                         </div>
                         <div class="cell">
-                            <input data-val="true" data-val-localizedrequired="Please re-enter Password" data-val-localizedrequired-otherpropertyname="ProjectManager" id="LoginPassword" name="Password" placeholder="Password" type="password" />
+                            <input data-val="true" data-val-localizedrequired="Please re-enter Password" data-val-localizedrequired-otherpropertyname="ProjectManager" id="LoginPassword" name="Password" placeholder="Password" type="password" formControlName="pwd"/>
                             
                         </div>
                         <div class="cell btn-cell">
-                            <a class="button btn-login" href="#" (click)="loginfortrade()" onclick="submitLoginForm(); return false;"><span>Login</span></a>
+                            <a class="button btn-login" href="javascript:void(0);" (click)="loginfortrade()"><span>Login</span></a>
                         </div>
                     </div>
                     <div class="row">
@@ -62,7 +62,7 @@
             </strong>
             <div class="header-panel">
     <ul>
-            <li class="welcome-name">Welcome Back, <br /> rohan gupta</li>
+            <li class="welcome-name">Welcome Back, <br /> {{this.bindLoginData?.FirstName}} {{this.bindLoginData?.LastName}}</li>
         <!-- <li>
             <a routerLink="/contact-us" class="link-contactus">Contact Us</a>
         </li> -->
