@@ -41,9 +41,10 @@ export class HeaderComponent implements OnInit {
         alert('Invalid Credential');
       }
     },
-    err => {
-      alert('Error');
-    });
+    // err => {
+    //   alert('Error');
+    // }
+    );
     
      // code for receiving login details and bind to header at place of name
      this.getLoginDetails = JSON.parse(window.sessionStorage.getItem('project'));
@@ -53,7 +54,7 @@ export class HeaderComponent implements OnInit {
     this.afterlogin = true;
   }
   logoutfromtrade() {
-    // window.sessionStorage.clear();
+    window.sessionStorage.clear();
     this.beforelogin = true;
     this.afterlogin = false;
   }
