@@ -24,7 +24,7 @@ export class ServicesService {
   }
   // get personal details
   fetchpersonaldetails(email: any): Observable<any> {
-    return this.http.post<any>(API_URL + 'Client/GetTradeAccountDetailWithAddressById/' + email, {})
+    return this.http.post<any>(API_URL + 'Client/GetTradeAccountDetailWithAddressById?email=' + email, {})
   }
   // update perosnal details
   updatepersonaldetails(updtprsnldetls: any): Observable<any> {
