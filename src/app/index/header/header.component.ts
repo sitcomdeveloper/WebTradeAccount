@@ -54,7 +54,7 @@ export class HeaderComponent implements OnInit {
     this.afterlogin = true;
   }
   logoutfromtrade() {
-    window.sessionStorage.clear();
+    // window.sessionStorage.clear();
     this.beforelogin = true;
     this.afterlogin = false;
   }
