@@ -947,13 +947,21 @@
 <form [formGroup]="UserFormInfo" action="/ContactUs" class="form" id="actionForm" method="post" role="form"><input name="__RequestVerificationToken" type="hidden" value="M9fF9Fg2DTLVY5I1uuQhqhIyH2mGkyZJwbvpZ-S5-sZoR-e2E6Jhyf2BJl9Jcr7ej29uF4YptI3P7Tv9-igKmlL81SGPj08DcoxkC6nUBRTQd5htDwNfYT5CoQr_835G_Tu3Sw2" />    <fieldset>
 <div class="form-columns">
     <div class="form-col col-md-6">
-        <div class="row"><label for="FirstName">First Name: *</label><div class="row-control"><div class="formset">
-            <input data-val="true" data-val-lengthvalidator="Must be at least 1 and no more than 20 characters long." data-val-lengthvalidator-otherpropertyname="1,20" data-val-localizedrequired="Please re-enter First Name" data-val-localizedrequired-otherpropertyname="ProjectManager" id="FirstName" name="FirstName" type="text" value="{{this.bindLoginData?.FirstName}}" formControlName="firstname" />rohan
+        <div class="row"><label for="FirstName">First Name: *</label>
+            <div class="row-control">
+                <div class="formset">
+            <input data-val="true" data-val-lengthvalidator="Must be at least 1 and no more than 20 characters long." data-val-lengthvalidator-otherpropertyname="1,20" data-val-localizedrequired="Please re-enter First Name" data-val-localizedrequired-otherpropertyname="ProjectManager" id="FirstName" name="FirstName" type="text" value="{{this.bindLoginData?.FirstName}}" formControlName="firstname" /><span class="vall">rohan</span>
             <span class="error">
                 <span class="field-validation-valid" data-valmsg-for="FirstName" data-valmsg-replace="true">
                 </span>
-            </span></div></div></div>
-        <div class="row"><label for="LastName">Last Name: *</label><div class="row-control"><div class="formset"><input data-val="true" data-val-lengthvalidator="Must be at least 1 and no more than 20 characters long." data-val-lengthvalidator-otherpropertyname="1,20" data-val-localizedrequired="Please re-enter Last Name" data-val-localizedrequired-otherpropertyname="ProjectManager" id="LastName" name="LastName" type="text" value="gupta" formControlName="lastname"/><span class="error"><span class="field-validation-valid" data-valmsg-for="LastName" data-valmsg-replace="true"></span></span></div></div></div>
+            </span>
+        </div>
+    </div>
+</div>
+        <div class="row"><label for="LastName">Last Name: *</label><div class="row-control"><div class="formset">
+            <input data-val="true" data-val-lengthvalidator="Must be at least 1 and no more than 20 characters long." data-val-lengthvalidator-otherpropertyname="1,20" data-val-localizedrequired="Please re-enter Last Name" data-val-localizedrequired-otherpropertyname="ProjectManager" id="LastName" name="LastName" type="text" value="gupta" formControlName="lastname"/>
+            <span class="vall">rohan</span>
+            <span class="error"><span class="field-validation-valid" data-valmsg-for="LastName" data-valmsg-replace="true"></span></span></div></div></div>
         <div class="row"><label for="Country">Country: *</label><div class="row-control"><div class="formset"><select class="sel" data-val="true" data-val-localizedrequired="Please re-enter Country" data-val-localizedrequired-otherpropertyname="ProjectManager" id="Country" name="Country" onchange="getDialingCode()" formControlName="countryname">
             <option value="">Select...</option>
 <option value="AF">Afghanistan</option>
