@@ -16,7 +16,10 @@ export class HeaderComponent implements OnInit {
   beforelogin = true;
   afterlogin = false;
   ngOnInit(): void {
-   
+ if(window.sessionStorage.getItem('project')) {
+   this.beforelogin = false;
+   this.afterlogin = true;
+ }
 
     this.loginForm = this.fb.group({
       clientid: [''],
@@ -45,11 +48,11 @@ export class HeaderComponent implements OnInit {
     //   alert('Error');
     // }
     );
+    // code for receiving login details and bind to header at place of name
+ this.getLoginDetails = JSON.parse(window.sessionStorage.getItem('project'));
+ this.bindLoginData = this.getLoginDetails;
+ console.log('LD',this.bindLoginData);   
     
-     // code for receiving login details and bind to header at place of name
-     this.getLoginDetails = JSON.parse(window.sessionStorage.getItem('project'));
-     this.bindLoginData = this.getLoginDetails;
-     console.log('LD',this.bindLoginData);
      this.beforelogin = false;
     this.afterlogin = true;
   }

@@ -28,13 +28,14 @@ export class UserhomeComponent implements OnInit {
   editpersonaldetails = false;
   getLoginDetails: any;
   bindLoginData: any;
+  updatedetails: any;
   constructor(private fb: FormBuilder, private service: ServicesService) { }
 
   ngOnInit(): void {
-     // code for receiving login details
-     this.getLoginDetails = JSON.parse(window.sessionStorage.getItem('project'));
-     this.bindLoginData = this.getLoginDetails;
-     
+    // code for receiving login details
+    this.getLoginDetails = JSON.parse(window.sessionStorage.getItem('project'));
+    this.bindLoginData = this.getLoginDetails;
+
     this.UserFormInfo = this.fb.group({
       // contact us
       firstname: [''],
@@ -66,7 +67,13 @@ export class UserhomeComponent implements OnInit {
     }
     this.service.fundAccount(fndaccntparamtr).subscribe(giveFund => {
       this.fundtheAccount = giveFund;
-      console.log('fundtheAccount',giveFund);
+      if(giveFund === null) {
+        this.response = 'Amount is added successfully..!'
+      } else {
+        this.response = '';
+      }
+      this.UserFormInfo.reset();
+      console.log('fundtheAccount', giveFund);
     })
   }
   // update details
@@ -80,8 +87,8 @@ export class UserhomeComponent implements OnInit {
   // update password
   updatethepassword() {
     const chngepwdparamtr = {
-      Id: this.bindLoginData.Id,
-      Email: this.bindLoginData.Email,
+      Id: this.bindLoginData.Client.Id,
+      Email: this.bindLoginData.Client.Email,
       OldPassword: this.UserFormInfo.value.oldpwd,
       NewPassword: this.UserFormInfo.value.newpwd,
       ConfirmPassword: this.UserFormInfo.value.confirmpwd,
@@ -100,18 +107,24 @@ export class UserhomeComponent implements OnInit {
   // contact us
   fillcontactusform() {
     const contctusParamtr = {
-      OwnerId: this.bindLoginData.OwnerId,
-       FirstName: this.UserFormInfo.value.firstname,
-       LastName: this.UserFormInfo.value.lastname,
-       Email: this.UserFormInfo.value.email,
-       Phone: this.UserFormInfo.value.phonecode + this.UserFormInfo.value.phonenumber, 
-      CountryId: '', 
-       CountryName: this.UserFormInfo.value.countryname,
-       Subject: this.UserFormInfo.value.subject,
-       Message: this.UserFormInfo.value.message,
+      OwnerId: this.bindLoginData.Client.OwnerId,
+      FirstName: this.UserFormInfo.value.firstname,
+      LastName: this.UserFormInfo.value.lastname,
+      Email: this.UserFormInfo.value.email,
+      Phone: this.UserFormInfo.value.phonenumber,
+      CountryId: '',
+      CountryName: this.UserFormInfo.value.countryname,
+      Subject: this.UserFormInfo.value.subject,
+      Message: this.UserFormInfo.value.message,
     }
     this.service.contactUs(contctusParamtr).subscribe(contctusforquery => {
       this.usercontactus = contctusforquery;
+      if(contctusforquery === null) {
+        this.response = '';
+      } else {
+        this.response = "Thank you for reaching us. Our team will contact you..!"
+      }
+      this.UserFormInfo.reset();
       console.log('usercontactus', contctusforquery);
     })
   }
@@ -128,6 +141,9 @@ export class UserhomeComponent implements OnInit {
     this.editpersonaldetails = false;
   }
   prsnldtls() {
+    this.service.fetchpersonaldetails(this.bindLoginData.Client.Email).subscribe(dtlsoffetchuser => {
+      this.detailsonEmail = dtlsoffetchuser;
+    })
     this.home = false;
     this.personalddetails = true;
     this.chngpwd = false;
@@ -152,6 +168,21 @@ export class UserhomeComponent implements OnInit {
     this.editpersonaldetails = false;
   }
   contactwe() {
+    this.service.fetchpersonaldetails(this.bindLoginData.Client.Email).subscribe(dtlsoffetchuser => {
+      this.detailsonEmail = dtlsoffetchuser;
+      this.UserFormInfo.patchValue({
+        firstname: this.detailsonEmail.FirstName,
+        lastname: this.detailsonEmail.LastName,
+        countryname: this.detailsonEmail.CountryName,
+        email: this.detailsonEmail.Email,
+        phonecode: 91,
+        phonenumber: this.detailsonEmail.Phone,
+        state: this.detailsonEmail.State,
+        city: this.detailsonEmail.City,
+        postcode: this.detailsonEmail.PinCode,
+      });
+      console.log('detailsonEmail', dtlsoffetchuser);
+    })
     this.home = false;
     this.personalddetails = false;
     this.chngpwd = false;
@@ -225,32 +256,60 @@ export class UserhomeComponent implements OnInit {
   }
   // personal details editing div
   // edit button
-    // fetch personal details
+  // fetch personal details
   closenormalmode() {
-    this.service.fetchpersonaldetails(this.bindLoginData.Email).subscribe(dtlsoffetchuser => {
+    this.service.fetchpersonaldetails(this.bindLoginData.Client.Email).subscribe(dtlsoffetchuser => {
       this.detailsonEmail = dtlsoffetchuser;
-      console.log('detailsonEmail',dtlsoffetchuser);
+      this.UserFormInfo.patchValue({
+        firstname: this.detailsonEmail.FirstName,
+        lastname: this.detailsonEmail.LastName,
+        countryname: this.detailsonEmail.CountryName,
+        email: this.detailsonEmail.Email,
+        phonecode: 91,
+        phonenumber: this.detailsonEmail.Phone,
+        state: this.detailsonEmail.State,
+        city: this.detailsonEmail.City,
+        postcode: this.detailsonEmail.PinCode,
+      });
+      console.log('detailsonEmail', dtlsoffetchuser);
     })
-    // this.getLoginDetails = JSON.parse(window.sessionStorage.getItem('username'));
-    // this.bindLoginData = this.getLoginDetails;
-    //   this.UserFormInfo.patchValue({
-    //     owner: this.bindLoginData.FullName,
-    //     firstname: ,
-    //   lastname: ,
-    //   countryname:,
-    //   email: ,
-    //   phonecode:,
-    //   phonenumber: ,
-    //   state: ,
-    //   city: ,
-    //   postcode: ,
-    //   });
     this.personalddetails = false;
     this.editpersonaldetails = true;
   }
+  // getpersonaldetails for after update
+  afterupdate() {
+    this.service.fetchpersonaldetails(this.bindLoginData.Client.Email).subscribe(dtlsoffetchuser => {
+      this.detailsonEmail = dtlsoffetchuser;
+    })
+  }
   savepersonaldetails() {
-    this.personalddetails = true;
+    this.service.fetchpersonaldetails(this.bindLoginData.Client.Email).subscribe(dtlsoffetchuser => {
+      this.detailsonEmail = dtlsoffetchuser;
+    })
+    const updtprsnldetls = {
+      Id: this.detailsonEmail.Id,
+      FirstName: this.UserFormInfo.value.firstname,
+      LastName: this.UserFormInfo.value.lastname,
+      CountryId: '',
+      CountryName: this.UserFormInfo.value.countryname,
+      Email: this.UserFormInfo.value.email,
+      Phone: this.UserFormInfo.value.phonenumber,
+      OwnerId: this.detailsonEmail.OwnerId,
+      Mobile: '',
+      State: this.UserFormInfo.value.state,
+      City: this.UserFormInfo.value.city,
+      PinCode: this.UserFormInfo.value.postcode,
+    }
+    this.service.updatepersonaldetails(updtprsnldetls).subscribe(persnldtlsupdt => {
+      this.updatedetails = persnldtlsupdt;
+      this.service.fetchpersonaldetails(this.bindLoginData.Client.Email).subscribe(dtlsoffetchuser => {
+        this.detailsonEmail = dtlsoffetchuser;
+      })
+      console.log('updatedetails', persnldtlsupdt);
+    })
     this.editpersonaldetails = false;
+    
+    this.personalddetails = true;
   }
   backtopersonaldetails() {
     this.personalddetails = true;

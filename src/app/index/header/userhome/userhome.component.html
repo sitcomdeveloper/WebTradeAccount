@@ -11,7 +11,7 @@
             <div id="content">
 
 
-                <h1>Welcome Back, {{this.bindLoginData?.FirstName}} {{this.bindLoginData?.LastName}} </h1>
+                <h1>Welcome Back, {{this.bindLoginData.Client?.FirstName}} {{this.bindLoginData.Client?.LastName}} </h1>
                 <div class="centered-buttons">
                     <!-- <a class="button btn-md" href="/deposit-methods"><span><span>FUND MY
                                 ACCOUNT</span>
@@ -35,6 +35,13 @@
                                 <th>Account Number</th>
                                 <th>Currency</th>
 
+                            </tr>
+                        </thead>
+                        <thead>
+                            <tr>
+                                <th>{{this.bindLoginData.Client?.TypeName}}</th>
+                                <th>{{this.bindLoginData.TradeAccount?.TPAccountNumber}}</th>
+                                <th>{{this.bindLoginData.Client?.CurrencyName}}</th>
                             </tr>
                         </thead>
                     </table>
@@ -98,11 +105,11 @@
 <h1>Personal details</h1>
 <form [formGroup]="UserFormInfo" action="#" class="form">
 <fieldset>
-<div class="row"><label for="FirstName">First Name: *</label><div class="profile-info">{{this.bindLoginData?.FirstName}}</div></div>
-<div class="row"><label for="LastName">Last Name: *</label><div class="profile-info">{{this.bindLoginData?.LastName}}</div></div>
-<div class="row"><label for="Email">Email: *</label><div class="profile-info">{{this.bindLoginData?.Email}}</div></div>
-<div class="row"><label for="PhoneNumber">Phone: *</label><div class="row-control"><div class="profile-info">{{this.bindLoginData?.Phone}}</div></div></div>
-<div class="row"><label for="Country">Country: *</label><div class="profile-info">{{this.bindLoginData?.CountryName}}</div></div>
+<div class="row"><label for="FirstName">First Name: *</label><div class="profile-info">{{this.detailsonEmail?.FirstName}}</div></div>
+<div class="row"><label for="LastName">Last Name: *</label><div class="profile-info">{{this.detailsonEmail?.LastName}}</div></div>
+<div class="row"><label for="Email">Email: *</label><div class="profile-info">{{this.detailsonEmail?.Email}}</div></div>
+<div class="row"><label for="PhoneNumber">Phone: *</label><div class="row-control"><div class="profile-info">{{this.detailsonEmail?.Phone}}</div></div></div>
+<div class="row"><label for="Country">Country: *</label><div class="profile-info">{{this.detailsonEmail?.CountryName}}</div></div>
 
 
 
@@ -646,7 +653,7 @@
 
 
 <form [formGroup]="UserFormInfo" action="/deposit" class="form" id="actionForm" method="post" role="form"><input name="__RequestVerificationToken" type="hidden" value="1RzjbKdX_VHh3MFpFZdNguetNRDlpk1DNg6K8w9nojIz69-cMSFUnRgvLi6RB-jMhBtsnT9xMM-3QSuW2DQQyNa-vx6TZKPBndP1GXn-x2JCmyDPmhiwWF45FN8eBiXDBb9WzQ2" />    <fieldset>
-<div class="row"><label for="DepositModel_TradeAccount">Trade Account: *</label><div class="row-control"><div class="formset"><select data-val="true" data-val-localizedrequired="Please re-enter Trade Account" data-val-localizedrequired-otherpropertyname="ProjectManager" data-val-number="The field Trade Account: * must be a number." id="DepositModel_TradeAccount" name="DepositModel.TradeAccount" formControlName="trdeaccount"><option value="107557">107557</option>
+<div class="row"><label for="DepositModel_TradeAccount">Trade Account: *</label><div class="row-control"><div class="formset"><select data-val="true" data-val-localizedrequired="Please re-enter Trade Account" data-val-localizedrequired-otherpropertyname="ProjectManager" data-val-number="The field Trade Account: * must be a number." id="DepositModel_TradeAccount" name="DepositModel.TradeAccount" formControlName="trdeaccount"><option value="{{this.bindLoginData.TradeAccount?.TPAccountNumber}}">{{this.bindLoginData.TradeAccount?.TPAccountNumber}}</option>
 </select></div><span class="error"><span class="field-validation-valid" data-valmsg-for="DepositModel.TradeAccount" data-valmsg-replace="true"></span></span></div></div>
 <div class="row"><label for="DepositModel_Amount">Amount: *</label><div class="row-control"><div class="formset"><div class="formitems"><div class="formitem span-8"><input data-val="true" data-val-localizedrequired="Please re-enter Amount" data-val-localizedrequired-otherpropertyname="ProjectManager" data-val-mindepositvalidator="Deposit should be greater than or equal to 1" data-val-mindepositvalidator-otherpropertyname="1" data-val-number="The field Amount: * must be a number." id="DepositModel_Amount" name="DepositModel.Amount" type="text" value="0" formControlName="amount"/></div><div class="formitem span-4 mark"><span id="currentCurrency" class="mark">US Dollar</span></div></div><span class="error"><span class="field-validation-valid" data-valmsg-for="DepositModel.Amount" data-valmsg-replace="true"></span></span></div></div></div>
 
@@ -699,15 +706,13 @@
         <li class="">
             <a routerLink="/userhome" (click)="contactwe()"><span>Contact Us</span></a>
         </li>
-        <li class="">
-            <a href="/ContactUs"><span>Contact Us</span></a>
-        </li>
     </ul>
 </div>
 </div>
 </aside>
 
     </div>
+    <div class="message">{{response}}</div>
 </main>
 <!-- upload documents -->
 <main *ngIf = uplddocuments>
@@ -931,6 +936,326 @@
     </div>
 </main>
 <!-- contact us -->
+<!-- <main>
+    <div class="quote__container">&nbsp;</div>
+    <div class="breadcrumbs">
+        <ul class=""><li><a href="/">Home</a></li><li>ContactUs</li></ul>
+    </div>
+    <div class="main-holder">
+        <div class="contentholder">
+            <div id="content">
+                
+
+
+
+<div class="clearfix">
+<h1 class="fl-l-lg fl-l-md reversed">Send us a Message</h1>
+<div class="required fl-r-lg fl-r-md reversed">All fields marked as <span>*</span>are mandatory</div>
+</div>
+<form [formGroup]="UserFormInfo" action="/ContactUs" class="form" id="actionForm" method="post" role="form"><input name="__RequestVerificationToken" type="hidden" value="Fa1KU26Nk2tkRqt_8URAabQ6MYxUjHEfFh6deDFFCkUUoZx0KqTuxSuBcSj2lqiDOmfk976rmDVt9VfSGTFpZ1H6kZ8C8T6LUH0ZWdDraVTsBII926qcNAb8x6fgtpucrPkm4w2" />    <fieldset>
+<div class="form-columns">
+    <div class="form-col col-md-6">
+        <div class="row"><label for="FirstName">First Name: *</label><div class="row-control"><div class="formset"><input data-val="true" data-val-lengthvalidator="Must be at least 1 and no more than 20 characters long." data-val-lengthvalidator-otherpropertyname="1,20" data-val-localizedrequired="Please re-enter First Name" data-val-localizedrequired-otherpropertyname="ProjectManager" id="FirstName" name="FirstName" type="text" value="rohan" formControlName="firstname"/><span class="error"><span class="field-validation-valid" data-valmsg-for="FirstName" data-valmsg-replace="true"></span></span></div></div></div>
+        <div class="row"><label for="LastName">Last Name: *</label><div class="row-control"><div class="formset"><input data-val="true" data-val-lengthvalidator="Must be at least 1 and no more than 20 characters long." data-val-lengthvalidator-otherpropertyname="1,20" data-val-localizedrequired="Please re-enter Last Name" data-val-localizedrequired-otherpropertyname="ProjectManager" id="LastName" name="LastName" type="text" value="gupta" /><span class="error"><span class="field-validation-valid" data-valmsg-for="LastName" data-valmsg-replace="true"></span></span></div></div></div>
+        <div class="row"><label for="Country">Country: *</label><div class="row-control"><div class="formset"><select class="sel" data-val="true" data-val-localizedrequired="Please re-enter Country" data-val-localizedrequired-otherpropertyname="ProjectManager" id="Country" name="Country" onchange="getDialingCode()"><option value="">Select...</option>
+<option value="AF">Afghanistan</option>
+<option value="AX">Aland Islands</option>
+<option value="AL">Albania</option>
+<option value="DZ">Algeria</option>
+<option value="AS">American Samoa</option>
+<option value="AD">Andorra</option>
+<option value="AO">Angola</option>
+<option value="AI">Anguilla</option>
+<option value="AQ">Antarctica</option>
+<option value="AG">Antigua and Barbuda</option>
+<option value="AR">Argentina</option>
+<option value="AM">Armenia</option>
+<option value="AW">Aruba</option>
+<option value="AU">Australia</option>
+<option value="AT">Austria</option>
+<option value="AZ">Azerbaijan</option>
+<option value="BS">Bahamas</option>
+<option value="BH">Bahrain</option>
+<option value="BD">Bangladesh</option>
+<option value="BB">Barbados</option>
+<option value="BY">Belarus</option>
+<option value="BE">Belgium</option>
+<option value="BZ">Belize</option>
+<option value="BJ">Benin</option>
+<option value="BM">Bermuda</option>
+<option value="BT">Bhutan</option>
+<option value="BO">Bolivia</option>
+<option value="BA">Bosnia and Herzegovina</option>
+<option value="BW">Botswana</option>
+<option value="BV">Bouvet Island</option>
+<option value="BR">Brazil</option>
+<option value="IO">British Indian Ocean Territory</option>
+<option value="BN">Brunei Darussalam</option>
+<option value="BG">Bulgaria</option>
+<option value="BF">Burkina Faso</option>
+<option value="BI">Burundi</option>
+<option value="KH">Cambodia</option>
+<option value="CM">Cameroon</option>
+<option value="CA">Canada</option>
+<option value="CV">Cape Verde</option>
+<option value="KY">Cayman Islands</option>
+<option value="CF">Central African Republic</option>
+<option value="TD">Chad</option>
+<option value="CL">Chile</option>
+<option value="CN">China</option>
+<option value="CO">Colombia</option>
+<option value="KM">Comoros</option>
+<option value="CG">Congo</option>
+<option value="CK">Cook Islands</option>
+<option value="CR">Costa Rica</option>
+<option value="CI">Cote DIvoire</option>
+<option value="HR">Croatia</option>
+<option value="CU">Cuba</option>
+<option value="CY">Cyprus</option>
+<option value="CZ">Czech Republic</option>
+<option value="DK">Denmark</option>
+<option value="DJ">Djibouti</option>
+<option value="DM">Dominica</option>
+<option value="DO">Dominican Republic</option>
+<option value="EC">Ecuador</option>
+<option value="EG">Egypt</option>
+<option value="SV">El Salvador</option>
+<option value="GQ">Equatorial Guinea</option>
+<option value="ER">Eritrea</option>
+<option value="EE">Estonia</option>
+<option value="ET">Ethiopia</option>
+<option value="FK">Falkland Islands (Malvinas)</option>
+<option value="FO">Faroe Islands</option>
+<option value="FJ">Fiji</option>
+<option value="FI">Finland</option>
+<option value="FR">France</option>
+<option value="GF">French Guiana</option>
+<option value="PF">French Polynesia</option>
+<option value="GA">Gabon</option>
+<option value="GM">Gambia</option>
+<option selected="selected" value="GE">Georgia</option>
+<option value="DE">Germany</option>
+<option value="GH">Ghana</option>
+<option value="GI">Gibraltar</option>
+<option value="GR">Greece</option>
+<option value="GL">Greenland</option>
+<option value="GD">Grenada</option>
+<option value="GP">Guadeloupe</option>
+<option value="GU">Guam</option>
+<option value="GT">Guatemala</option>
+<option value="GG">Guernsey</option>
+<option value="GN">Guinea</option>
+<option value="GW">Guinea-Bissau</option>
+<option value="GY">Guyana</option>
+<option value="HT">Haiti</option>
+<option value="VA">Holy See (Vatican City State)</option>
+<option value="HN">Honduras</option>
+<option value="HK">Hong Kong</option>
+<option value="HU">Hungary</option>
+<option value="IS">Iceland</option>
+<option value="IN">India</option>
+<option value="ID">Indonesia</option>
+<option value="IR">Iran</option>
+<option value="IQ">Iraq</option>
+<option value="IE">Ireland</option>
+<option value="IM">Isle of Man</option>
+<option value="IL">Israel</option>
+<option value="IT">Italy</option>
+<option value="JM">Jamaica</option>
+<option value="JP">Japan</option>
+<option value="JE">Jersey</option>
+<option value="JO">Jordan</option>
+<option value="KZ">Kazakstan</option>
+<option value="KE">Kenya</option>
+<option value="KI">Kiribati</option>
+<option value="KR">Korea</option>
+<option value="KP">Korea</option>
+<option value="KW">Kuwait</option>
+<option value="KG">Kyrgyzstan</option>
+<option value="LA">Lao</option>
+<option value="LV">Latvia</option>
+<option value="LB">Lebanon</option>
+<option value="LS">Lesotho</option>
+<option value="LR">Liberia</option>
+<option value="LY">Libyan Arab Jamahiriya</option>
+<option value="LI">Liechtenstein</option>
+<option value="LT">Lithuania</option>
+<option value="LU">Luxembourg</option>
+<option value="MO">Macau</option>
+<option value="MK">Macedonia</option>
+<option value="MG">Madagascar</option>
+<option value="MW">Malawi</option>
+<option value="MY">Malaysia</option>
+<option value="MV">Maldives</option>
+<option value="ML">Mali</option>
+<option value="MT">Malta</option>
+<option value="MH">Marshall Islands</option>
+<option value="MQ">Martinique</option>
+<option value="MR">Mauritania</option>
+<option value="MU">Mauritius</option>
+<option value="YT">Mayotte</option>
+<option value="MX">Mexico</option>
+<option value="FM">Micronesia</option>
+<option value="MD">Moldova</option>
+<option value="MC">Monaco</option>
+<option value="MN">Mongolia</option>
+<option value="ME">Montenegro</option>
+<option value="MS">Montserrat</option>
+<option value="MA">Morocco</option>
+<option value="MZ">Mozambique</option>
+<option value="MM">Myanmar</option>
+<option value="NA">Namibia</option>
+<option value="NR">Nauru</option>
+<option value="NP">Nepal</option>
+<option value="NL">Netherlands</option>
+<option value="AN">Netherlands Antilles</option>
+<option value="NC">New Caledonia</option>
+<option value="NZ">New Zealand</option>
+<option value="NI">Nicaragua</option>
+<option value="NE">Niger</option>
+<option value="NG">Nigeria</option>
+<option value="NU">Niue</option>
+<option value="NF">Norfolk Island</option>
+<option value="MP">Northern Mariana Islands</option>
+<option value="NO">Norway</option>
+<option value="OM">Oman</option>
+<option value="PK">Pakistan</option>
+<option value="PW">Palau</option>
+<option value="PS">Palestinian Territory, Occupied</option>
+<option value="PA">Panama</option>
+<option value="PG">Papua New Guinea</option>
+<option value="PY">Paraguay</option>
+<option value="PE">Peru</option>
+<option value="PH">Philippines</option>
+<option value="PL">Poland</option>
+<option value="PT">Portugal</option>
+<option value="PR">Puerto Rico</option>
+<option value="QA">Qatar</option>
+<option value="RE">Reunion</option>
+<option value="RO">Romania</option>
+<option value="RU">Russian Federation</option>
+<option value="RW">Rwanda</option>
+<option value="KN">Saint Kitts and Nevis</option>
+<option value="LC">Saint Lucia</option>
+<option value="PM">Saint Pierre and Miquelon</option>
+<option value="VC">Saint Vincent and the Grenadines</option>
+<option value="WS">Samoa</option>
+<option value="SM">San Marino</option>
+<option value="ST">Sao Tome and Principe</option>
+<option value="SA">Saudi Arabia</option>
+<option value="SN">Senegal</option>
+<option value="RS">Serbia</option>
+<option value="SC">Seychelles</option>
+<option value="SL">Sierra Leone</option>
+<option value="SG">Singapore</option>
+<option value="SK">Slovakia</option>
+<option value="SI">Slovenia</option>
+<option value="SB">Solomon Islands</option>
+<option value="SO">Somalia</option>
+<option value="ZA">South Africa</option>
+<option value="ES">Spain</option>
+<option value="LK">Sri Lanka</option>
+<option value="SD">Sudan</option>
+<option value="SR">Suriname</option>
+<option value="SJ">Svalbard and Jan Mayen</option>
+<option value="SZ">Swaziland</option>
+<option value="SE">Sweden</option>
+<option value="CH">Switzerland</option>
+<option value="SY">Syrian Arab Republic</option>
+<option value="TW">Taiwan</option>
+<option value="TJ">Tajikistan</option>
+<option value="TZ">Tanzania</option>
+<option value="TH">Thailand</option>
+<option value="TG">Togo</option>
+<option value="TK">Tokelau</option>
+<option value="TO">Tonga</option>
+<option value="TT">Trinidad and Tobago</option>
+<option value="TN">Tunisia</option>
+<option value="TR">Turkey</option>
+<option value="TM">Turkmenistan</option>
+<option value="TC">Turks and Caicos Islands</option>
+<option value="TV">Tuvalu</option>
+<option value="UG">Uganda</option>
+<option value="UA">Ukraine</option>
+<option value="AE">United Arab Emirates</option>
+<option value="GB">United Kingdom</option>
+<option value="US">United States</option>
+<option value="UM">United States Minor Outlying Islands</option>
+<option value="UY">Uruguay</option>
+<option value="UZ">Uzbekistan</option>
+<option value="VU">Vanuatu</option>
+<option value="VE">Venezuela</option>
+<option value="VN">Vietnam</option>
+<option value="VG">Virgin Islands, British</option>
+<option value="VI">Virgin Islands, U.S.</option>
+<option value="WF">Wallis and Futuna</option>
+<option value="EH">Western Sahara</option>
+<option value="YE">Yemen</option>
+<option value="ZM">Zambia</option>
+<option value="ZW">Zimbabwe</option>
+</select></div><span class="error"><span class="field-validation-valid" data-valmsg-for="Country" data-valmsg-replace="true"></span></span></div></div>
+        <div class="row"><label for="Email">Email: *</label><div class="row-control"><div class="formset"><input data-val="true" data-val-localizedemail="Please re-enter Email" data-val-localizedemail-otherpropertyname="ProjectManager" data-val-localizedrequired="Please re-enter Email" data-val-localizedrequired-otherpropertyname="ProjectManager" id="Email" name="Email" type="text" value="sitcomdeveloper43@gmail.com" /><span class="error"><span class="field-validation-valid" data-valmsg-for="Email" data-valmsg-replace="true"></span></span><span id="uniqueEmailError" class="error" style="display: none;">This Email is already registered</span></div></div></div>
+        <div class="row"><label for="PhoneNumber">Phone: *</label><div class="row-control"><div class="formset"><div class="formitems phone-number"><div class="formitem custom-col-1"><input class="phone-txt" data-val="true" data-val-localizedrequired="Please re-enter Phone Area Code" data-val-localizedrequired-otherpropertyname="ProjectManager" data-val-regularexpression="Phone Area Code should contain only numbers" data-val-regularexpression-otherpropertyname="^\d+$" id="PhoneAreaCode" name="PhoneAreaCode" type="text" value="995" /></div><div class="custom-offset-1"><div class="formitem"><input autocomplete="off" data-val="true" data-val-localizedrequired="Please re-enter Phone Number" data-val-localizedrequired-otherpropertyname="ProjectManager" data-val-regularexpression="Phone Area Code should contain only numbers" data-val-regularexpression-otherpropertyname="^\d+$" id="PhoneNumber" name="PhoneNumber" type="text" value="544545454" /></div></div></div></div><span class="error"><span class="field-validation-valid" data-valmsg-for="PhoneAreaCode" data-valmsg-replace="true"></span></span><span class="error"><span class="field-validation-valid" data-valmsg-for="PhoneNumber" data-valmsg-replace="true"></span></span></div></div>
+    </div>
+    <div class="form-col col-md-6">
+        <div class="row"><label for="Subject">Subject: *</label><div class="row-control"><div class="formset"><select class="sel" data-val="true" data-val-localizedrequired="Please re-enter Subject" data-val-localizedrequired-otherpropertyname="ProjectManager" id="Subject" name="Subject"><option value="">Select...</option>
+<option value="Withdrawal">Withdrawal</option>
+<option value="Deposit">Deposit</option>
+<option value="Tech Issue">Tech Issue</option>
+<option value="Request A Call Back">Request A Call Back</option>
+<option value="Other">Other</option>
+</select></div><span class="error"><span class="field-validation-valid" data-valmsg-for="Subject" data-valmsg-replace="true"></span></span></div></div>            
+        <div class="row"><label for="Message">Message: *</label><div class="row-control"><div class="formset"><textarea class="textarea" cols="30" data-val="true" data-val-localizedrequired="Please re-enter Message" data-val-localizedrequired-otherpropertyname="ProjectManager" id="Message" name="Message" rows="10">
+</textarea></div><span class="error"><span class="field-validation-valid" data-valmsg-for="Message" data-valmsg-replace="true"></span></span></div></div>
+        <div class="row button-row"><div class="buttonset"><a class="button" href="#" onclick="SubmitThisForm(); return false;"><span>Submit</span></a></div></div>
+    </div>
+</div>
+</fieldset>
+</form>
+
+            </div>
+        </div>
+        <aside id="sidebar">
+<div class="box">
+<div class="heading">
+    <h3>My account</h3>
+</div>
+<div class="sidenav">
+    <ul>
+        <li class="">
+            <a href="/welcome"><span>Home</span></a>
+        </li>
+        <li class="">
+            <a href="/my-account"><span>Personal Details</span></a>
+        </li>
+        <li class="">
+            <a href="/change-password"><span>Change Password</span></a>
+        </li>
+        <li class="">
+            <a href="/trading-history"><span>Trading History</span></a>
+        </li>
+            <li class="">
+                <a href="/deposit-methods"><span>Deposit Funds</span></a>
+            </li>
+            <li class="">
+                <a href="/upload-documents"><span>Upload Documents</span></a>
+            </li>
+            <li class="">
+                <a href="/monetary-statement"><span>Monetary Transactions</span></a>
+            </li>
+            <li class="">
+                <a href="/withdrawal"><span>Withdrawal</span></a>
+            </li>
+        <li class="active">
+            <a href="/ContactUs"><span>Contact Us</span></a>
+        </li>
+    </ul>
+</div>
+</div>
+</aside>
+
+    </div>
+</main> -->
 <main *ngIf = cntctus>
     <div class="quote__container">&nbsp;</div>
     <div class="breadcrumbs">
@@ -950,7 +1275,7 @@
         <div class="row"><label for="FirstName">First Name: *</label>
             <div class="row-control">
                 <div class="formset">
-            <input data-val="true" data-val-lengthvalidator="Must be at least 1 and no more than 20 characters long." data-val-lengthvalidator-otherpropertyname="1,20" data-val-localizedrequired="Please re-enter First Name" data-val-localizedrequired-otherpropertyname="ProjectManager" id="FirstName" name="FirstName" type="text" value="{{this.bindLoginData?.FirstName}}" formControlName="firstname" /><span class="vall">rohan</span>
+            <input data-val="true" data-val-lengthvalidator="Must be at least 1 and no more than 20 characters long." data-val-lengthvalidator-otherpropertyname="1,20" data-val-localizedrequired="Please re-enter First Name" data-val-localizedrequired-otherpropertyname="ProjectManager" id="FirstName" name="FirstName" type="text" value="" formControlName="firstname" />
             <span class="error">
                 <span class="field-validation-valid" data-valmsg-for="FirstName" data-valmsg-replace="true">
                 </span>
@@ -960,7 +1285,7 @@
 </div>
         <div class="row"><label for="LastName">Last Name: *</label><div class="row-control"><div class="formset">
             <input data-val="true" data-val-lengthvalidator="Must be at least 1 and no more than 20 characters long." data-val-lengthvalidator-otherpropertyname="1,20" data-val-localizedrequired="Please re-enter Last Name" data-val-localizedrequired-otherpropertyname="ProjectManager" id="LastName" name="LastName" type="text" value="gupta" formControlName="lastname"/>
-            <span class="vall">rohan</span>
+            <!-- <span class="vall">rohan</span> -->
             <span class="error"><span class="field-validation-valid" data-valmsg-for="LastName" data-valmsg-replace="true"></span></span></div></div></div>
         <div class="row"><label for="Country">Country: *</label><div class="row-control"><div class="formset"><select class="sel" data-val="true" data-val-localizedrequired="Please re-enter Country" data-val-localizedrequired-otherpropertyname="ProjectManager" id="Country" name="Country" onchange="getDialingCode()" formControlName="countryname">
             <option value="">Select...</option>
@@ -1264,4 +1589,5 @@
 </aside>
 
     </div>
+    <div class="message">{{response}}</div>
 </main>
