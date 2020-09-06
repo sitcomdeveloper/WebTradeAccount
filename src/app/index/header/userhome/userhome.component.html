@@ -808,11 +808,11 @@
                 
 
 <h1>Monetary Statement</h1>
-<form action="#" class="form">
+<form [formGroup]="UserFormInfo" action="#" class="form">
 <fieldset>
 <div class="form-columns">
     <div class="form-col col-md-6">
-        <div class="row"><label for="TradeAccount">Trade Account: *</label><div class="row-control"><div class="formset"><select class="sel" data-val="true" data-val-localizedrequired="Please re-enter Trade Account" data-val-localizedrequired-otherpropertyname="ProjectManager" data-val-number="The field Trade Account: * must be a number." id="TradeAccount" name="TradeAccount" onchange="refreshTable();"><option value="107557">107557</option>
+        <div class="row"><label for="TradeAccount">Trade Account: *</label><div class="row-control"><div class="formset"><select class="sel" data-val="true" data-val-localizedrequired="Please re-enter Trade Account" data-val-localizedrequired-otherpropertyname="ProjectManager" data-val-number="The field Trade Account: * must be a number." id="TradeAccount" name="TradeAccount"><option value="{{this.bindLoginData.TradeAccount?.TPAccountNumber}}">{{this.bindLoginData.TradeAccount?.TPAccountNumber}}</option>
 </select></div><span class="error"><span class="field-validation-valid" data-valmsg-for="TradeAccount" data-valmsg-replace="true"></span></span></div></div>
     </div>
 </div>
@@ -826,6 +826,13 @@
         <th>Operation Date</th>
         <th>Enquity</th>
         <th>Transaction Type</th>
+    </tr>
+</thead>
+<thead>
+    <tr *ngFor = "let MT of allMonetartTrans">
+        <td>{{MT.TransactionDate}}</td>
+        <td>{{MT.DepositAmount}}</td>
+        <td>{{MT.TransactionTypeName}}</td>
     </tr>
 </thead>
 </table>

@@ -43,7 +43,11 @@
                             </div>
                         </div>
                         <div class="cell">
-                            <a href="ForgotPassword.html" class="forgot">Forgot password?</a>
+                            <!-- <a href="ForgotPassword.html" class="forgot">Forgot password?</a> -->
+                            <!-- <a href="javascript:void(0);" class="forgot" data-toggle="modal" data-target="#pwdModal">Forgot Password?</a> -->
+                            <a href="javascript:void(0);" class="ico-add ico-sz3 showrcrd popupicon " data-rule="add-link"  data-toggle="modal" data-target="#pwdModal">Forgot Password?
+          
+            </a>
                         </div>
                     </div>
                     <div style="display: none;" class="error" id="loginError">
@@ -62,7 +66,7 @@
             </strong>
             <div class="header-panel">
     <ul>
-            <li class="welcome-name">Welcome Back, <br /> {{this.bindLoginData.Client?.FirstName}} {{this.bindLoginData.Client?.LastName}}</li>
+            <li class="welcome-name">Welcome Back, <br /> {{this.bindLoginData?.Client.FirstName}} {{this.bindLoginData?.Client.LastName}}</li>
         <!-- <li>
             <a routerLink="/contact-us" class="link-contactus">Contact Us</a>
         </li> -->
@@ -160,3 +164,54 @@
 </form>        </div>
 </div>
 </header>
+<!-- reset password
+ -->
+<div class="modal fade" id="pwdModal">
+    <div class="modal-dialog modal-login">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        </div>
+        <div class="modal-body" style="overflow-y: hidden;">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-12">
+                <div class="panel panel-default">
+                  <div class="panel-body">
+                    <div class="text-center">
+                      <h3><i class="fa fa-lock fa-4x"></i></h3>
+                      <h2 class="text-center">Forgot Password?</h2>
+                      <p>You can reset your password here.</p>
+                      <div class="panel-body">
+  
+                        <form id="register-form" role="form" autocomplete="off" class="form" method="post"
+                          [formGroup]="loginForm" >
+  
+                          <div class="form-group">
+                            <div class="input-group">
+                              <span class="input-group-addon"><i
+                                  class="glyphicon glyphicon-envelope color-blue"></i></span>
+                              <input id="email" name="email" placeholder="email address" class="form-control"
+                                formControlName="email" type="email" required>
+                             
+                            </div>
+                            
+                          </div>
+                          <div class="form-group">
+                            <input name="recover-submit" class="btn btn-lg btn-primary btn-block" value="Reset Password" 
+                              type="submit">
+                          </div>
+                          <input type="hidden" class="hide" name="token" id="token" value="">
+                        </form>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

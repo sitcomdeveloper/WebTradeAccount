@@ -38,4 +38,12 @@ export class ServicesService {
   contactUs(contctusParamtr: any): Observable<any> {
     return this.http.post<any>(API_URL + 'Client/InsertClientQuery', contctusParamtr);
   }
+  // forgot password
+  forgotpwd(frgt: any): Observable<any> {
+    return this.http.post<any>(API_URL + 'Client/TPAccountForgotPassword?email=' + frgt, {})
+  }
+  // get all monetary transactions
+  getMonetarytransation(allmonetrytrnsctions: any): Observable<any> {
+    return this.http.post<any>(API_URL + 'TradeAccount/GetAllFinancialTransactionLists',allmonetrytrnsctions);
+  }
 }

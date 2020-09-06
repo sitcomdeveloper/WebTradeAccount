@@ -29,6 +29,7 @@ export class UserhomeComponent implements OnInit {
   getLoginDetails: any;
   bindLoginData: any;
   updatedetails: any;
+  allMonetartTrans: any;
   constructor(private fb: FormBuilder, private service: ServicesService) { }
 
   ngOnInit(): void {
@@ -75,14 +76,6 @@ export class UserhomeComponent implements OnInit {
       this.UserFormInfo.reset();
       console.log('fundtheAccount', giveFund);
     })
-  }
-  // update details
-  updatedetailsforemailUser() {
-    // const updtprsnldetls = {}
-    // this.service.updatepersonaldetails(updtprsnldetls).subscribe(updateddetails => {
-    //   this.updateddetailsofuser = updateddetails;
-    //   console.log('updateddetailsofuser',updateddetails);
-    // })
   }
   // update password
   updatethepassword() {
@@ -167,6 +160,7 @@ export class UserhomeComponent implements OnInit {
     this.dpsitfunds = false;
     this.editpersonaldetails = false;
   }
+  // fetch the details gor contact us form
   contactwe() {
     this.service.fetchpersonaldetails(this.bindLoginData.Client.Email).subscribe(dtlsoffetchuser => {
       this.detailsonEmail = dtlsoffetchuser;
@@ -231,6 +225,12 @@ export class UserhomeComponent implements OnInit {
     this.editpersonaldetails = false;
   }
   monetarytransactions() {
+    const allmonetrytrnsctions = {}
+      // get monetary transaction data
+      this.service.getMonetarytransation(allmonetrytrnsctions).subscribe(monetarytransactionRes => {
+        this.allMonetartTrans = monetarytransactionRes;
+        console.log('allMonetartTrans',monetarytransactionRes);
+      })
     this.home = false;
     this.personalddetails = false;
     this.chngpwd = false;
@@ -316,4 +316,5 @@ export class UserhomeComponent implements OnInit {
     this.editpersonaldetails = false;
   }
   // 
+
 }

@@ -23,7 +23,8 @@ export class HeaderComponent implements OnInit {
 
     this.loginForm = this.fb.group({
       clientid: [''],
-      pwd: ['']
+      pwd: [''],
+      email: ['']
     })
   }
   loginfortrade() {
