@@ -30,6 +30,8 @@ export class UserhomeComponent implements OnInit {
   bindLoginData: any;
   updatedetails: any;
   allMonetartTrans: any;
+  debitAmount: any;
+  typesofdocuments: any;
   constructor(private fb: FormBuilder, private service: ServicesService) { }
 
   ngOnInit(): void {
@@ -63,6 +65,7 @@ export class UserhomeComponent implements OnInit {
       bankname: [''],
       iban: [''],
     })
+    this.typeofdocument();
   }
   // fund account
   addfund() {
@@ -72,7 +75,7 @@ export class UserhomeComponent implements OnInit {
     }
     this.service.fundAccount(fndaccntparamtr).subscribe(giveFund => {
       this.fundtheAccount = giveFund;
-      if(giveFund === null) {
+      if (giveFund === null) {
         this.response = 'Amount is added successfully..!'
       } else {
         this.response = '';
@@ -116,7 +119,7 @@ export class UserhomeComponent implements OnInit {
     }
     this.service.contactUs(contctusParamtr).subscribe(contctusforquery => {
       this.usercontactus = contctusforquery;
-      if(contctusforquery === null) {
+      if (contctusforquery === null) {
         this.response = '';
       } else {
         this.response = "Thank you for reaching us. Our team will contact you..!"
@@ -230,11 +233,11 @@ export class UserhomeComponent implements OnInit {
   }
   monetarytransactions() {
     const allmonetrytrnsctions = {}
-      // get monetary transaction data
-      this.service.getMonetarytransation(allmonetrytrnsctions).subscribe(monetarytransactionRes => {
-        this.allMonetartTrans = monetarytransactionRes;
-        console.log('allMonetartTrans',monetarytransactionRes);
-      })
+    // get monetary transaction data
+    this.service.getMonetarytransation(allmonetrytrnsctions).subscribe(monetarytransactionRes => {
+      this.allMonetartTrans = monetarytransactionRes;
+      console.log('allMonetartTrans', monetarytransactionRes);
+    })
     this.home = false;
     this.personalddetails = false;
     this.chngpwd = false;
@@ -312,7 +315,7 @@ export class UserhomeComponent implements OnInit {
       console.log('updatedetails', persnldtlsupdt);
     })
     this.editpersonaldetails = false;
-    
+
     this.personalddetails = true;
   }
   backtopersonaldetails() {
@@ -320,5 +323,34 @@ export class UserhomeComponent implements OnInit {
     this.editpersonaldetails = false;
   }
   // 
-
+  WithdrawalAmount() {
+    const debitfund = {
+      TPAccountNumber: this.UserFormInfo.value.tpaccountnumber,
+      CurrencyId: '',
+      CurrencyName: this.bindLoginData.Client?.CurrencyName,
+      WithdrawAmount: this.UserFormInfo.value.amount,
+      BankName: this.UserFormInfo.value.bankname,
+      IBAN: this.UserFormInfo.value.iban
+    }
+    this.service.withdrawFund(debitfund).subscribe(withdrwlfndRes => {
+      this.debitAmount = withdrwlfndRes;
+      if(withdrwlfndRes === true) {
+        this.response = 'Amount is  withdrawal successfully..!';
+      } else {
+        this.response = '';
+      }
+      this.UserFormInfo.reset();
+      console.log('debitAmount', withdrwlfndRes);
+    })
+  }
+  // document type
+  typeofdocument() {
+    const dcmttype = {}
+    this.service.docuType(dcmttype).subscribe(typedocmnts => {
+      this.typesofdocuments = typedocmnts;
+      console.log('typesofdocuments',typedocmnts);
+    })
+  }
+  // uplddocument
+  // uplddocument
 }
