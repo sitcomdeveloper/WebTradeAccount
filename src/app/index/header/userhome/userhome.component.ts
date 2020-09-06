@@ -32,6 +32,8 @@ export class UserhomeComponent implements OnInit {
   allMonetartTrans: any;
   debitAmount: any;
   typesofdocuments: any;
+  confidentialdocumnts: any;
+  uploadedFile: File;
   constructor(private fb: FormBuilder, private service: ServicesService) { }
 
   ngOnInit(): void {
@@ -64,6 +66,9 @@ export class UserhomeComponent implements OnInit {
       tpaccountnumber: [''],
       bankname: [''],
       iban: [''],
+      // upload document
+      documenttype: [''],
+      document: ['']
     })
     this.typeofdocument();
   }
@@ -153,6 +158,66 @@ export class UserhomeComponent implements OnInit {
     this.mnetrytransction = false;
     this.withdrwl = false;
     this.dpsitfunds = false;
+    this.editpersonaldetails = false;
+  }
+    // personal details editing div
+  // edit button
+  // fetch personal details
+  closenormalmode() {
+    this.service.fetchpersonaldetails(this.bindLoginData.Client.Email).subscribe(dtlsoffetchuser => {
+      this.detailsonEmail = dtlsoffetchuser;
+      this.UserFormInfo.patchValue({
+        firstname: this.detailsonEmail.FirstName,
+        lastname: this.detailsonEmail.LastName,
+        countryname: this.detailsonEmail.CountryName,
+        email: this.detailsonEmail.Email,
+        phonecode: 91,
+        phonenumber: this.detailsonEmail.Phone,
+        state: this.detailsonEmail.State,
+        city: this.detailsonEmail.City,
+        postcode: this.detailsonEmail.PinCode,
+      });
+      console.log('detailsonEmail', dtlsoffetchuser);
+    })
+    this.personalddetails = false;
+    this.editpersonaldetails = true;
+  }
+  
+  savepersonaldetails() {
+    this.service.fetchpersonaldetails(this.bindLoginData.Client.Email).subscribe(dtlsoffetchuser => {
+      this.detailsonEmail = dtlsoffetchuser;
+    })
+    const updtprsnldetls = {
+      Id: this.detailsonEmail.Id,
+      FirstName: this.UserFormInfo.value.firstname,
+      LastName: this.UserFormInfo.value.lastname,
+      CountryId: '',
+      CountryName: this.UserFormInfo.value.countryname,
+      Email: this.UserFormInfo.value.email,
+      Phone: this.UserFormInfo.value.phonenumber,
+      OwnerId: this.detailsonEmail.OwnerId,
+      Mobile: '',
+      State: this.UserFormInfo.value.state,
+      City: this.UserFormInfo.value.city,
+      PinCode: this.UserFormInfo.value.postcode,
+    }
+    this.service.updatepersonaldetails(updtprsnldetls).subscribe(persnldtlsupdt => {
+      this.updatedetails = persnldtlsupdt;
+      this.afterupdate();
+      console.log('updatedetails', persnldtlsupdt);
+    })
+    // this.editpersonaldetails = false;
+
+    // this.personalddetails = true;
+  }
+  // getpersonaldetails for after update
+  afterupdate() {
+    this.service.fetchpersonaldetails(this.bindLoginData.Client.Email).subscribe(dtlsoffetchuser => {
+      this.detailsonEmail = dtlsoffetchuser;
+    })
+  }
+  backtopersonaldetails() {
+    this.personalddetails = true;
     this.editpersonaldetails = false;
   }
   chngepassword() {
@@ -261,67 +326,7 @@ export class UserhomeComponent implements OnInit {
     this.dpsitfunds = false;
     this.editpersonaldetails = false;
   }
-  // personal details editing div
-  // edit button
-  // fetch personal details
-  closenormalmode() {
-    this.service.fetchpersonaldetails(this.bindLoginData.Client.Email).subscribe(dtlsoffetchuser => {
-      this.detailsonEmail = dtlsoffetchuser;
-      this.UserFormInfo.patchValue({
-        firstname: this.detailsonEmail.FirstName,
-        lastname: this.detailsonEmail.LastName,
-        countryname: this.detailsonEmail.CountryName,
-        email: this.detailsonEmail.Email,
-        phonecode: 91,
-        phonenumber: this.detailsonEmail.Phone,
-        state: this.detailsonEmail.State,
-        city: this.detailsonEmail.City,
-        postcode: this.detailsonEmail.PinCode,
-      });
-      console.log('detailsonEmail', dtlsoffetchuser);
-    })
-    this.personalddetails = false;
-    this.editpersonaldetails = true;
-  }
-  // getpersonaldetails for after update
-  afterupdate() {
-    this.service.fetchpersonaldetails(this.bindLoginData.Client.Email).subscribe(dtlsoffetchuser => {
-      this.detailsonEmail = dtlsoffetchuser;
-    })
-  }
-  savepersonaldetails() {
-    this.service.fetchpersonaldetails(this.bindLoginData.Client.Email).subscribe(dtlsoffetchuser => {
-      this.detailsonEmail = dtlsoffetchuser;
-    })
-    const updtprsnldetls = {
-      Id: this.detailsonEmail.Id,
-      FirstName: this.UserFormInfo.value.firstname,
-      LastName: this.UserFormInfo.value.lastname,
-      CountryId: '',
-      CountryName: this.UserFormInfo.value.countryname,
-      Email: this.UserFormInfo.value.email,
-      Phone: this.UserFormInfo.value.phonenumber,
-      OwnerId: this.detailsonEmail.OwnerId,
-      Mobile: '',
-      State: this.UserFormInfo.value.state,
-      City: this.UserFormInfo.value.city,
-      PinCode: this.UserFormInfo.value.postcode,
-    }
-    this.service.updatepersonaldetails(updtprsnldetls).subscribe(persnldtlsupdt => {
-      this.updatedetails = persnldtlsupdt;
-      this.service.fetchpersonaldetails(this.bindLoginData.Client.Email).subscribe(dtlsoffetchuser => {
-        this.detailsonEmail = dtlsoffetchuser;
-      })
-      console.log('updatedetails', persnldtlsupdt);
-    })
-    this.editpersonaldetails = false;
 
-    this.personalddetails = true;
-  }
-  backtopersonaldetails() {
-    this.personalddetails = true;
-    this.editpersonaldetails = false;
-  }
   // 
   WithdrawalAmount() {
     const debitfund = {
@@ -348,9 +353,30 @@ export class UserhomeComponent implements OnInit {
     const dcmttype = {}
     this.service.docuType(dcmttype).subscribe(typedocmnts => {
       this.typesofdocuments = typedocmnts;
-      console.log('typesofdocuments',typedocmnts);
+      // console.log('typesofdocuments',typedocmnts);
     })
   }
+  file_name_show(event) {
+    let fileList: FileList = event.target.files;
+    if (fileList.length > 0) {
+      this.uploadedFile = fileList[0];
+      let fileSize: number = fileList[0].size;
+    }
+    }
   // uplddocument
-  // uplddocument
+  uplddocument() {
+    const formData: FormData = new FormData();
+    formData.append("uploadedFile", this.uploadedFile);
+    formData.append("ClientId", this.bindLoginData.Client.Id);
+    this.service.uploaddocumnt(formData).subscribe(upldtdocmnt => {
+      this.confidentialdocumnts = upldtdocmnt;
+      if(upldtdocmnt === true) {
+        this.response = 'Documents is uploaded successfully..!';
+      } else {
+        this.response = 'Error'; 
+      }
+      this.UserFormInfo.reset();
+      console.log('confidentialdocumnts',upldtdocmnt);
+    })
+  }
 }

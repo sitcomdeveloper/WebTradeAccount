@@ -45,9 +45,7 @@
                         <div class="cell">
                             <!-- <a href="ForgotPassword.html" class="forgot">Forgot password?</a> -->
                             <!-- <a href="javascript:void(0);" class="forgot" data-toggle="modal" data-target="#pwdModal">Forgot Password?</a> -->
-                            <a href="javascript:void(0);" class="ico-add ico-sz3 showrcrd popupicon " data-rule="add-link"  data-toggle="modal" data-target="#pwdModal">Forgot Password?
-          
-            </a>
+                            <a href="javascript:void(0);" class="ico-add ico-sz3 showrcrd popupicon " data-rule="add-link"  data-toggle="modal" data-target="#pwdModal" >Forgot Password?</a>
                         </div>
                     </div>
                     <div style="display: none;" class="error" id="loginError">
@@ -66,7 +64,8 @@
             </strong>
             <div class="header-panel">
     <ul>
-            <li class="welcome-name">Welcome Back, <br /> {{this.bindLoginData?.Client.FirstName}} {{this.bindLoginData?.Client.LastName}}</li>
+            <!-- <li class="welcome-name">Welcome Back, <br /> {{this.bindLoginData?.Client.FirstName}} {{this.bindLoginData?.Client.LastName}}</li> -->
+            <li class="welcome-name">Welcome Back <br /> </li>
         <!-- <li>
             <a routerLink="/contact-us" class="link-contactus">Contact Us</a>
         </li> -->
@@ -164,7 +163,7 @@
 </form>        </div>
 </div>
 </header>
-<!-- reset password
+<!-- reset password div
  -->
 <div class="modal fade" id="pwdModal">
     <div class="modal-dialog modal-login">
@@ -199,7 +198,8 @@
                           </div>
                           <div class="form-group">
                             <input name="recover-submit" class="btn btn-lg btn-primary btn-block" value="Reset Password" 
-                              type="submit">
+                              type="submit" (click)="restepwd()">
+                              <div class="message">{{response}}</div>
                           </div>
                           <input type="hidden" class="hide" name="token" id="token" value="">
                         </form>

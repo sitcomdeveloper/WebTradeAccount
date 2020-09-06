@@ -726,30 +726,20 @@
                 
 
 <h2>Upload Documents</h2>
-<form action="/upload-documents" class="form" enctype="multipart/form-data" id="actionForm2" method="post">    <div class="row">
+<form [formGroup]="UserFormInfo" class="form" enctype="multipart/form-data" id="actionForm2" method="post">    <div class="row">
 <label for="UploadType">UploadType</label>
 <div class="formset">
-    <select data-val="true" data-val-number="The field UploadType must be a number." data-val-required="The UploadType field is required." id="UploadType" name="UploadType"><option value="1">Bank Statement</option>
-<option value="2">Bank Wire</option>
-<option value="3">Credit Card</option>
-<option value="4">Driving License</option>
-<option value="5">National ID Card</option>
-<option value="6">Passport ID</option>
-<option value="7">Utility Bill</option>
-<option value="8">DOD</option>
-<option value="9">POR</option>
-<option value="10">ID</option>
-<option value="11">Wire Details</option>
-<option value="12">WD Request Form</option>
+    <select data-val="true" data-val-number="The field UploadType must be a number." data-val-required="The UploadType field is required." id="UploadType" name="UploadType" formControlName="documenttype">
+        <option *ngFor = "let documents of typesofdocuments">{{documents.TypeName}}</option>
 </select>
 </div>
 <span class="error"><span class="field-validation-valid" data-valmsg-for="UploadType" data-valmsg-replace="true"></span></span>
 </div>
-<div class="row"><label for="IdentificationsFile">File: *</label><div class="row-control"><div class="formset"><input type="file" class="file" id="IdentificationsFile" name="IdentificationsFile" accept="*.gif" size="25" /><span class="error"><span class="field-validation-valid" data-valmsg-for="IdentificationsFile" data-valmsg-replace="true"></span></span></div></div></div>    <span class="error col-md-offset-2"></span>
+<div class="row"><label for="IdentificationsFile">File: *</label><div class="row-control"><div class="formset"><input type="file" class="file" id="IdentificationsFile" name="IdentificationsFile" accept="*.gif" size="25" (change)="file_name_show($event)" formControlName="document"/><span class="error"><span class="field-validation-valid" data-valmsg-for="IdentificationsFile" data-valmsg-replace="true"></span></span></div></div></div>    <span class="error col-md-offset-2"></span>
 <h3 class="status-success">
 
 </h3>
-<div class="row button-row"><div class="buttonset"><a class="button" href="#" onclick="submitForm2(); return false;"><span>Submit</span></a></div></div></form>
+<div class="row button-row"><div class="buttonset"><a class="button" href="javascript:void(0);" (click)="uplddocument()"><span>Submit</span></a></div></div></form>
 
 <br />
 <div class="line">&nbsp;</div>
@@ -793,8 +783,9 @@
 </div>
 </div>
 </aside>
-
+<div class="message">{{response}}</div>
     </div>
+    
 </main>
 <!-- monetary transactions -->
 <main *ngIf = mnetrytransction>

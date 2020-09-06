@@ -12,6 +12,8 @@ export class HeaderComponent implements OnInit {
   userwilllogin: any;
   getLoginDetails: any;
   bindLoginData: any;
+  getCredentials: any;
+  response: any;
   constructor(private service: ServicesService, private fb: FormBuilder) { }
   beforelogin = true;
   afterlogin = false;
@@ -64,5 +66,18 @@ this.beforelogin = false;
     // window.sessionStorage.clear();
     this.beforelogin = true;
     this.afterlogin = false;
+  }
+  // reset password
+  restepwd() {
+    const frgt = this.loginForm.value.email;
+    this.service.forgotpwd(frgt).subscribe(resetpwdres => {
+      this.getCredentials = resetpwdres;
+      if(resetpwdres === 'Success') {
+        this.response = 'Credentials is sent on your mail'
+      } else {
+        this.response = 'Invalid Client'
+      }
+      // console.log('getCredentials',resetpwdres);
+    })
   }
 }
