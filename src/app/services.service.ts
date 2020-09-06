@@ -46,4 +46,17 @@ export class ServicesService {
   getMonetarytransation(allmonetrytrnsctions: any): Observable<any> {
     return this.http.post<any>(API_URL + 'TradeAccount/GetAllFinancialTransactionLists',allmonetrytrnsctions);
   }
+   // withdrawal amont
+   withdrawFund(debitfund: any): Observable<any> {
+    return this.http.post<any>(API_URL + 'TradeAccount/WithdrawalAmount', debitfund);
+  }
+  // upload document API
+// document type
+docuType(dcmttype: any): Observable<any> {
+  return this.http.post<any>(API_URL + 'TradeAccount/GetDocumentType ', dcmttype);
+}
+// upload document
+uploaddocumnt(uplddocument: any): Observable<any> {
+  return this.http.post<any>(API_URL + 'TradeAccount/UploadDocuments', uplddocument);
+}
 }
