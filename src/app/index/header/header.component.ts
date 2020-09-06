@@ -53,9 +53,12 @@ export class HeaderComponent implements OnInit {
  this.getLoginDetails = JSON.parse(window.sessionStorage.getItem('project'));
  this.bindLoginData = this.getLoginDetails;
  console.log('LD',this.bindLoginData);   
-    
-     this.beforelogin = false;
-    this.afterlogin = true;
+//  if(window.sessionStorage.getItem('project')) {
+//   this.beforelogin = false;
+//   this.afterlogin = true;
+// }
+this.beforelogin = false;
+  this.afterlogin = true;
   }
   logoutfromtrade() {
     // window.sessionStorage.clear();

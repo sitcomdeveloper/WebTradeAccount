@@ -58,6 +58,10 @@ export class UserhomeComponent implements OnInit {
       oldpwd: [''],
       newpwd: [''],
       confirmpwd: [''],
+      // withdwl
+      tpaccountnumber: [''],
+      bankname: [''],
+      iban: [''],
     })
   }
   // fund account
