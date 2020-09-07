@@ -92,8 +92,8 @@ export class UserhomeComponent implements OnInit {
   // update password
   updatethepassword() {
     const chngepwdparamtr = {
-      Id: this.bindLoginData.Client.Id,
-      Email: this.bindLoginData.Client.Email,
+      Id: this.bindLoginData?.Client.Id,
+      Email: this.bindLoginData?.Client.Email,
       OldPassword: this.UserFormInfo.value.oldpwd,
       NewPassword: this.UserFormInfo.value.newpwd,
       ConfirmPassword: this.UserFormInfo.value.confirmpwd,
@@ -112,7 +112,7 @@ export class UserhomeComponent implements OnInit {
   // contact us
   fillcontactusform() {
     const contctusParamtr = {
-      OwnerId: this.bindLoginData.Client.OwnerId,
+      OwnerId: this.bindLoginData?.Client.OwnerId,
       FirstName: this.UserFormInfo.value.firstname,
       LastName: this.UserFormInfo.value.lastname,
       Email: this.UserFormInfo.value.email,
@@ -146,7 +146,7 @@ export class UserhomeComponent implements OnInit {
     this.editpersonaldetails = false;
   }
   prsnldtls() {
-    this.service.fetchpersonaldetails(this.bindLoginData.Client.Email).subscribe(dtlsoffetchuser => {
+    this.service.fetchpersonaldetails(this.bindLoginData?.Client.Email).subscribe(dtlsoffetchuser => {
       this.detailsonEmail = dtlsoffetchuser;
     })
     this.home = false;
@@ -164,7 +164,7 @@ export class UserhomeComponent implements OnInit {
   // edit button
   // fetch personal details
   closenormalmode() {
-    this.service.fetchpersonaldetails(this.bindLoginData.Client.Email).subscribe(dtlsoffetchuser => {
+    this.service.fetchpersonaldetails(this.bindLoginData?.Client.Email).subscribe(dtlsoffetchuser => {
       this.detailsonEmail = dtlsoffetchuser;
       this.UserFormInfo.patchValue({
         firstname: this.detailsonEmail.FirstName,
@@ -184,7 +184,7 @@ export class UserhomeComponent implements OnInit {
   }
   
   savepersonaldetails() {
-    this.service.fetchpersonaldetails(this.bindLoginData.Client.Email).subscribe(dtlsoffetchuser => {
+    this.service.fetchpersonaldetails(this.bindLoginData?.Client.Email).subscribe(dtlsoffetchuser => {
       this.detailsonEmail = dtlsoffetchuser;
     })
     const updtprsnldetls = {
@@ -212,7 +212,7 @@ export class UserhomeComponent implements OnInit {
   }
   // getpersonaldetails for after update
   afterupdate() {
-    this.service.fetchpersonaldetails(this.bindLoginData.Client.Email).subscribe(dtlsoffetchuser => {
+    this.service.fetchpersonaldetails(this.bindLoginData?.Client.Email).subscribe(dtlsoffetchuser => {
       this.detailsonEmail = dtlsoffetchuser;
     })
   }
@@ -234,7 +234,7 @@ export class UserhomeComponent implements OnInit {
   }
   // fetch the details gor contact us form
   contactwe() {
-    this.service.fetchpersonaldetails(this.bindLoginData.Client.Email).subscribe(dtlsoffetchuser => {
+    this.service.fetchpersonaldetails(this.bindLoginData?.Client.Email).subscribe(dtlsoffetchuser => {
       this.detailsonEmail = dtlsoffetchuser;
       this.UserFormInfo.patchValue({
         firstname: this.detailsonEmail.FirstName,
@@ -332,7 +332,7 @@ export class UserhomeComponent implements OnInit {
     const debitfund = {
       TPAccountNumber: this.UserFormInfo.value.tpaccountnumber,
       CurrencyId: '',
-      CurrencyName: this.bindLoginData.Client?.CurrencyName,
+      CurrencyName: this.bindLoginData?.Client.CurrencyName,
       WithdrawAmount: this.UserFormInfo.value.amount,
       BankName: this.UserFormInfo.value.bankname,
       IBAN: this.UserFormInfo.value.iban
@@ -367,7 +367,7 @@ export class UserhomeComponent implements OnInit {
   uplddocument() {
     const formData: FormData = new FormData();
     formData.append("uploadedFile", this.uploadedFile);
-    formData.append("ClientId", this.bindLoginData.Client.Id);
+    formData.append("ClientId", this.bindLoginData?.Client.Id);
     this.service.uploaddocumnt(formData).subscribe(upldtdocmnt => {
       this.confidentialdocumnts = upldtdocmnt;
       if(upldtdocmnt === true) {

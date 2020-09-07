@@ -2,7 +2,7 @@
     <div class="quote__container">&nbsp;</div>
     <div class="breadcrumbs">
         <ul class="">
-            <li><a href="/">Home</a></li>
+            <li><a href="javascript:void(0);">Home</a></li>
             <li>Welcome</li>
         </ul>
     </div>
@@ -11,21 +11,19 @@
             <div id="content">
 
 
-                <h1>Welcome Back, {{this.bindLoginData.Client?.FirstName}} {{this.bindLoginData.Client?.LastName}} </h1>
-                <div class="centered-buttons">
-                    <!-- <a class="button btn-md" href="/deposit-methods"><span><span>FUND MY
-                                ACCOUNT</span>
-                            </span>
-                        </a> -->
+                <h1>Welcome Back, {{this.bindLoginData?.Client.FirstName}} {{this.bindLoginData?.Client.LastName}} </h1>
+                <!-- <div class="centered-buttons">
+            
                                 <a class="button button2 btn-md"
-                        href="https://webtrader.eufxindex.com/setup/terminal.msi"
+                        href="javascript:void(0);"
                         target="_blank"><span><span>Download<br />trading platform</span></span></a><a
                         class="button button3 btn-md" href="https://webtrader.eufxindex.com/"
-                        target="_blank"><span><span>login to<br />webtrader</span></span></a></div>
+                        target="_blank"><span><span>login to<br />webtrader</span></span></a>
+                    </div> -->
                 <div class="welcome-text">
                     <p>You can now use real account to trade Forex, CFDs, Commodities, Stocks and Indices across
                         multiple platforms (FXTT, Web &amp; Mobile).</p>
-                    <p><strong>Thank you for choosing Europe Forex Index</strong></p>
+                    <p><strong>Thank you for choosing TradeFx</strong></p>
                 </div>
                 <div class="table account-table">
                     <table id="tradeAccounts">
@@ -39,9 +37,9 @@
                         </thead>
                         <thead>
                             <tr>
-                                <th>{{this.bindLoginData.Client?.TypeName}}</th>
-                                <th>{{this.bindLoginData.TradeAccount?.TPAccountNumber}}</th>
-                                <th>{{this.bindLoginData.Client?.CurrencyName}}</th>
+                                <th>{{this.bindLoginData?.Client.TypeName}}</th>
+                                <th>{{this.bindLoginData?.TradeAccount.TPAccountNumber}}</th>
+                                <th>{{this.bindLoginData?.Client.CurrencyName}}</th>
                             </tr>
                         </thead>
                     </table>
@@ -95,7 +93,7 @@
 <main *ngIf=personalddetails>
     <div class="quote__container">&nbsp;</div>
     <div class="breadcrumbs">
-        <ul class=""><li><a href="/">Home</a></li><li>My Account</li></ul>
+        <ul class=""><li><a href="javascript:void(0);">Home</a></li><li>My Account</li></ul>
     </div>
     <div class="main-holder">
         <div class="contentholder">
@@ -163,7 +161,7 @@
 <main *ngIf = editpersonaldetails>
     <div class="quote__container">&nbsp;</div>
     <div class="breadcrumbs">
-        <ul class=""><li><a href="/">Home</a></li><li>Edit Account</li></ul>
+        <ul class=""><li><a href="javascript:void(0);">Home</a></li><li>Edit Account</li></ul>
     </div>
     <div class="main-holder">
         <div class="contentholder">
@@ -479,7 +477,7 @@
 <main *ngIf = chngpwd>
     <div class="quote__container">&nbsp;</div>
     <div class="breadcrumbs">
-        <ul class=""><li><a href="/">Home</a></li><li>Change Password</li></ul>
+        <ul class=""><li><a href="javascript:void(0);">Home</a></li><li>Change Password</li></ul>
     </div>
     <div class="main-holder">
         <div class="contentholder">
@@ -491,7 +489,7 @@
 <h1 class="fl-l-lg fl-l-md reversed">Change Password</h1>
 <div class="required fl-r-lg fl-r-md reversed">All fields marked as <span>*</span>are mandatory</div>
 </div>
-<form [formGroup]="UserFormInfo" action="/change-password" class="form" id="actionForm" method="post" role="form"><input name="__RequestVerificationToken" type="hidden" value="r5CggDhr-lCDUoO-cSAzpAvcUp3uFp0-0odTVheUWGyX_aEFLOLM7AaexS4gQ_8fHC2zB0ksYuMdOjY7IOhQKKus1IA43mJ3T-w62WFlwlr3LlQLDeSQHUqsXGdJNV7KuNJmbQ2"/>    <fieldset>
+<form [formGroup]="UserFormInfo" class="form" id="actionForm" role="form"><input name="" type="hidden"/>    <fieldset>
 <div class="row"><label for="OldPassword"> Old Password:</label><div class="row-control"><div class="formset"><input data-val="true" data-val-localizedrequired="Please re-enter Old Password" data-val-localizedrequired-otherpropertyname="ProjectManager" id="OldPassword" name="OldPassword" type="password" formControlName = "oldpwd"/><span class="error"><span class="field-validation-valid" data-valmsg-for="OldPassword" data-valmsg-replace="true"></span></span></div></div></div>
 <div class="row"><label for="NewPassword">New Password:</label><div class="row-control"><div class="formset"><input class=" password" data-val="true" data-val-localizedrequired="Please re-enter New Password" data-val-localizedrequired-otherpropertyname="ProjectManager" id="NewPassword" name="NewPassword" title="Your Password must contain:&lt;br/> - at least 5 characters &lt;br/> - contain at least 1 letter &lt;br/> - contain at least 1 number" type="password" formControlName = "newpwd"/><span class="error"><span class="field-validation-valid" data-valmsg-for="NewPassword" data-valmsg-replace="true"></span></span></div></div></div>
 <div class="row"><div class="row-control"><div class="formset"><div id="iSM"><ul class="weak"><li id="iWeak">Weak</li><li id="iMedium">Medium</li><li id="iStrong">Strong</li></ul></div></div></div></div>
@@ -550,7 +548,7 @@
 <main *ngIf = trdinghistry>
     <div class="quote__container">&nbsp;</div>
     <div class="breadcrumbs">
-        <ul class=""><li><a href="/">Home</a></li><li>Trading History</li></ul>
+        <ul class=""><li><a href="javascript:void(0);">Home</a></li><li>Trading History</li></ul>
     </div>
     <div class="main-holder">
         <div class="contentholder">
@@ -559,11 +557,11 @@
 
 
 <h1>Closed Positions</h1>
-<form action="#" class="form">
+<form  class="form">
 <fieldset>
 <div class="form-columns">
     <div class="form-col col-md-6">
-        <div class="row"><label for="TradeAccount">Trade Account: *</label><div class="row-control"><div class="formset"><select class="sel" data-val="true" data-val-localizedrequired="Please re-enter Trade Account" data-val-localizedrequired-otherpropertyname="ProjectManager" data-val-number="The field Trade Account: * must be a number." id="TradeAccount" name="TradeAccount" onchange="refreshTable();"><option value="107557">107557</option>
+        <div class="row"><label for="TradeAccount">Trade Account: *</label><div class="row-control"><div class="formset"><select class="sel" data-val="true" data-val-localizedrequired="Please re-enter Trade Account" data-val-localizedrequired-otherpropertyname="ProjectManager" data-val-number="The field Trade Account: * must be a number." id="TradeAccount" name="TradeAccount"><option value="{{this.bindLoginData?.TradeAccount.TPAccountNumber}}">{{this.bindLoginData?.TradeAccount.TPAccountNumber}}</option>
 </select></div><span class="error"><span class="field-validation-valid" data-valmsg-for="TradeAccount" data-valmsg-replace="true"></span></span></div></div>
     </div>
 </div>
@@ -636,7 +634,7 @@
 <main *ngIf = dpsitfunds>
     <div class="quote__container">&nbsp;</div>
     <div class="breadcrumbs">
-        <ul class=""><li><a href="/">Home</a></li><li>Deposit</li></ul>
+        <ul class=""><li><a href="javascript:void(0);">Home</a></li><li>Deposit</li></ul>
     </div>
     <div class="main-holder">
         <div class="contentholder">
@@ -652,10 +650,10 @@
 </div>
 
 
-<form [formGroup]="UserFormInfo" action="/deposit" class="form" id="actionForm" method="post" role="form"><input name="__RequestVerificationToken" type="hidden" value="1RzjbKdX_VHh3MFpFZdNguetNRDlpk1DNg6K8w9nojIz69-cMSFUnRgvLi6RB-jMhBtsnT9xMM-3QSuW2DQQyNa-vx6TZKPBndP1GXn-x2JCmyDPmhiwWF45FN8eBiXDBb9WzQ2" />    <fieldset>
-<div class="row"><label for="DepositModel_TradeAccount">Trade Account: *</label><div class="row-control"><div class="formset"><select data-val="true" data-val-localizedrequired="Please re-enter Trade Account" data-val-localizedrequired-otherpropertyname="ProjectManager" data-val-number="The field Trade Account: * must be a number." id="DepositModel_TradeAccount" name="DepositModel.TradeAccount" formControlName="trdeaccount"><option value="{{this.bindLoginData.TradeAccount?.TPAccountNumber}}">{{this.bindLoginData.TradeAccount?.TPAccountNumber}}</option>
+<form [formGroup]="UserFormInfo" class="form" id="actionForm" role="form"><input name="" type="hidden" />    <fieldset>
+<div class="row"><label for="DepositModel_TradeAccount">Trade Account: *</label><div class="row-control"><div class="formset"><select data-val="true" data-val-localizedrequired="Please re-enter Trade Account" data-val-localizedrequired-otherpropertyname="ProjectManager" data-val-number="The field Trade Account: * must be a number." id="DepositModel_TradeAccount" name="DepositModel.TradeAccount" formControlName="trdeaccount"><option value="{{this.bindLoginData?.TradeAccount.TPAccountNumber}}">{{this.bindLoginData?.TradeAccount.TPAccountNumber}}</option>
 </select></div><span class="error"><span class="field-validation-valid" data-valmsg-for="DepositModel.TradeAccount" data-valmsg-replace="true"></span></span></div></div>
-<div class="row"><label for="DepositModel_Amount">Amount: *</label><div class="row-control"><div class="formset"><div class="formitems"><div class="formitem span-8"><input data-val="true" data-val-localizedrequired="Please re-enter Amount" data-val-localizedrequired-otherpropertyname="ProjectManager" data-val-mindepositvalidator="Deposit should be greater than or equal to 1" data-val-mindepositvalidator-otherpropertyname="1" data-val-number="The field Amount: * must be a number." id="DepositModel_Amount" name="DepositModel.Amount" type="text" value="0" formControlName="amount"/></div><div class="formitem span-4 mark"><span id="currentCurrency" class="mark">US Dollar</span></div></div><span class="error"><span class="field-validation-valid" data-valmsg-for="DepositModel.Amount" data-valmsg-replace="true"></span></span></div></div></div>
+<div class="row"><label for="DepositModel_Amount">Amount: *</label><div class="row-control"><div class="formset"><div class="formitems"><div class="formitem span-8"><input data-val="true" data-val-localizedrequired="Please re-enter Amount" data-val-localizedrequired-otherpropertyname="ProjectManager" data-val-mindepositvalidator="Deposit should be greater than or equal to 1" data-val-mindepositvalidator-otherpropertyname="1" data-val-number="The field Amount: * must be a number." id="DepositModel_Amount" name="DepositModel.Amount" type="text" value="0" formControlName="amount"/></div><div class="formitem span-4 mark"><span id="currentCurrency" class="mark">{{this.bindLoginData?.Client.CurrencyName}}</span></div></div><span class="error"><span class="field-validation-valid" data-valmsg-for="DepositModel.Amount" data-valmsg-replace="true"></span></span></div></div></div>
 
 <input data-val="true" data-val-localizedrequired="Please re-enter Zip / Postal Code" data-val-localizedrequired-otherpropertyname="ProjectManager" id="DepositModel_Zip" name="DepositModel.Zip" type="hidden" value="12345" />
 <input data-val="true" data-val-localizedrequired="Please re-enter City" data-val-localizedrequired-otherpropertyname="ProjectManager" id="DepositModel_City" name="DepositModel.City" type="hidden" value="London" />
@@ -718,7 +716,7 @@
 <main *ngIf = uplddocuments>
     <div class="quote__container">&nbsp;</div>
     <div class="breadcrumbs">
-        <ul class=""><li><a href="/">Home</a></li><li>Upload Documents</li></ul>
+        <ul class=""><li><a href="javascript:void(0);">Home</a></li><li>Upload Documents</li></ul>
     </div>
     <div class="main-holder">
         <div class="contentholder">
@@ -726,7 +724,7 @@
                 
 
 <h2>Upload Documents</h2>
-<form [formGroup]="UserFormInfo" class="form" enctype="multipart/form-data" id="actionForm2" method="post">    <div class="row">
+<form [formGroup]="UserFormInfo" class="form" enctype="multipart/form-data" id="actionForm2">    <div class="row">
 <label for="UploadType">UploadType</label>
 <div class="formset">
     <select data-val="true" data-val-number="The field UploadType must be a number." data-val-required="The UploadType field is required." id="UploadType" name="UploadType" formControlName="documenttype">
@@ -791,7 +789,7 @@
 <main *ngIf = mnetrytransction>
     <div class="quote__container">&nbsp;</div>
     <div class="breadcrumbs">
-        <ul class=""><li><a href="/">Home</a></li><li>Monetary Statement</li></ul>
+        <ul class=""><li><a href="javascript:void(0);">Home</a></li><li>Monetary Statement</li></ul>
     </div>
     <div class="main-holder">
         <div class="contentholder">
@@ -799,11 +797,11 @@
                 
 
 <h1>Monetary Statement</h1>
-<form [formGroup]="UserFormInfo" action="#" class="form">
+<form [formGroup]="UserFormInfo" class="form">
 <fieldset>
 <div class="form-columns">
     <div class="form-col col-md-6">
-        <div class="row"><label for="TradeAccount">Trade Account: *</label><div class="row-control"><div class="formset"><select class="sel" data-val="true" data-val-localizedrequired="Please re-enter Trade Account" data-val-localizedrequired-otherpropertyname="ProjectManager" data-val-number="The field Trade Account: * must be a number." id="TradeAccount" name="TradeAccount"><option value="{{this.bindLoginData.TradeAccount?.TPAccountNumber}}">{{this.bindLoginData.TradeAccount?.TPAccountNumber}}</option>
+        <div class="row"><label for="TradeAccount">Trade Account: *</label><div class="row-control"><div class="formset"><select class="sel" data-val="true" data-val-localizedrequired="Please re-enter Trade Account" data-val-localizedrequired-otherpropertyname="ProjectManager" data-val-number="The field Trade Account: * must be a number." id="TradeAccount" name="TradeAccount"><option value="{{this.bindLoginData?.TradeAccount.TPAccountNumber}}">{{this.bindLoginData?.TradeAccount.TPAccountNumber}}</option>
 </select></div><span class="error"><span class="field-validation-valid" data-valmsg-for="TradeAccount" data-valmsg-replace="true"></span></span></div></div>
     </div>
 </div>
@@ -875,7 +873,7 @@
 <main *ngIf = withdrwl>
     <div class="quote__container">&nbsp;</div>
     <div class="breadcrumbs">
-        <ul class=""><li><a href="/">Home</a></li><li>Withdrawal</li></ul>
+        <ul class=""><li><a href="javascript:void(0);">Home</a></li><li>Withdrawal</li></ul>
     </div>
     <div class="main-holder">
         <div class="contentholder">
@@ -884,11 +882,11 @@
 
 
 <h1>Withdrawal</h1>
-<p>Please complete the necessary fields below and submit this information via e-mail as a scanned image (JPG, GIF, PNG, non-password protected PDF) to <a href="mailto:info@eufxindex.com">info@eufxindex.com</a>. The request will generally be processed within 2 business days of receipt. In order to avoid any delays please review your information carefully before submitting. We assume no responsibility for errors or inaccuracies made by the account holder.</p>
+<p>Please complete the necessary fields below and submit this information via e-mail as a scanned image (JPG, GIF, PNG, non-password protected PDF) to <a href="mailto:contact@topseedtech.com">contact@topseedtech.com</a>. The request will generally be processed within 2 business days of receipt. In order to avoid any delays please review your information carefully before submitting. We assume no responsibility for errors or inaccuracies made by the account holder.</p>
 
-<form [formGroup]="UserFormInfo" action="/withdrawal" class="form" id="actionForm" method="post" role="form"><input name="__RequestVerificationToken" type="hidden" value="i-xQXhBQcspwVtwnGbOUx8OflLCnNChIUEX3zhKd-lujPeOMfzwhvzIXpzb1BbAIDGJ-p_6QvED-w4lL3XfJWlErZp29w19hhmzfXSXkG-LsqaM022liRRUuQ-MBa8Lminqe5Q2" />    <p>By clicking &quot;Request a Withdrawal&quot; We are will be informed that you would like to withdraw funds. The money will be refunded to your funding credit or debit card.</p>
-<div class="row"><label for="TradeAccount">Trade Account: *</label><div class="row-control"><div class="formset"><select data-val="true" data-val-localizedrequired="Please re-enter Trade Account" data-val-localizedrequired-otherpropertyname="ProjectManager" data-val-number="The field Trade Account: * must be a number." id="TradeAccount" name="TradeAccount" formControlName="tpaccountnumber"><option value="{{this.bindLoginData.TradeAccount?.TPAccountNumber}}">{{this.bindLoginData.TradeAccount?.TPAccountNumber}}</option>
-</select></div><span class="error"><span class="field-validation-valid" data-valmsg-for="TradeAccount" data-valmsg-replace="true"></span></span></div></div><div class="row"><label for="Amount">Amount: *</label><div class="row-control"><div class="formset"><div class="formitems"><div class="formitem span-8"><input data-val="true" data-val-localizedrequired="Please re-enter Amount" data-val-localizedrequired-otherpropertyname="ProjectManager" data-val-number="The field Amount: * must be a number." id="Amount" name="Amount" type="text" value="0" formControlName="amount"/></div><div class="formitem span-4 mark"><span id="currentCurrency" class="mark">{{this.bindLoginData.Client?.CurrencyName}}</span></div></div><span class="error"><span class="field-validation-valid" data-valmsg-for="Amount" data-valmsg-replace="true"></span></span></div></div></div><div class="row"><label for="BankName">Bank name: *</label><div class="row-control"><div class="formset"><input data-val="true" data-val-localizedrequired="Please re-enter Bank name" data-val-localizedrequired-otherpropertyname="ProjectManager" id="BankName" name="BankName" type="text" value="" formControlName="bankname"/><span class="error"><span class="field-validation-valid" data-valmsg-for="BankName" data-valmsg-replace="true"></span></span></div></div></div><div class="row"><label for="BankAccount">IBAN: *</label><div class="row-control"><div class="formset"><input data-val="true" data-val-localizedrequired="Please re-enter IBAN" data-val-localizedrequired-otherpropertyname="ProjectManager" id="BankAccount" name="BankAccount" type="text" value="" formControlName="iban"/><span class="error"><span class="field-validation-valid" data-valmsg-for="BankAccount" data-valmsg-replace="true"></span></span></div></div></div><div class="row button-row"><div class="buttonset"><a class="button" href="javascript:void(0);" (click)="WithdrawalAmount()"><span>Submit</span></a></div></div></form>
+<form [formGroup]="UserFormInfo" class="form" id="actionForm" role="form"><input name="" type="hidden"/>    <p>By clicking &quot;Request a Withdrawal&quot; We are will be informed that you would like to withdraw funds. The money will be refunded to your funding credit or debit card.</p>
+<div class="row"><label for="TradeAccount">Trade Account: *</label><div class="row-control"><div class="formset"><select data-val="true" data-val-localizedrequired="Please re-enter Trade Account" data-val-localizedrequired-otherpropertyname="ProjectManager" data-val-number="The field Trade Account: * must be a number." id="TradeAccount" name="TradeAccount" formControlName="tpaccountnumber"><option value="{{this.bindLoginData?.TradeAccount.TPAccountNumber}}">{{this.bindLoginData?.TradeAccount.TPAccountNumber}}</option>
+</select></div><span class="error"><span class="field-validation-valid" data-valmsg-for="TradeAccount" data-valmsg-replace="true"></span></span></div></div><div class="row"><label for="Amount">Amount: *</label><div class="row-control"><div class="formset"><div class="formitems"><div class="formitem span-8"><input data-val="true" data-val-localizedrequired="Please re-enter Amount" data-val-localizedrequired-otherpropertyname="ProjectManager" data-val-number="The field Amount: * must be a number." id="Amount" name="Amount" type="text" value="0" formControlName="amount"/></div><div class="formitem span-4 mark"><span id="currentCurrency" class="mark">{{this.bindLoginData?.Client.CurrencyName}}</span></div></div><span class="error"><span class="field-validation-valid" data-valmsg-for="Amount" data-valmsg-replace="true"></span></span></div></div></div><div class="row"><label for="BankName">Bank name: *</label><div class="row-control"><div class="formset"><input data-val="true" data-val-localizedrequired="Please re-enter Bank name" data-val-localizedrequired-otherpropertyname="ProjectManager" id="BankName" name="BankName" type="text" value="" formControlName="bankname"/><span class="error"><span class="field-validation-valid" data-valmsg-for="BankName" data-valmsg-replace="true"></span></span></div></div></div><div class="row"><label for="BankAccount">IBAN: *</label><div class="row-control"><div class="formset"><input data-val="true" data-val-localizedrequired="Please re-enter IBAN" data-val-localizedrequired-otherpropertyname="ProjectManager" id="BankAccount" name="BankAccount" type="text" value="" formControlName="iban"/><span class="error"><span class="field-validation-valid" data-valmsg-for="BankAccount" data-valmsg-replace="true"></span></span></div></div></div><div class="row button-row"><div class="buttonset"><a class="button" href="javascript:void(0);" (click)="WithdrawalAmount()"><span>Submit</span></a></div></div></form>
 
             </div>
         </div>
@@ -948,7 +946,7 @@
 <h1 class="fl-l-lg fl-l-md reversed">Send us a Message</h1>
 <div class="required fl-r-lg fl-r-md reversed">All fields marked as <span>*</span>are mandatory</div>
 </div>
-<form [formGroup]="UserFormInfo" action="/ContactUs" class="form" id="actionForm" method="post" role="form"><input name="__RequestVerificationToken" type="hidden" value="M9fF9Fg2DTLVY5I1uuQhqhIyH2mGkyZJwbvpZ-S5-sZoR-e2E6Jhyf2BJl9Jcr7ej29uF4YptI3P7Tv9-igKmlL81SGPj08DcoxkC6nUBRTQd5htDwNfYT5CoQr_835G_Tu3Sw2" />    <fieldset>
+<form [formGroup]="UserFormInfo" class="form" id="actionForm" role="form"><input name="" type="hidden"/>    <fieldset>
 <div class="form-columns">
     <div class="form-col col-md-6">
         <div class="row"><label for="FirstName">First Name: *</label>
@@ -966,7 +964,8 @@
             <input data-val="true" data-val-lengthvalidator="Must be at least 1 and no more than 20 characters long." data-val-lengthvalidator-otherpropertyname="1,20" data-val-localizedrequired="Please re-enter Last Name" data-val-localizedrequired-otherpropertyname="ProjectManager" id="LastName" name="LastName" type="text" value="gupta" formControlName="lastname"/>
             <!-- <span class="vall">rohan</span> -->
             <span class="error"><span class="field-validation-valid" data-valmsg-for="LastName" data-valmsg-replace="true"></span></span></div></div></div>
-        <div class="row"><label for="Country">Country: *</label><div class="row-control"><div class="formset"><select class="sel" data-val="true" data-val-localizedrequired="Please re-enter Country" data-val-localizedrequired-otherpropertyname="ProjectManager" id="Country" name="Country" onchange="getDialingCode()" formControlName="countryname">
+        <div class="row"><label for="Country">Country: *</label><div class="row-control"><div class="formset">
+            <select class="sel" data-val="true" data-val-localizedrequired="Please re-enter Country" data-val-localizedrequired-otherpropertyname="ProjectManager" id="Country" name="Country" formControlName="countryname">
             <option value="">Select...</option>
 <option value="AF">Afghanistan</option>
 <option value="AX">Aland Islands</option>

@@ -613,10 +613,11 @@ main:after {
 .logo a {
 	display: block;
 	width: 130px;
-	height: 87px;
+	height: 100px;
 	overflow: hidden;
 	text-indent: -9999px;
-	background: url(images/logo.svg) no-repeat;
+	/* background: url(images/logo.svg) no-repeat; */
+	background: url(Images/webtrade/logo.png) no-repeat;
 	background-size: cover
 }
 
@@ -754,7 +755,7 @@ main:after {
 	top: 0;
 	width: 100%;
 	height: 4px;
-	background: url(assets/Content/images/bg-nav-drop.png) 50% 0 no-repeat;
+	background: url(Images/webtrade/bg-nav-drop.png) 50% 0 no-repeat;
 	background-size: cover
 }
 
@@ -913,7 +914,7 @@ main:after {
 .btn-big.btn-demo span span span:after {
 	position: absolute;
 	content: "";
-	background: url(images/sprite.png) no-repeat 0 -125px;
+	background: url(Images/webtrade/sprite.png) no-repeat 0 -125px;
 	width: 35px;
 	height: 35px;
 	left: -45px;
@@ -939,7 +940,7 @@ main:after {
 }
 
 .btn-login:after {
-	background: url(assets/images/sprite.png) no-repeat -40px -30px;
+	background: url(Images/webtrade/sprite.png) no-repeat -40px -30px;
 	width: 20px;
 	height: 20px;
 	top: 50%;
@@ -998,7 +999,7 @@ main:after {
 	left: 0;
 	top: 50%;
 	margin: -17px 0 0;
-	background: url(images/sprite.png) -70px -125px no-repeat
+	background: url(Images/webtrade/sprite.png) -70px -125px no-repeat
 }
 
 .app-button .font01 {
@@ -1012,7 +1013,7 @@ main:after {
 }
 
 .app-button2 span span span:after {
-	background: url(images/sprite.png) -105px -125px no-repeat
+	background: url(Images/webtrade/sprite.png) -105px -125px no-repeat
 }
 
 .btn-block {
@@ -1306,7 +1307,7 @@ main:after {
 	display: block;
 	width: 18px;
 	height: 18px;
-	background: url(images/sprite.png) no-repeat
+	background: url(Images/webtrade/sprite.png) no-repeat
 }
 
 .form .checker span {
@@ -1773,7 +1774,7 @@ main:after {
 .link-contactus:after {
 	position: absolute;
 	content: "";
-	background: url(images/sprite.png) no-repeat 0 -95px;
+	background: url(Images/webtrade/sprite.png) no-repeat 0 -95px;
 	width: 30px;
 	height: 30px;
 	top: 50%;
@@ -1868,7 +1869,7 @@ main:after {
 	height: 30px;
 	text-indent: -9999px;
 	overflow: hidden;
-	background: url(images/sprite.png) no-repeat
+	background: url(Images/webtrade/sprite.png) no-repeat
 }
 
 .mb-control.nav-control {
@@ -1979,7 +1980,7 @@ main:after {
 	width: 30px;
 	height: 30px;
 	overflow: hidden;
-	background: url(images/sprite.png) -60px -95px no-repeat;
+	background: url(Images/webtrade/sprite.png) -60px -95px no-repeat;
 	text-indent: -9999px;
 	text-decoration: none
 }
@@ -2030,7 +2031,7 @@ main:after {
 	margin: auto;
 	width: 10px;
 	height: 10px;
-	background: url(images/sprite.png) -40px 0 no-repeat;
+	background: url(Images/webtrade/sprite.png) -40px 0 no-repeat;
 	transition: all .3s ease;
 	-webkit-transition: all .3s ease
 }
@@ -2260,7 +2261,7 @@ main:after {
 .box .heading:before {
 	position: absolute;
 	content: "";
-	background: url(images/sprite.png) no-repeat -84px -10px;
+	background: url(Images/webtrade/sprite.png) no-repeat -84px -10px;
 	width: 13px;
 	height: 7px;
 	bottom: -7px;
@@ -2536,7 +2537,7 @@ main:after {
 .more:after {
 	position: absolute;
 	content: "";
-	background: url(images/sprite.png) no-repeat -20px 0;
+	background: url(Images/webtrade/sprite.png) no-repeat -20px 0;
 	width: 10px;
 	height: 10px;
 	left: 0;
@@ -2678,7 +2679,7 @@ main:after {
 .sidenav>p:before {
 	position: absolute;
 	content: "";
-	background: url(images/sprite.png) no-repeat -84px -10px;
+	background: url(Images/webtrade/sprite.png) no-repeat -84px -10px;
 	width: 13px;
 	height: 7px;
 	bottom: -7px;
@@ -2708,7 +2709,7 @@ main:after {
 }
 
 .dark-box .heading {
-	background: #1f2026 url(images/bg-contactus-heading.jpg) 50% 0 no-repeat;
+	background: #1f2026 url(Images/webtrade/bg-contactus-heading.jpg) 50% 0 no-repeat;
 	background-size: cover;
 	border: 0
 }
@@ -2794,7 +2795,7 @@ main:after {
 .contactus-box .item:after {
 	position: absolute;
 	content: "";
-	background: url(images/sprite.png) no-repeat;
+	background: url(Images/webtrade/sprite.png) no-repeat;
 	width: 20px;
 	height: 20px;
 	left: -35px;
@@ -3222,7 +3223,7 @@ main:after {
 	background-size: cover!important
 }
 
-.carousel .owl-carousel .slide01 {
+/* .carousel .owl-carousel .slide01 {
 	background: url(images/img-slide01.jpg) no-repeat 50% 0
 }
 
@@ -3232,7 +3233,7 @@ main:after {
 
 .carousel .owl-carousel .slide03 {
 	background: url(images/img-slide03.jpg) no-repeat 50% 0
-}
+} */
 
 .carousel .owl-carousel .slide .text {
 	position: absolute;
@@ -3505,7 +3506,7 @@ main:after {
 	top: 0;
 	bottom: 0;
 	margin: auto;
-	background: url(images/sprite.png) -9999px no-repeat
+	background: url(Images/webtrade/sprite.png) -9999px no-repeat
 }
 
 .promo-slider .slick-prev {
@@ -3623,7 +3624,7 @@ main:after {
 }
 
 .hp-platform-box {
-	background: #313339 url(images/bg-hp-platform-box.jpg) 50% 0 no-repeat;
+	background: #313339 url(Images/webtrade/bg-hp-platform-box.jpg) 50% 0 no-repeat;
 	background-size: 100% auto
 }
 
@@ -3673,7 +3674,7 @@ main:after {
 	top: 0;
 	width: 55px;
 	height: 55px;
-	background: url(images/bg-hp-social-trading-circle.png) 0 0 no-repeat;
+	background: url(Images/webtrade/bg-hp-social-trading-circle.png) 0 0 no-repeat;
 	animation: spin linear 2s;
 	animation-iteration-count: infinite;
 	transform-origin: 50% 50%;
@@ -3708,13 +3709,13 @@ main:after {
 
 .hp-figures:after {
 	left: 0;
-	background: #1a1d23 url(images/bg-hp-figures-l.jpg) 0 0 no-repeat
+	background: #1a1d23 url(Images/webtrade/bg-hp-figures-l.jpg) 0 0 no-repeat
 }
 
 .hp-figures:before {
 	right: 50%;
 	margin: 0 -50% 0 0;
-	background: #171920 url(images/bg-hp-figures-r.jpg) 0 0 no-repeat
+	background: #171920 url(Images/webtrade/bg-hp-figures-r.jpg) 0 0 no-repeat
 }
 
 .hp-figures .col {
@@ -3772,7 +3773,7 @@ main:after {
 	height: 30px;
 	overflow: hidden;
 	text-indent: -9999px;
-	background: url(images/sprite.png) 0 0 no-repeat
+	background: url(Images/webtrade/sprite.png) 0 0 no-repeat
 }
 
 .top-ranked-block i.ico-top-ranked01 {
@@ -3830,7 +3831,7 @@ main:after {
 }
 
 .hp-aboutus {
-	background: #1c1f26 url(images/bg-hp-aboutus.jpg) 100% 50% no-repeat;
+	background: #1c1f26 url(Images/webtrade/bg-hp-aboutus.jpg) 100% 50% no-repeat;
 	background-size: auto 100%;
 	font: 14px/24px 'Ubuntu', Arial, sans-serif;
 	padding: 65px 0 50px
@@ -3891,7 +3892,7 @@ main:after {
 	right: 0;
 	bottom: 0;
 	margin: auto;
-	background: url(images/bg-btn-play.png) 0 0 no-repeat;
+	background: url(Images/webtrade/bg-btn-play.png) 0 0 no-repeat;
 	width: 114px;
 	height: 98px;
 	overflow: hidden;
@@ -4182,7 +4183,7 @@ footer {
 }
 
 .footer-main {
-	background: #090d15 url(images/bg-footer.png) 50% 100% no-repeat;
+	background: #090d15 url(Images/webtrade/bg-footer.png) 50% 100% no-repeat;
 	background-size: 100% auto;
 	padding: 15px 0
 }
@@ -4272,7 +4273,7 @@ footer {
 	margin: auto;
 	width: 10px;
 	height: 10px;
-	background: url(images/sprite.png) -40px 0 no-repeat;
+	background: url(Images/webtrade/sprite.png) -40px 0 no-repeat;
 	transition: all .3s ease;
 	-webkit-transition: all .3s ease
 }
@@ -4950,15 +4951,15 @@ footer {
 }
 
 .rtl-page .carousel .owl-carousel .slide01 {
-	background: url(images/img-slide01-rtl.jpg) no-repeat 50% 0
+	/* background: url(images/img-slide01-rtl.jpg) no-repeat 50% 0 */
 }
 
 .rtl-page .carousel .owl-carousel .slide02 {
-	background: url(images/img-slide02-rtl.jpg) no-repeat 50% 0
+	/* background: url(images/img-slide02-rtl.jpg) no-repeat 50% 0 */
 }
 
 .rtl-page .carousel .owl-carousel .slide03 {
-	background: url(images/img-slide03-rtl.jpg) no-repeat 50% 0
+	/* background: url(images/img-slide03-rtl.jpg) no-repeat 50% 0 */
 }
 
 .rtl-page .carousel .owl-carousel .slide .text {
@@ -5055,11 +5056,11 @@ footer {
 }
 
 .rtl-page .hp-figures:after {
-	background: #1a1d23 url(images/bg-hp-figures-r-rtl.jpg) 0 0 no-repeat
+	background: #1a1d23 url(Images/webtrade/bg-hp-figures-r-rtl.jpg) 0 0 no-repeat
 }
 
 .rtl-page .hp-figures:before {
-	background: #171920 url(images/bg-hp-figures-l-rtl.jpg) 0 0 no-repeat
+	background: #171920 url(Images/webtrade/bg-hp-figures-l-rtl.jpg) 0 0 no-repeat
 }
 
 .rtl-page .hp-figures .col {
@@ -5084,7 +5085,7 @@ footer {
 }
 
 .rtl-page .hp-aboutus {
-	background: #1c1f26 url(images/bg-hp-aboutus.jpg) 0 50% no-repeat;
+	background: #1c1f26 url(Images/webtrade/bg-hp-aboutus.jpg) 0 50% no-repeat;
 	background-size: auto 100%
 }
 
@@ -6909,7 +6910,7 @@ footer {
 	.hp-aboutus .text {
 		padding: 30px 10px 40px;
 		margin: 0 -10px;
-		background: #fff url(images/bg-hp-aboutus-xs.jpg) 50% 0 no-repeat;
+		background: #fff url(Images/webtrade/bg-hp-aboutus-xs.jpg) 50% 0 no-repeat;
 		background-size: cover
 	}
 	.hp-aboutus .text h2 {
@@ -7232,7 +7233,7 @@ footer {
 		width: 6px;
 		height: 6px
 	}
-	.carousel .owl-carousel .slide01 {
+	/* .carousel .owl-carousel .slide01 {
 		background: url(images/img-slide01-xs.jpg) no-repeat 50% 50%
 	}
 	.carousel .owl-carousel .slide02 {
@@ -7249,7 +7250,7 @@ footer {
 	}
 	.rtl-page .carousel .owl-carousel .slide03 {
 		background: url(images/img-slide03-xs-rtl.jpg) no-repeat 50% 50%
-	}
+	} */
 }
 
 @media only screen and (max-width:479px) {}

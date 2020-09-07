@@ -2,10 +2,13 @@
     <div class="logo-holder" *ngIf = beforelogin>
         <div class="main-holder">
             <strong class="logo">
-                <a href="Home.html">EU FX Index</a>
+                <a routerLink="/home">TradeFx</a>
             </strong>
             <div class="header-panel">
     <ul>
+         <!-- <li>
+            <a routerLink="/home" class="link-contactus">Home</a>
+        </li> -->
         <!-- <li>
             <a href="contact-us.html" class="link-contactus">Contact Us</a>
         </li> -->
@@ -60,7 +63,7 @@
     <div  *ngIf = afterlogin class="logo-holder" >
         <div class="main-holder">
             <strong class="logo">
-                <a routerLink="/Home">EU FX Index</a>
+                <a routerLink="/home">TradeFx</a>
             </strong>
             <div class="header-panel">
     <ul>
@@ -79,7 +82,7 @@
 </ul></div>
 </li> -->
 
-            <li><a class="button button2" target="_blank" href="https://webtrader.eufxindex.com/"><span>Access WebTrader</span></a></li>
+            <!-- <li><a class="button button2" target="_blank" href="https://webtrader.eufxindex.com/"><span>Access WebTrader</span></a></li> -->
             <li class="account-nav">
                 <a class="btn btn-info" routerLink="/userhome"><span>MY account</span></a>
                 
@@ -109,7 +112,13 @@
     <div class="nav-holder">
         <div class="main-holder">
             <nav id="nav">
-                <ul><li><a href="eu-fx.html">Europe Forex Index</a><div class="drop"><div class="inner"><ul><li><a href="real.html">Open Your Account</a></li><li><a href="standard-account.html">Standard Account</a></li><li><a href="premium-account.html">Premium Account</a></li><li><a href="vip-account.html">VIP Account</a></li><li><a href="account-comparison.html">Account Comparison</a></li><li><a href="open-a-money-manager-account.html">Open a Money Manager Account</a></li><li><a href="promotions-products.html">Promotions</a></li></ul></div></div></li><li><a href="platforms.html">Platforms</a><div class="drop"><div class="inner"><ul><li><a href="webtrader.html">Webtrader</a></li></ul></div></div></li><li><a href="products.html">Products</a><div class="drop"><div class="inner"><ul><li><a href="forex-trading.html">Forex Trading</a></li><li><a href="precious-metals-trading.html">Precious Metals Trading</a></li><li><a href="commodities-trading.html">Commodities Trading</a></li><li><a href="oil-trading.html">Oil Trading</a></li><li><a href="indices-offering.html">Indices Offering</a></li><li><a href="bitcoin-trading.html">Bitcoin Trading</a></li><li><a href="instruments.html">Instruments</a></li></ul></div></div></li><li><a href="trading-info.html">Trading Info</a><div class="drop"><div class="inner"><ul><li><a href="trading-conditions-and-charges.html">Trading Conditions</a></li><li><a href="brokerage-details-info.html">Brokerage Details</a></li><li><a href="cfd-rollover.html">CFD Rollover</a></li><li><a href="order-types.html">Order Types</a></li></ul></div></div></li><li><a href="resources.html">Resources</a><div class="drop"><div class="inner"><ul><li><a href="education-center.html">Education Center</a></li><li><a href="autochartist.html">Autochartist</a></li><li><a href="webinars.html">Webinars</a></li><li><a href="markets-news.html">Market News</a></li><li><a href="live-market-quotes.html">Live Market Quotes</a></li><li><a href="economic-calendar.html">Economic Calendar</a></li><li><a href="market-signals.html">Market Signals</a></li><li><a href="debit-card.html">Debit Card</a></li></ul></div></div></li><li><a href="fund-management.html">Fund Management</a><div class="drop"><div class="inner"><ul><li><a href="fund-management.html">Fund Management</a></li><li><a href="philosophy.html">Philosophy</a></li><li><a href="strategies.html">Strategies</a></li><li><a href="algo-trading.html">Algo Trading</a></li></ul></div></div></li><li><a href="about-us.html">About Us</a><div class="drop"><div class="inner"><ul><li><a href="eu-cookie-policy.html">EU Cookie Policy</a></li><li><a href="our-firm.html">Our Firm </a></li><li><a href="brokerage-details-us.html">Brokerage Details</a></li><li><a href="compliance.html">Compliance</a></li><li><a href="deposits-and-withdrawals.html">Deposits And Withdrawals</a></li><li><a href="safety-of-funds.html">Safety Of Funds</a></li><li><a href="privacy-policy.html">Privacy Policy</a></li><li><a href="refund-policy.html">Refund Policy </a></li><li><a href="risk-disclosure.html">Risk Disclosure</a></li><li><a href="refer-a-friend.html">Refer a Friend</a></li><li><a href="terms-and-conditions.html">Terms and Conditions</a></li><li><a href="contact-us.html">Contact us</a></li></ul></div></div></li></ul>
+                <ul><li><a href="javascript:void(0);">TradeFx</a><div class="drop"><div class="inner"><ul><li><a routerLink="/account">Open Your Account</a></li>
+                    <!-- <li><a href="standard-account.html">Standard Account</a></li><li><a href="premium-account.html">Premium Account</a></li><li><a href="vip-account.html">VIP Account</a></li><li><a href="account-comparison.html">Account Comparison</a></li><li><a href="open-a-money-manager-account.html">Open a Money Manager Account</a></li><li><a href="promotions-products.html">Promotions</a></li></ul></div></div></li><li><a href="platforms.html">Platforms</a><div class="drop"><div class="inner"><ul><li><a href="webtrader.html">Webtrader</a></li></ul></div></div></li><li><a href="products.html">Products</a><div class="drop"><div class="inner"><ul><li><a href="forex-trading.html">Forex Trading</a></li><li><a href="precious-metals-trading.html">Precious Metals Trading</a></li><li><a href="commodities-trading.html">Commodities Trading</a></li><li><a href="oil-trading.html">Oil Trading</a></li><li><a href="indices-offering.html">Indices Offering</a></li><li><a href="bitcoin-trading.html">Bitcoin Trading</a></li><li><a href="instruments.html">Instruments</a></li></ul></div></div></li><li><a href="trading-info.html">Trading Info</a><div class="drop"><div class="inner"><ul><li><a href="trading-conditions-and-charges.html">Trading Conditions</a></li><li><a href="brokerage-details-info.html">Brokerage Details</a></li><li><a href="cfd-rollover.html">CFD Rollover</a></li><li><a href="order-types.html">Order Types</a></li></ul></div></div></li><li><a href="resources.html">Resources</a><div class="drop"><div class="inner"><ul><li><a href="education-center.html">Education Center</a></li><li><a href="autochartist.html">Autochartist</a></li><li><a href="webinars.html">Webinars</a></li><li><a href="markets-news.html">Market News</a></li><li><a href="live-market-quotes.html">Live Market Quotes</a></li><li><a href="economic-calendar.html">Economic Calendar</a></li><li><a href="market-signals.html">Market Signals</a></li><li><a href="debit-card.html">Debit Card</a></li></ul></div></div></li><li><a href="fund-management.html">Fund Management</a><div class="drop"><div class="inner"><ul><li><a href="fund-management.html">Fund Management</a></li><li><a href="philosophy.html">Philosophy</a></li><li><a href="strategies.html">Strategies</a></li><li><a href="algo-trading.html">Algo Trading</a></li></ul></div></div></li><li><a href="about-us.html">About Us</a><div class="drop"><div class="inner"><ul><li><a href="eu-cookie-policy.html">EU Cookie Policy</a></li><li><a href="our-firm.html">Our Firm </a></li><li><a href="brokerage-details-us.html">Brokerage Details</a></li><li><a href="compliance.html">Compliance</a></li><li><a href="deposits-and-withdrawals.html">Deposits And Withdrawals</a></li><li><a href="safety-of-funds.html">Safety Of Funds</a></li><li><a href="privacy-policy.html">Privacy Policy</a></li><li><a href="refund-policy.html">Refund Policy </a></li><li><a href="risk-disclosure.html">Risk Disclosure</a></li><li><a href="refer-a-friend.html">Refer a Friend</a></li><li><a href="terms-and-conditions.html">Terms and Conditions</a></li><li><a href="contact-us.html">Contact us</a></li> -->
+                    </ul>
+                </div>
+            </div>
+        </li>
+    </ul>
             </nav>
         </div>
     </div>
@@ -133,11 +142,11 @@
 
         </nav>
         <div class="mb-drop-foot ta-center">
-            <a href="contact-us.html" class="link-contactus">Contact Us</a>
+            <!-- <a href="contact-us.html" class="link-contactus">Contact Us</a> -->
         </div>
     </div>
         <div class="mb-drop login-drop">
-<form action="https://www.eufxindex.com/login" class="form login-form" id="mobileLoginForm" method="post" role="form">                <div class="row">
+<form class="form login-form" id="mobileLoginForm" method="post" role="form">                <div class="row">
                     <input data-val="true" data-val-localizedrequired="Please re-enter User Name" data-val-localizedrequired-otherpropertyname="ProjectManager" id="UserNameMobile" name="UserName" placeholder="Login" type="text" value="" />
                     <span class="error"><span class="field-validation-valid" data-valmsg-for="UserName" data-valmsg-replace="true"></span></span>
                 </div>
