@@ -6,9 +6,9 @@
             </strong>
             <div class="header-panel">
     <ul>
-         <!-- <li>
-            <a routerLink="/home" class="link-contactus">Home</a>
-        </li> -->
+         <li>
+            <a routerLink="" (click)="movetohome()"><i class="fa fa-home" aria-hidden="true"></i></a>
+        </li>
         <!-- <li>
             <a href="contact-us.html" class="link-contactus">Contact Us</a>
         </li> -->
@@ -67,8 +67,8 @@
             </strong>
             <div class="header-panel">
     <ul>
-            <!-- <li class="welcome-name">Welcome Back, <br /> {{this.bindLoginData?.Client.FirstName}} {{this.bindLoginData?.Client.LastName}}</li> -->
-            <li class="welcome-name">Welcome Back <br /> </li>
+            <li class="welcome-name">Welcome Back, <br /> {{this.userwilllogin?.Client.FirstName}} {{this.userwilllogin?.Client.LastName}}</li>
+            <!-- <li class="welcome-name">Welcome Back <br /> </li> -->
         <!-- <li>
             <a routerLink="/contact-us" class="link-contactus">Contact Us</a>
         </li> -->
@@ -102,7 +102,7 @@
                 </div> -->
             </li>
             <li>
-                <a class="btn btn-danger" routerLink="" (click)="logoutfromtrade()"><span>Logout</span></a>
+                <a class="btn btn-danger" routerLink="/home" (click)="logoutfromtrade()"><span>Logout</span></a>
             </li>
     </ul>
 </div>

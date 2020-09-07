@@ -34,11 +34,15 @@ export class UserhomeComponent implements OnInit {
   typesofdocuments: any;
   confidentialdocumnts: any;
   uploadedFile: File;
+  respons: string;
+  respon: string;
+  respo: string;
+  resp: string;
   constructor(private fb: FormBuilder, private service: ServicesService) { }
 
   ngOnInit(): void {
     // code for receiving login details
-    this.getLoginDetails = JSON.parse(window.sessionStorage.getItem('project'));
+    this.getLoginDetails = JSON.parse(localStorage.getItem('project'));
     this.bindLoginData = this.getLoginDetails;
 
     this.UserFormInfo = this.fb.group({
@@ -81,9 +85,9 @@ export class UserhomeComponent implements OnInit {
     this.service.fundAccount(fndaccntparamtr).subscribe(giveFund => {
       this.fundtheAccount = giveFund;
       if (giveFund === null) {
-        this.response = 'Amount is added successfully..!'
+        this.respons = 'Amount is added successfully..!'
       } else {
-        this.response = '';
+        this.respons = '';
       }
       this.UserFormInfo.reset();
       console.log('fundtheAccount', giveFund);
@@ -125,9 +129,9 @@ export class UserhomeComponent implements OnInit {
     this.service.contactUs(contctusParamtr).subscribe(contctusforquery => {
       this.usercontactus = contctusforquery;
       if (contctusforquery === null) {
-        this.response = '';
+        this.resp = '';
       } else {
-        this.response = "Thank you for reaching us. Our team will contact you..!"
+        this.resp = "Thank you for reaching us. Our team will contact you..!"
       }
       this.UserFormInfo.reset();
       console.log('usercontactus', contctusforquery);
@@ -340,9 +344,9 @@ export class UserhomeComponent implements OnInit {
     this.service.withdrawFund(debitfund).subscribe(withdrwlfndRes => {
       this.debitAmount = withdrwlfndRes;
       if(withdrwlfndRes === true) {
-        this.response = 'Amount is  withdrawal successfully..!';
+        this.respo = 'Amount is  withdrawal successfully..!';
       } else {
-        this.response = '';
+        this.respo = '';
       }
       this.UserFormInfo.reset();
       console.log('debitAmount', withdrwlfndRes);
@@ -371,9 +375,9 @@ export class UserhomeComponent implements OnInit {
     this.service.uploaddocumnt(formData).subscribe(upldtdocmnt => {
       this.confidentialdocumnts = upldtdocmnt;
       if(upldtdocmnt === true) {
-        this.response = 'Documents is uploaded successfully..!';
+        this.respon = 'Documents is uploaded successfully..!';
       } else {
-        this.response = 'Error'; 
+        this.respon = 'Error'; 
       }
       this.UserFormInfo.reset();
       console.log('confidentialdocumnts',upldtdocmnt);

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ServicesService } from '../../services.service';
 import { FormGroup, FormBuilder } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -14,15 +15,16 @@ export class HeaderComponent implements OnInit {
   bindLoginData: any;
   getCredentials: any;
   response: any;
-  constructor(private service: ServicesService, private fb: FormBuilder) { }
+  constructor(private service: ServicesService, private fb: FormBuilder, private router: Router) { }
   beforelogin = true;
   afterlogin = false;
   ngOnInit(): void {
- if(window.sessionStorage.getItem('project')) {
-   this.beforelogin = false;
-   this.afterlogin = true;
- }
-
+    if (localStorage.getItem('project')) {
+      this.beforelogin = false;
+      this.afterlogin = true;
+    }
+    // this.getLoginDetails = JSON.parse(localStorage.getItem('project'));
+    // this.bindLoginData = this.getLoginDetails;
     this.loginForm = this.fb.group({
       clientid: [''],
       pwd: [''],
@@ -30,7 +32,6 @@ export class HeaderComponent implements OnInit {
     })
   }
   loginfortrade() {
-    
     const clntloginParamtr = {
       ClientId: this.loginForm.value.clientid,
       Password: this.loginForm.value.pwd
@@ -39,31 +40,23 @@ export class HeaderComponent implements OnInit {
       if (loginRes) {
         // this.router.navigateByUrl('clients');
         this.userwilllogin = loginRes;
-      console.log('userwilllogin',loginRes);
-      window.sessionStorage.setItem('project', JSON.stringify(loginRes));
+        console.log('userwilllogin', loginRes);
+        localStorage.setItem('project', JSON.stringify(loginRes));
         console.log('stringifydata', JSON.stringify(loginRes));
-        // localStorage.setItem('uid', this.UserName);
+        this.beforelogin = false;
+        this.afterlogin = true;
       } else {
         alert('Invalid Credential');
       }
     },
-    // err => {
-    //   alert('Error');
-    // }
+      err => {
+        alert('Error');
+      }
     );
-    // code for receiving login details and bind to header at place of name
- this.getLoginDetails = JSON.parse(window.sessionStorage.getItem('project'));
- this.bindLoginData = this.getLoginDetails;
- console.log('LD',this.bindLoginData);   
-//  if(window.sessionStorage.getItem('project')) {
-//   this.beforelogin = false;
-//   this.afterlogin = true;
-// }
-this.beforelogin = false;
-  this.afterlogin = true;
   }
   logoutfromtrade() {
-    // window.sessionStorage.clear();
+    window.location.reload();
+    localStorage.clear();
     this.beforelogin = true;
     this.afterlogin = false;
   }
@@ -72,12 +65,18 @@ this.beforelogin = false;
     const frgt = this.loginForm.value.email;
     this.service.forgotpwd(frgt).subscribe(resetpwdres => {
       this.getCredentials = resetpwdres;
-      if(resetpwdres === 'Success') {
+      if (resetpwdres === 'Success') {
         this.response = 'Credentials is sent on your mail'
       } else {
         this.response = 'Invalid Client'
       }
       // console.log('getCredentials',resetpwdres);
     })
+  }
+  // home icon
+  movetohome() {
+    if(this.router.navigateByUrl("/home")) {
+    window.location.reload();
+    }
   }
 }
