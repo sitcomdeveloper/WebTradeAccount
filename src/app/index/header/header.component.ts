@@ -55,10 +55,15 @@ export class HeaderComponent implements OnInit {
     );
   }
   logoutfromtrade() {
-    window.location.reload();
+    
     localStorage.clear();
+    
     this.beforelogin = true;
     this.afterlogin = false;
+    // if(this.router.navigateByUrl('/home')) {
+    //   window.location.reload();
+    
+    // }
   }
   // reset password
   restepwd() {
@@ -74,9 +79,9 @@ export class HeaderComponent implements OnInit {
     })
   }
   // home icon
-  movetohome() {
-    if(this.router.navigateByUrl("/home")) {
-    window.location.reload();
-    }
-  }
+  // movetohome() {
+  //   if(this.router.navigateByUrl("/home")) {
+  //   window.location.reload();
+  //   }
+  // }
 }

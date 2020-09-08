@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ServicesService } from 'src/app/services.service';
 import { FormGroup, FormBuilder } from '@angular/forms';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-account',
@@ -11,6 +12,8 @@ export class AccountComponent implements OnInit {
   newUserForm: FormGroup;
   NewRealUser: any;
   response: string;
+  allCountries: any;
+  countryPhoneCode: any;
   constructor(private service: ServicesService, private fb:FormBuilder) { }
   
   ngOnInit(): void {
@@ -30,6 +33,7 @@ export class AccountComponent implements OnInit {
       cnfrmpwd: [''],
       promocode: ['']
     })
+    this.getallCountry();
   }
   registerRealAccountType() {
     const clntregisterParameter = {
@@ -42,15 +46,15 @@ export class AccountComponent implements OnInit {
       GroupId: '',
       GroupName: '',
       ISendEmail: '',
-      AccountType: this.newUserForm.value.accounttype,
+      AccountType: 'Real',
       Password: this.newUserForm.value.password,
       OwnerId: 1,
       CountryISDCode: this.newUserForm.value.phonecode,
       ConvertionDeskId: '',
       ConvertionDeskName: '',
       RealAccountTypeId: '',
-      RealAccountTypeName: '',
-      TradeAccountType: '',
+      RealAccountTypeName: this.newUserForm.value.accounttype,
+      TradeAccountType: "Real",
       PreferredLanguage: '',
       PromoCode: this.newUserForm.value.promocode
     }
@@ -65,5 +69,23 @@ export class AccountComponent implements OnInit {
       console.log('NewRealUser',nwusrRes);
     })
   }
-
+// get country
+getallCountry() {
+  const obj ={}
+  this.service.countryName(obj).subscribe(fetchcountry => {
+    this.allCountries = fetchcountry;
+    // console.log('allCountries',fetchcountry);
+  })
+}
+getPhoneCode(val: any) {
+  this.allCountries.forEach(element => {
+    const y = +val;
+    if (element.Id === y) {
+      this.countryPhoneCode = element.ISDCode;
+    }
+  });
+  this.newUserForm.controls.phonecode.setValue(
+    '+' + this.countryPhoneCode
+  );
+}
 }

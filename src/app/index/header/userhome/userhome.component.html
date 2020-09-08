@@ -1,4 +1,4 @@
-<main *ngIf=home>
+<main *ngIf="home">
     <div class="quote__container">&nbsp;</div>
     <div class="breadcrumbs">
         <ul class="">
@@ -9,20 +9,19 @@
     <div class="main-holder">
         <div class="contentholder">
             <div id="content">
-
-
-                <h1>Welcome Back, {{this.bindLoginData?.Client.FirstName}} {{this.bindLoginData?.Client.LastName}} </h1>
-                <!-- <div class="centered-buttons">
-            
-                                <a class="button button2 btn-md"
+                <h1>Welcome Back, {{this.bindLoginData?.Client.FirstName}} {{this.bindLoginData?.Client.LastName}}</h1>
+                <div class="centered-buttons">
+                    <!-- <a class="button button2 btn-md"
                         href="javascript:void(0);"
-                        target="_blank"><span><span>Download<br />trading platform</span></span></a><a
-                        class="button button3 btn-md" href="https://webtrader.eufxindex.com/"
-                        target="_blank"><span><span>login to<br />webtrader</span></span></a>
-                    </div> -->
+                        target="_blank"><span><span>Download<br />trading platform</span></span></a> -->
+                    <a class="button button3 btn-md" href="http://topseedtech.com/angularcharts/" target="_blank">
+                        <span>
+                            <span>LIVE TRADE<br /> </span>
+                        </span>
+                    </a>
+                </div>
                 <div class="welcome-text">
-                    <p>You can now use real account to trade Forex, CFDs, Commodities, Stocks and Indices across
-                        multiple platforms (FXTT, Web &amp; Mobile).</p>
+                    <p>You can now use real account to trade Forex, CFDs, Commodities, Stocks and Indices across multiple platforms (FXTT, Web &amp; Mobile).</p>
                     <p><strong>Thank you for choosing TradeFx</strong></p>
                 </div>
                 <div class="table account-table">
@@ -32,7 +31,6 @@
                                 <th>Type</th>
                                 <th>Account Number</th>
                                 <th>Currency</th>
-
                             </tr>
                         </thead>
                         <thead>
@@ -44,7 +42,6 @@
                         </thead>
                     </table>
                 </div>
-
             </div>
         </div>
         <aside id="sidebar">
@@ -85,1187 +82,1300 @@
                 </div>
             </div>
         </aside>
-
     </div>
 </main>
 
 <!-- personal details -->
-<main *ngIf=personalddetails>
+<main *ngIf="personalddetails">
     <div class="quote__container">&nbsp;</div>
     <div class="breadcrumbs">
-        <ul class=""><li><a href="javascript:void(0);">Home</a></li><li>My Account</li></ul>
+        <ul class="">
+            <li><a href="javascript:void(0);">Home</a></li>
+            <li>My Account</li>
+        </ul>
     </div>
     <div class="main-holder">
         <div class="contentholder">
             <div id="content">
-                
+                <h1>Personal details</h1>
+                <form [formGroup]="UserFormInfo" action="#" class="form">
+                    <fieldset>
+                        <div class="row">
+                            <label for="FirstName">First Name: *</label>
+                            <div class="profile-info">{{this.detailsonEmail?.FirstName}}</div>
+                        </div>
+                        <div class="row">
+                            <label for="LastName">Last Name: *</label>
+                            <div class="profile-info">{{this.detailsonEmail?.LastName}}</div>
+                        </div>
+                        <div class="row">
+                            <label for="Email">Email: *</label>
+                            <div class="profile-info">{{this.detailsonEmail?.Email}}</div>
+                        </div>
+                        <div class="row">
+                            <label for="PhoneNumber">Phone: *</label>
+                            <div class="row-control"><div class="profile-info">{{this.detailsonEmail?.Phone}}</div></div>
+                        </div>
+                        <div class="row">
+                            <label for="Country">Country: *</label>
+                            <div class="profile-info">{{this.detailsonEmail?.CountryName}}</div>
+                        </div>
 
-<h1>Personal details</h1>
-<form [formGroup]="UserFormInfo" action="#" class="form">
-<fieldset>
-<div class="row"><label for="FirstName">First Name: *</label><div class="profile-info">{{this.detailsonEmail?.FirstName}}</div></div>
-<div class="row"><label for="LastName">Last Name: *</label><div class="profile-info">{{this.detailsonEmail?.LastName}}</div></div>
-<div class="row"><label for="Email">Email: *</label><div class="profile-info">{{this.detailsonEmail?.Email}}</div></div>
-<div class="row"><label for="PhoneNumber">Phone: *</label><div class="row-control"><div class="profile-info">{{this.detailsonEmail?.Phone}}</div></div></div>
-<div class="row"><label for="Country">Country: *</label><div class="profile-info">{{this.detailsonEmail?.CountryName}}</div></div>
-
-
-
-<div class="row button-row"><div class="buttonset"><a class="button" href="javascript:void(0);" (click)="closenormalmode()">
-    <span>Edit</span></a></div></div>
-</fieldset>
-</form>
+                        <div class="row button-row">
+                            <div class="buttonset">
+                                <a class="button" href="javascript:void(0);" (click)="closenormalmode()"> <span>Edit</span></a>
+                            </div>
+                        </div>
+                    </fieldset>
+                </form>
             </div>
         </div>
         <aside id="sidebar">
-<div class="box">
-<div class="heading">
-    <h3>My account</h3>
-</div>
-<div class="sidenav">
-    <ul>
-        <li class="">
-            <a routerLink="/userhome" (click)="userhome()"><span>Home</span></a>
-        </li>
-        <li class="active">
-            <a routerLink="/userhome" (click)="prsnldtls()"><span>Personal Details</span></a>
-        </li>
-        <li class="">
-            <a routerLink="/userhome" (click)="chngepassword()"><span>Change Password</span></a>
-        </li>
-        <li class="">
-            <a routerLink="/userhome" (click)="tradinghistory()"><span>Trading History</span></a>
-        </li>
-        <li class="">
-            <a routerLink="/userhome" (click)="depositfunds()"><span>Deposit Funds</span></a>
-        </li>
-        <li class="">
-            <a routerLink="/userhome" (click)="uploaddocuments()"><span>Upload Documents</span></a>
-        </li>
-        <li class="">
-            <a routerLink="/userhome" (click)="monetarytransactions()"><span>Monetary Transactions</span></a>
-        </li>
-        <li class="">
-            <a routerLink="/userhome" (click)="withdrawl()"><span>Withdrawal</span></a>
-        </li>
-        <li class="">
-            <a routerLink="/userhome" (click)="contactwe()"><span>Contact Us</span></a>
-        </li>
-    </ul>
-</div>
-</div>
-</aside>
-
+            <div class="box">
+                <div class="heading">
+                    <h3>My account</h3>
+                </div>
+                <div class="sidenav">
+                    <ul>
+                        <li class="">
+                            <a routerLink="/userhome" (click)="userhome()"><span>Home</span></a>
+                        </li>
+                        <li class="active">
+                            <a routerLink="/userhome" (click)="prsnldtls()"><span>Personal Details</span></a>
+                        </li>
+                        <li class="">
+                            <a routerLink="/userhome" (click)="chngepassword()"><span>Change Password</span></a>
+                        </li>
+                        <li class="">
+                            <a routerLink="/userhome" (click)="tradinghistory()"><span>Trading History</span></a>
+                        </li>
+                        <li class="">
+                            <a routerLink="/userhome" (click)="depositfunds()"><span>Deposit Funds</span></a>
+                        </li>
+                        <li class="">
+                            <a routerLink="/userhome" (click)="uploaddocuments()"><span>Upload Documents</span></a>
+                        </li>
+                        <li class="">
+                            <a routerLink="/userhome" (click)="monetarytransactions()"><span>Monetary Transactions</span></a>
+                        </li>
+                        <li class="">
+                            <a routerLink="/userhome" (click)="withdrawl()"><span>Withdrawal</span></a>
+                        </li>
+                        <li class="">
+                            <a routerLink="/userhome" (click)="contactwe()"><span>Contact Us</span></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </aside>
     </div>
 </main>
-<main *ngIf = editpersonaldetails>
+<main *ngIf="editpersonaldetails">
     <div class="quote__container">&nbsp;</div>
     <div class="breadcrumbs">
-        <ul class=""><li><a href="javascript:void(0);">Home</a></li><li>Edit Account</li></ul>
+        <ul class="">
+            <li><a href="javascript:void(0);">Home</a></li>
+            <li>Edit Account</li>
+        </ul>
     </div>
     <div class="main-holder">
         <div class="contentholder">
             <div id="content">
-                
-
-
-<h1>Edit Account</h1>
-<div class="required fl-r-lg fl-r-md reversed">All fields marked as <span>*</span>are mandatory</div>
-<form [formGroup]="UserFormInfo"  class="form" id="actionForm" method="post" role="form"><input name="__RequestVerificationToken" type="hidden" value="tzUUE8ZdaCmJjByvZehkhTtWdY3gfr1eOey79-KIt-KhNMnJrUbi_deVBYxazdJUXAYz6Mxj2PGrr_WJqj3O_wc_24KXehnqiA1csaCRtW8h1CUz9zMnpHhvoNabz15lCB46gA2" />    <fieldset>
-<div class="row"><label for="FirstName">First Name: *</label><div class="row-control"><div class="formset">
-    <input data-val="true" data-val-lengthvalidator="Must be at least 1 and no more than 20 characters long." data-val-lengthvalidator-otherpropertyname="1,20" data-val-localizedrequired="Please re-enter First Name" data-val-localizedrequired-otherpropertyname="ProjectManager" id="FirstName" name="FirstName" type="text" value="rohan" formControlName="firstname"/>
-    <span class="error"><span class="field-validation-valid" data-valmsg-for="FirstName" data-valmsg-replace="true"></span></span></div></div></div>
-<div class="row"><label for="LastName">Last Name: *</label><div class="row-control"><div class="formset"><input data-val="true" data-val-lengthvalidator="Must be at least 1 and no more than 20 characters long." data-val-lengthvalidator-otherpropertyname="1,20" data-val-localizedrequired="Please re-enter Last Name" data-val-localizedrequired-otherpropertyname="ProjectManager" id="LastName" name="LastName" type="text" value="gupta" formControlName="lastname"/><span class="error"><span class="field-validation-valid" data-valmsg-for="LastName" data-valmsg-replace="true"></span></span></div></div></div>
-<div class="row"><label for="Email">Email: *</label><div class="row-control"><div class="formset"><input data-val="true" data-val-localizedemail="Please re-enter Email" data-val-localizedemail-otherpropertyname="ProjectManager" data-val-localizedrequired="Please re-enter Email" data-val-localizedrequired-otherpropertyname="ProjectManager" id="Email" name="Email" type="text" value="sitcomdeveloper43@gmail.com" formControlName="email"/><span class="error"><span class="field-validation-valid" data-valmsg-for="Email" data-valmsg-replace="true"></span></span><span id="uniqueEmailError" class="error" style="display: none;">This Email is already registered</span></div></div></div>
-<div class="row"><label for="Country">Country: *</label><div class="row-control"><div class="formset">
-    <select class="sel" data-val="true" data-val-localizedrequired="Please re-enter Country" data-val-localizedrequired-otherpropertyname="ProjectManager" id="Country" name="Country" formControlName="countryname">
-    <option value="">Select...</option>
-<option value="AF">Afghanistan</option>
-<option value="AX">Aland Islands</option>
-<option value="AL">Albania</option>
-<option value="DZ">Algeria</option>
-<option value="AS">American Samoa</option>
-<option value="AD">Andorra</option>
-<option value="AO">Angola</option>
-<option value="AI">Anguilla</option>
-<option value="AQ">Antarctica</option>
-<option value="AG">Antigua and Barbuda</option>
-<option value="AR">Argentina</option>
-<option value="AM">Armenia</option>
-<option value="AW">Aruba</option>
-<option value="AU">Australia</option>
-<option value="AT">Austria</option>
-<option value="AZ">Azerbaijan</option>
-<option value="BS">Bahamas</option>
-<option value="BH">Bahrain</option>
-<option value="BD">Bangladesh</option>
-<option value="BB">Barbados</option>
-<option value="BY">Belarus</option>
-<option value="BE">Belgium</option>
-<option value="BZ">Belize</option>
-<option value="BJ">Benin</option>
-<option value="BM">Bermuda</option>
-<option value="BT">Bhutan</option>
-<option value="BO">Bolivia</option>
-<option value="BA">Bosnia and Herzegovina</option>
-<option value="BW">Botswana</option>
-<option value="BV">Bouvet Island</option>
-<option value="BR">Brazil</option>
-<option value="IO">British Indian Ocean Territory</option>
-<option value="BN">Brunei Darussalam</option>
-<option value="BG">Bulgaria</option>
-<option value="BF">Burkina Faso</option>
-<option value="BI">Burundi</option>
-<option value="KH">Cambodia</option>
-<option value="CM">Cameroon</option>
-<option value="CA">Canada</option>
-<option value="CV">Cape Verde</option>
-<option value="KY">Cayman Islands</option>
-<option value="CF">Central African Republic</option>
-<option value="TD">Chad</option>
-<option value="CL">Chile</option>
-<option value="CN">China</option>
-<option value="CO">Colombia</option>
-<option value="KM">Comoros</option>
-<option value="CG">Congo</option>
-<option value="CK">Cook Islands</option>
-<option value="CR">Costa Rica</option>
-<option value="CI">Cote DIvoire</option>
-<option value="HR">Croatia</option>
-<option value="CU">Cuba</option>
-<option value="CY">Cyprus</option>
-<option value="CZ">Czech Republic</option>
-<option value="DK">Denmark</option>
-<option value="DJ">Djibouti</option>
-<option value="DM">Dominica</option>
-<option value="DO">Dominican Republic</option>
-<option value="EC">Ecuador</option>
-<option value="EG">Egypt</option>
-<option value="SV">El Salvador</option>
-<option value="GQ">Equatorial Guinea</option>
-<option value="ER">Eritrea</option>
-<option value="EE">Estonia</option>
-<option value="ET">Ethiopia</option>
-<option value="FK">Falkland Islands (Malvinas)</option>
-<option value="FO">Faroe Islands</option>
-<option value="FJ">Fiji</option>
-<option value="FI">Finland</option>
-<option value="FR">France</option>
-<option value="GF">French Guiana</option>
-<option value="PF">French Polynesia</option>
-<option value="GA">Gabon</option>
-<option value="GM">Gambia</option>
-<option selected="selected" value="GE">Georgia</option>
-<option value="DE">Germany</option>
-<option value="GH">Ghana</option>
-<option value="GI">Gibraltar</option>
-<option value="GR">Greece</option>
-<option value="GL">Greenland</option>
-<option value="GD">Grenada</option>
-<option value="GP">Guadeloupe</option>
-<option value="GU">Guam</option>
-<option value="GT">Guatemala</option>
-<option value="GG">Guernsey</option>
-<option value="GN">Guinea</option>
-<option value="GW">Guinea-Bissau</option>
-<option value="GY">Guyana</option>
-<option value="HT">Haiti</option>
-<option value="VA">Holy See (Vatican City State)</option>
-<option value="HN">Honduras</option>
-<option value="HK">Hong Kong</option>
-<option value="HU">Hungary</option>
-<option value="IS">Iceland</option>
-<option value="IN">India</option>
-<option value="ID">Indonesia</option>
-<option value="IR">Iran</option>
-<option value="IQ">Iraq</option>
-<option value="IE">Ireland</option>
-<option value="IM">Isle of Man</option>
-<option value="IL">Israel</option>
-<option value="IT">Italy</option>
-<option value="JM">Jamaica</option>
-<option value="JP">Japan</option>
-<option value="JE">Jersey</option>
-<option value="JO">Jordan</option>
-<option value="KZ">Kazakstan</option>
-<option value="KE">Kenya</option>
-<option value="KI">Kiribati</option>
-<option value="KR">Korea</option>
-<option value="KP">Korea</option>
-<option value="KW">Kuwait</option>
-<option value="KG">Kyrgyzstan</option>
-<option value="LA">Lao</option>
-<option value="LV">Latvia</option>
-<option value="LB">Lebanon</option>
-<option value="LS">Lesotho</option>
-<option value="LR">Liberia</option>
-<option value="LY">Libyan Arab Jamahiriya</option>
-<option value="LI">Liechtenstein</option>
-<option value="LT">Lithuania</option>
-<option value="LU">Luxembourg</option>
-<option value="MO">Macau</option>
-<option value="MK">Macedonia</option>
-<option value="MG">Madagascar</option>
-<option value="MW">Malawi</option>
-<option value="MY">Malaysia</option>
-<option value="MV">Maldives</option>
-<option value="ML">Mali</option>
-<option value="MT">Malta</option>
-<option value="MH">Marshall Islands</option>
-<option value="MQ">Martinique</option>
-<option value="MR">Mauritania</option>
-<option value="MU">Mauritius</option>
-<option value="YT">Mayotte</option>
-<option value="MX">Mexico</option>
-<option value="FM">Micronesia</option>
-<option value="MD">Moldova</option>
-<option value="MC">Monaco</option>
-<option value="MN">Mongolia</option>
-<option value="ME">Montenegro</option>
-<option value="MS">Montserrat</option>
-<option value="MA">Morocco</option>
-<option value="MZ">Mozambique</option>
-<option value="MM">Myanmar</option>
-<option value="NA">Namibia</option>
-<option value="NR">Nauru</option>
-<option value="NP">Nepal</option>
-<option value="NL">Netherlands</option>
-<option value="AN">Netherlands Antilles</option>
-<option value="NC">New Caledonia</option>
-<option value="NZ">New Zealand</option>
-<option value="NI">Nicaragua</option>
-<option value="NE">Niger</option>
-<option value="NG">Nigeria</option>
-<option value="NU">Niue</option>
-<option value="NF">Norfolk Island</option>
-<option value="MP">Northern Mariana Islands</option>
-<option value="NO">Norway</option>
-<option value="OM">Oman</option>
-<option value="PK">Pakistan</option>
-<option value="PW">Palau</option>
-<option value="PS">Palestinian Territory, Occupied</option>
-<option value="PA">Panama</option>
-<option value="PG">Papua New Guinea</option>
-<option value="PY">Paraguay</option>
-<option value="PE">Peru</option>
-<option value="PH">Philippines</option>
-<option value="PL">Poland</option>
-<option value="PT">Portugal</option>
-<option value="PR">Puerto Rico</option>
-<option value="QA">Qatar</option>
-<option value="RE">Reunion</option>
-<option value="RO">Romania</option>
-<option value="RU">Russian Federation</option>
-<option value="RW">Rwanda</option>
-<option value="KN">Saint Kitts and Nevis</option>
-<option value="LC">Saint Lucia</option>
-<option value="PM">Saint Pierre and Miquelon</option>
-<option value="VC">Saint Vincent and the Grenadines</option>
-<option value="WS">Samoa</option>
-<option value="SM">San Marino</option>
-<option value="ST">Sao Tome and Principe</option>
-<option value="SA">Saudi Arabia</option>
-<option value="SN">Senegal</option>
-<option value="RS">Serbia</option>
-<option value="SC">Seychelles</option>
-<option value="SL">Sierra Leone</option>
-<option value="SG">Singapore</option>
-<option value="SK">Slovakia</option>
-<option value="SI">Slovenia</option>
-<option value="SB">Solomon Islands</option>
-<option value="SO">Somalia</option>
-<option value="ZA">South Africa</option>
-<option value="ES">Spain</option>
-<option value="LK">Sri Lanka</option>
-<option value="SD">Sudan</option>
-<option value="SR">Suriname</option>
-<option value="SJ">Svalbard and Jan Mayen</option>
-<option value="SZ">Swaziland</option>
-<option value="SE">Sweden</option>
-<option value="CH">Switzerland</option>
-<option value="SY">Syrian Arab Republic</option>
-<option value="TW">Taiwan</option>
-<option value="TJ">Tajikistan</option>
-<option value="TZ">Tanzania</option>
-<option value="TH">Thailand</option>
-<option value="TG">Togo</option>
-<option value="TK">Tokelau</option>
-<option value="TO">Tonga</option>
-<option value="TT">Trinidad and Tobago</option>
-<option value="TN">Tunisia</option>
-<option value="TR">Turkey</option>
-<option value="TM">Turkmenistan</option>
-<option value="TC">Turks and Caicos Islands</option>
-<option value="TV">Tuvalu</option>
-<option value="UG">Uganda</option>
-<option value="UA">Ukraine</option>
-<option value="AE">United Arab Emirates</option>
-<option value="GB">United Kingdom</option>
-<option value="US">United States</option>
-<option value="UM">United States Minor Outlying Islands</option>
-<option value="UY">Uruguay</option>
-<option value="UZ">Uzbekistan</option>
-<option value="VU">Vanuatu</option>
-<option value="VE">Venezuela</option>
-<option value="VN">Vietnam</option>
-<option value="VG">Virgin Islands, British</option>
-<option value="VI">Virgin Islands, U.S.</option>
-<option value="WF">Wallis and Futuna</option>
-<option value="EH">Western Sahara</option>
-<option value="YE">Yemen</option>
-<option value="ZM">Zambia</option>
-<option value="ZW">Zimbabwe</option>
-</select>
-</div><span class="error"><span class="field-validation-valid" data-valmsg-for="Country" data-valmsg-replace="true"></span></span></div></div>
-<div class="row"><label for="PhoneNumber">Phone: *</label><div class="row-control"><div class="formset"><div class="formitems phone-number"><div class="formitem custom-col-1"><input class="phone-txt" data-val="true" data-val-localizedrequired="Please re-enter Phone Area Code" data-val-localizedrequired-otherpropertyname="ProjectManager" data-val-regularexpression="Phone Area Code should contain only numbers" data-val-regularexpression-otherpropertyname="^\d+$" id="PhoneAreaCode" name="PhoneAreaCode" type="text" value="995" formControlName="phonecode"/></div><div class="custom-offset-1"><div class="formitem"><input autocomplete="off" data-val="true" data-val-localizedrequired="Please re-enter Phone Number" data-val-localizedrequired-otherpropertyname="ProjectManager" data-val-regularexpression="Phone Area Code should contain only numbers" data-val-regularexpression-otherpropertyname="^\d+$" id="PhoneNumber" name="PhoneNumber" type="text" value="544545454" formControlName="phonenumber"/></div></div></div></div><span class="error"><span class="field-validation-valid" data-valmsg-for="PhoneAreaCode" data-valmsg-replace="true"></span></span><span class="error"><span class="field-validation-valid" data-valmsg-for="PhoneNumber" data-valmsg-replace="true"></span></span></div></div>
-<div class="row"><label for="Area">Region, Province or State:</label><div class="row-control"><div class="formset"><input id="Area" name="Area" type="text" value="" formControlName="state"/><span class="error"><span class="field-validation-valid" data-valmsg-for="Area" data-valmsg-replace="true"></span></span></div></div></div>
-<div class="row"><label for="City">City:</label><div class="row-control"><div class="formset"><input id="City" name="City" type="text" value="" formControlName="city"/><span class="error"><span class="field-validation-valid" data-valmsg-for="City" data-valmsg-replace="true"></span></span></div></div></div>
-<div class="row"><label for="PostCode">PostCode:</label><div class="row-control"><div class="formset"><input id="PostCode" name="PostCode" type="text" value="" formControlName="postcode"/><span class="error"><span class="field-validation-valid" data-valmsg-for="PostCode" data-valmsg-replace="true"></span></span></div></div></div>
-<div class="row button-row">
-    <div class="buttonset">
-        <a class="button" href="javascript:void(0)" (click)="savepersonaldetails()"><span>Apply</span></a>
-        <a class="button" href="javascript:void(0)" (click)="backtopersonaldetails()"><span>Cancel</span></a>
-</div>
-</div>
-</fieldset>
-</form>
-
+                <h1>Edit Account</h1>
+                <div class="required fl-r-lg fl-r-md reversed">All fields marked as <span>*</span>are mandatory</div>
+                <form [formGroup]="UserFormInfo" class="form" id="actionForm" method="post" role="form">
+                    <input name="__RequestVerificationToken" type="hidden" value="tzUUE8ZdaCmJjByvZehkhTtWdY3gfr1eOey79-KIt-KhNMnJrUbi_deVBYxazdJUXAYz6Mxj2PGrr_WJqj3O_wc_24KXehnqiA1csaCRtW8h1CUz9zMnpHhvoNabz15lCB46gA2" />
+                    <fieldset>
+                        <div class="row">
+                            <label for="FirstName">First Name: *</label>
+                            <div class="row-control">
+                                <div class="formset">
+                                    <input
+                                        data-val="true"
+                                        data-val-lengthvalidator="Must be at least 1 and no more than 20 characters long."
+                                        data-val-lengthvalidator-otherpropertyname="1,20"
+                                        data-val-localizedrequired="Please re-enter First Name"
+                                        data-val-localizedrequired-otherpropertyname="ProjectManager"
+                                        id="FirstName"
+                                        name="FirstName"
+                                        type="text"
+                                        value="rohan"
+                                        formControlName="firstname"
+                                    />
+                                    <span class="error"><span class="field-validation-valid" data-valmsg-for="FirstName" data-valmsg-replace="true"></span></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <label for="LastName">Last Name: *</label>
+                            <div class="row-control">
+                                <div class="formset">
+                                    <input
+                                        data-val="true"
+                                        data-val-lengthvalidator="Must be at least 1 and no more than 20 characters long."
+                                        data-val-lengthvalidator-otherpropertyname="1,20"
+                                        data-val-localizedrequired="Please re-enter Last Name"
+                                        data-val-localizedrequired-otherpropertyname="ProjectManager"
+                                        id="LastName"
+                                        name="LastName"
+                                        type="text"
+                                        value="gupta"
+                                        formControlName="lastname"
+                                    />
+                                    <span class="error"><span class="field-validation-valid" data-valmsg-for="LastName" data-valmsg-replace="true"></span></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <label for="Email">Email: *</label>
+                            <div class="row-control">
+                                <div class="formset">
+                                    <input
+                                        data-val="true"
+                                        data-val-localizedemail="Please re-enter Email"
+                                        data-val-localizedemail-otherpropertyname="ProjectManager"
+                                        data-val-localizedrequired="Please re-enter Email"
+                                        data-val-localizedrequired-otherpropertyname="ProjectManager"
+                                        id="Email"
+                                        name="Email"
+                                        type="text"
+                                        value="sitcomdeveloper43@gmail.com"
+                                        formControlName="email"
+                                    />
+                                    <span class="error"><span class="field-validation-valid" data-valmsg-for="Email" data-valmsg-replace="true"></span></span>
+                                    <span id="uniqueEmailError" class="error" style="display: none;">This Email is already registered</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <label for="Country">Country: *</label>
+                            <div class="row-control">
+                                <div class="formset">
+                                    <select
+                                        class="sel"
+                                        data-val="true"
+                                        data-val-localizedrequired="Please re-enter Country"
+                                        data-val-localizedrequired-otherpropertyname="ProjectManager"
+                                        id="Country"
+                                        name="Country"
+                                        formControlName="countryname" (change)="getPhoneCode($event.target.value)"
+                                    >
+                                        <option value="">Select...</option>
+                                        <option *ngFor = "let country of allCountries" value="{{country.Id}}">{{country.Name}}</option>
+                                       
+                                    </select>
+                                </div>
+                                <span class="error"><span class="field-validation-valid" data-valmsg-for="Country" data-valmsg-replace="true"></span></span>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <label for="PhoneNumber">Phone: *</label>
+                            <div class="row-control">
+                                <div class="formset">
+                                    <div class="formitems phone-number">
+                                        <div class="formitem custom-col-1">
+                                            <input
+                                                class="phone-txt"
+                                                data-val="true"
+                                                data-val-localizedrequired="Please re-enter Phone Area Code"
+                                                data-val-localizedrequired-otherpropertyname="ProjectManager"
+                                                data-val-regularexpression="Phone Area Code should contain only numbers"
+                                                data-val-regularexpression-otherpropertyname="^\d+$"
+                                                id="PhoneAreaCode"
+                                                name="PhoneAreaCode"
+                                                type="text"
+                                                value="995"
+                                                formControlName="phonecode"
+                                            />
+                                        </div>
+                                        <div class="custom-offset-1">
+                                            <div class="formitem">
+                                                <input
+                                                    autocomplete="off"
+                                                    data-val="true"
+                                                    data-val-localizedrequired="Please re-enter Phone Number"
+                                                    data-val-localizedrequired-otherpropertyname="ProjectManager"
+                                                    data-val-regularexpression="Phone Area Code should contain only numbers"
+                                                    data-val-regularexpression-otherpropertyname="^\d+$"
+                                                    id="PhoneNumber"
+                                                    name="PhoneNumber"
+                                                    type="text"
+                                                    value="544545454"
+                                                    formControlName="phonenumber"
+                                                />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <span class="error"><span class="field-validation-valid" data-valmsg-for="PhoneAreaCode" data-valmsg-replace="true"></span></span>
+                                <span class="error"><span class="field-validation-valid" data-valmsg-for="PhoneNumber" data-valmsg-replace="true"></span></span>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <label for="Area">Region, Province or State:</label>
+                            <div class="row-control">
+                                <div class="formset">
+                                    <input id="Area" name="Area" type="text" value="" formControlName="state" /><span class="error"><span class="field-validation-valid" data-valmsg-for="Area" data-valmsg-replace="true"></span></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <label for="City">City:</label>
+                            <div class="row-control">
+                                <div class="formset">
+                                    <input id="City" name="City" type="text" value="" formControlName="city" /><span class="error"><span class="field-validation-valid" data-valmsg-for="City" data-valmsg-replace="true"></span></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <label for="PostCode">PostCode:</label>
+                            <div class="row-control">
+                                <div class="formset">
+                                    <input id="PostCode" name="PostCode" type="text" value="" formControlName="postcode" />
+                                    <span class="error"><span class="field-validation-valid" data-valmsg-for="PostCode" data-valmsg-replace="true"></span></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row button-row">
+                            <div class="buttonset">
+                                <a class="button" href="javascript:void(0)" (click)="savepersonaldetails()"><span>Apply</span></a>
+                                <a class="button" href="javascript:void(0)" (click)="backtopersonaldetails()"><span>Cancel</span></a>
+                            </div>
+                        </div>
+                    </fieldset>
+                </form>
             </div>
         </div>
         <aside id="sidebar">
-<div class="box">
-<div class="heading">
-    <h3>My account</h3>
-</div>
-<div class="sidenav">
-    <ul>
-        <li class="">
-            <a routerLink="/userhome" (click)="userhome()"><span>Home</span></a>
-        </li>
-        <li class="active">
-            <a routerLink="/userhome" (click)="prsnldtls()"><span>Personal Details</span></a>
-        </li>
-        <li class="">
-            <a routerLink="/userhome" (click)="chngepassword()"><span>Change Password</span></a>
-        </li>
-        <li class="">
-            <a routerLink="/userhome" (click)="tradinghistory()"><span>Trading History</span></a>
-        </li>
-        <li class="">
-            <a routerLink="/userhome" (click)="depositfunds()"><span>Deposit Funds</span></a>
-        </li>
-        <li class="">
-            <a routerLink="/userhome" (click)="uploaddocuments()"><span>Upload Documents</span></a>
-        </li>
-        <li class="">
-            <a routerLink="/userhome" (click)="monetarytransactions()"><span>Monetary Transactions</span></a>
-        </li>
-        <li class="">
-            <a routerLink="/userhome" (click)="withdrawl()"><span>Withdrawal</span></a>
-        </li>
-        <li class="">
-            <a routerLink="/userhome" (click)="contactwe()"><span>Contact Us</span></a>
-        </li>
-    </ul>
-</div>
-</div>
-</aside>
-
+            <div class="box">
+                <div class="heading">
+                    <h3>My account</h3>
+                </div>
+                <div class="sidenav">
+                    <ul>
+                        <li class="">
+                            <a routerLink="/userhome" (click)="userhome()"><span>Home</span></a>
+                        </li>
+                        <li class="active">
+                            <a routerLink="/userhome" (click)="prsnldtls()"><span>Personal Details</span></a>
+                        </li>
+                        <li class="">
+                            <a routerLink="/userhome" (click)="chngepassword()"><span>Change Password</span></a>
+                        </li>
+                        <li class="">
+                            <a routerLink="/userhome" (click)="tradinghistory()"><span>Trading History</span></a>
+                        </li>
+                        <li class="">
+                            <a routerLink="/userhome" (click)="depositfunds()"><span>Deposit Funds</span></a>
+                        </li>
+                        <li class="">
+                            <a routerLink="/userhome" (click)="uploaddocuments()"><span>Upload Documents</span></a>
+                        </li>
+                        <li class="">
+                            <a routerLink="/userhome" (click)="monetarytransactions()"><span>Monetary Transactions</span></a>
+                        </li>
+                        <li class="">
+                            <a routerLink="/userhome" (click)="withdrawl()"><span>Withdrawal</span></a>
+                        </li>
+                        <li class="">
+                            <a routerLink="/userhome" (click)="contactwe()"><span>Contact Us</span></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </aside>
     </div>
+    <div class="message">{{respond}}</div>
 </main>
 <!-- change password -->
-<main *ngIf = chngpwd>
+<main *ngIf="chngpwd">
     <div class="quote__container">&nbsp;</div>
     <div class="breadcrumbs">
-        <ul class=""><li><a href="javascript:void(0);">Home</a></li><li>Change Password</li></ul>
+        <ul class="">
+            <li><a href="javascript:void(0);">Home</a></li>
+            <li>Change Password</li>
+        </ul>
     </div>
     <div class="main-holder">
         <div class="contentholder">
             <div id="content">
-                
-
-
-<div class="clearfix">
-<h1 class="fl-l-lg fl-l-md reversed">Change Password</h1>
-<div class="required fl-r-lg fl-r-md reversed">All fields marked as <span>*</span>are mandatory</div>
-</div>
-<form [formGroup]="UserFormInfo" class="form" id="actionForm" role="form"><input name="" type="hidden"/>    <fieldset>
-<div class="row"><label for="OldPassword"> Old Password:</label><div class="row-control"><div class="formset"><input data-val="true" data-val-localizedrequired="Please re-enter Old Password" data-val-localizedrequired-otherpropertyname="ProjectManager" id="OldPassword" name="OldPassword" type="password" formControlName = "oldpwd"/><span class="error"><span class="field-validation-valid" data-valmsg-for="OldPassword" data-valmsg-replace="true"></span></span></div></div></div>
-<div class="row"><label for="NewPassword">New Password:</label><div class="row-control"><div class="formset"><input class=" password" data-val="true" data-val-localizedrequired="Please re-enter New Password" data-val-localizedrequired-otherpropertyname="ProjectManager" id="NewPassword" name="NewPassword" title="Your Password must contain:&lt;br/> - at least 5 characters &lt;br/> - contain at least 1 letter &lt;br/> - contain at least 1 number" type="password" formControlName = "newpwd"/><span class="error"><span class="field-validation-valid" data-valmsg-for="NewPassword" data-valmsg-replace="true"></span></span></div></div></div>
-<div class="row"><div class="row-control"><div class="formset"><div id="iSM"><ul class="weak"><li id="iWeak">Weak</li><li id="iMedium">Medium</li><li id="iStrong">Strong</li></ul></div></div></div></div>
-<div class="row"><label for="ConfirmPassword">Confirm Password:</label><div class="row-control"><div class="formset"><input data-val="true" data-val-localizedpropertiesmustmatchclienttrigger="Please re-enter Confirm Password" data-val-localizedpropertiesmustmatchclienttrigger-otherpropertyname="NewPassword" data-val-localizedrequired="Please re-enter Confirm Password" data-val-localizedrequired-otherpropertyname="ProjectManager" id="ConfirmPassword" name="ConfirmPassword" type="password" formControlName = "confirmpwd"/><span class="error"><span class="field-validation-valid" data-valmsg-for="ConfirmPassword" data-valmsg-replace="true"></span></span></div></div></div>
-<div class="row button-row"><div class="buttonset"><a class="button" href="javascript:void(0);" (click)="updatethepassword()"><span>Submit</span></a>
-</div>
-</div>
-</fieldset>
-</form>
+                <div class="clearfix">
+                    <h1 class="fl-l-lg fl-l-md reversed">Change Password</h1>
+                    <div class="required fl-r-lg fl-r-md reversed">All fields marked as <span>*</span>are mandatory</div>
+                </div>
+                <form [formGroup]="UserFormInfo" class="form" id="actionForm" role="form">
+                    <input name="" type="hidden" />
+                    <fieldset>
+                        <div class="row">
+                            <label for="OldPassword"> Old Password:</label>
+                            <div class="row-control">
+                                <div class="formset">
+                                    <input
+                                        data-val="true"
+                                        data-val-localizedrequired="Please re-enter Old Password"
+                                        data-val-localizedrequired-otherpropertyname="ProjectManager"
+                                        id="OldPassword"
+                                        name="OldPassword"
+                                        type="password"
+                                        formControlName="oldpwd"
+                                    />
+                                    <span class="error"><span class="field-validation-valid" data-valmsg-for="OldPassword" data-valmsg-replace="true"></span></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <label for="NewPassword">New Password:</label>
+                            <div class="row-control">
+                                <div class="formset">
+                                    <input
+                                        class="password"
+                                        data-val="true"
+                                        data-val-localizedrequired="Please re-enter New Password"
+                                        data-val-localizedrequired-otherpropertyname="ProjectManager"
+                                        id="NewPassword"
+                                        name="NewPassword"
+                                        title="Your Password must contain:&lt;br/> - at least 5 characters &lt;br/> - contain at least 1 letter &lt;br/> - contain at least 1 number"
+                                        type="password"
+                                        formControlName="newpwd"
+                                    />
+                                    <span class="error"><span class="field-validation-valid" data-valmsg-for="NewPassword" data-valmsg-replace="true"></span></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="row-control">
+                                <div class="formset">
+                                    <div id="iSM">
+                                        <ul class="weak">
+                                            <li id="iWeak">Weak</li>
+                                            <li id="iMedium">Medium</li>
+                                            <li id="iStrong">Strong</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <label for="ConfirmPassword">Confirm Password:</label>
+                            <div class="row-control">
+                                <div class="formset">
+                                    <input
+                                        data-val="true"
+                                        data-val-localizedpropertiesmustmatchclienttrigger="Please re-enter Confirm Password"
+                                        data-val-localizedpropertiesmustmatchclienttrigger-otherpropertyname="NewPassword"
+                                        data-val-localizedrequired="Please re-enter Confirm Password"
+                                        data-val-localizedrequired-otherpropertyname="ProjectManager"
+                                        id="ConfirmPassword"
+                                        name="ConfirmPassword"
+                                        type="password"
+                                        formControlName="confirmpwd"
+                                    />
+                                    <span class="error"><span class="field-validation-valid" data-valmsg-for="ConfirmPassword" data-valmsg-replace="true"></span></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row button-row">
+                            <div class="buttonset">
+                                <a class="button" href="javascript:void(0);" (click)="updatethepassword()"><span>Submit</span></a>
+                            </div>
+                        </div>
+                    </fieldset>
+                </form>
             </div>
         </div>
         <aside id="sidebar">
-<div class="box">
-<div class="heading">
-    <h3>My account</h3>
-</div>
-<div class="sidenav">
-    <ul>
-        <li class="">
-            <a routerLink="/userhome" (click)="userhome()"><span>Home</span></a>
-        </li>
-        <li class="">
-            <a routerLink="/userhome" (click)="prsnldtls()"><span>Personal Details</span></a>
-        </li>
-        <li class="active">
-            <a routerLink="/userhome" (click)="chngepassword()"><span>Change Password</span></a>
-        </li>
-        <li class="">
-            <a routerLink="/userhome" (click)="tradinghistory()"><span>Trading History</span></a>
-        </li>
-        <li class="">
-            <a routerLink="/userhome" (click)="depositfunds()"><span>Deposit Funds</span></a>
-        </li>
-        <li class="">
-            <a routerLink="/userhome" (click)="uploaddocuments()"><span>Upload Documents</span></a>
-        </li>
-        <li class="">
-            <a routerLink="/userhome" (click)="monetarytransactions()"><span>Monetary Transactions</span></a>
-        </li>
-        <li class="">
-            <a routerLink="/userhome" (click)="withdrawl()"><span>Withdrawal</span></a>
-        </li>
-        <li class="">
-            <a routerLink="/userhome" (click)="contactwe()"><span>Contact Us</span></a>
-        </li>
-    </ul>
-</div>
-</div>
-</aside>
-
+            <div class="box">
+                <div class="heading">
+                    <h3>My account</h3>
+                </div>
+                <div class="sidenav">
+                    <ul>
+                        <li class="">
+                            <a routerLink="/userhome" (click)="userhome()"><span>Home</span></a>
+                        </li>
+                        <li class="">
+                            <a routerLink="/userhome" (click)="prsnldtls()"><span>Personal Details</span></a>
+                        </li>
+                        <li class="active">
+                            <a routerLink="/userhome" (click)="chngepassword()"><span>Change Password</span></a>
+                        </li>
+                        <li class="">
+                            <a routerLink="/userhome" (click)="tradinghistory()"><span>Trading History</span></a>
+                        </li>
+                        <li class="">
+                            <a routerLink="/userhome" (click)="depositfunds()"><span>Deposit Funds</span></a>
+                        </li>
+                        <li class="">
+                            <a routerLink="/userhome" (click)="uploaddocuments()"><span>Upload Documents</span></a>
+                        </li>
+                        <li class="">
+                            <a routerLink="/userhome" (click)="monetarytransactions()"><span>Monetary Transactions</span></a>
+                        </li>
+                        <li class="">
+                            <a routerLink="/userhome" (click)="withdrawl()"><span>Withdrawal</span></a>
+                        </li>
+                        <li class="">
+                            <a routerLink="/userhome" (click)="contactwe()"><span>Contact Us</span></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </aside>
     </div>
     <div class="message">{{response}}</div>
 </main>
 
 <!-- trading history -->
-<main *ngIf = trdinghistry>
+<main *ngIf="trdinghistry">
     <div class="quote__container">&nbsp;</div>
     <div class="breadcrumbs">
-        <ul class=""><li><a href="javascript:void(0);">Home</a></li><li>Trading History</li></ul>
+        <ul class="">
+            <li><a href="javascript:void(0);">Home</a></li>
+            <li>Trading History</li>
+        </ul>
     </div>
     <div class="main-holder">
         <div class="contentholder">
             <div id="content">
-                
+                <h1>Closed Positions</h1>
+                <form class="form">
+                    <fieldset>
+                        <div class="form-columns">
+                            <div class="form-col col-md-6">
+                                <div class="row">
+                                    <label for="TradeAccount">Trade Account: *</label>
+                                    <div class="row-control">
+                                        <div class="formset">
+                                            <select
+                                                class="sel"
+                                                data-val="true"
+                                                data-val-localizedrequired="Please re-enter Trade Account"
+                                                data-val-localizedrequired-otherpropertyname="ProjectManager"
+                                                data-val-number="The field Trade Account: * must be a number."
+                                                id="TradeAccount"
+                                                name="TradeAccount"
+                                            >
+                                                <option value="{{this.bindLoginData?.TradeAccount.TPAccountNumber}}">{{this.bindLoginData?.TradeAccount.TPAccountNumber}}</option>
+                                            </select>
+                                        </div>
+                                        <span class="error"><span class="field-validation-valid" data-valmsg-for="TradeAccount" data-valmsg-replace="true"></span></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </fieldset>
+                </form>
 
-
-<h1>Closed Positions</h1>
-<form  class="form">
-<fieldset>
-<div class="form-columns">
-    <div class="form-col col-md-6">
-        <div class="row"><label for="TradeAccount">Trade Account: *</label><div class="row-control"><div class="formset"><select class="sel" data-val="true" data-val-localizedrequired="Please re-enter Trade Account" data-val-localizedrequired-otherpropertyname="ProjectManager" data-val-number="The field Trade Account: * must be a number." id="TradeAccount" name="TradeAccount"><option value="{{this.bindLoginData?.TradeAccount.TPAccountNumber}}">{{this.bindLoginData?.TradeAccount.TPAccountNumber}}</option>
-</select></div><span class="error"><span class="field-validation-valid" data-valmsg-for="TradeAccount" data-valmsg-replace="true"></span></span></div></div>
-    </div>
-</div>
-</fieldset>
-</form>
-
-<div class="table account-table trading-table">
-<table id="tradingHistory">
-<thead>
-    <tr>
-        <th>Symbol</th>
-        <th>Volume</th>
-        <th>Open Date</th>
-        <th>Close Date</th>
-        <th>Open Price</th>
-        <th>Close Price</th>
-        <th>Position Type</th>
-        <th>Swap</th>
-        <th>Commission</th>
-        <th>Profit</th>
-        <th>Margin</th>
-    </tr>
-</thead>
-</table>
-</div>
+                <div class="table account-table trading-table">
+                    <table id="tradingHistory">
+                        <thead>
+                            <tr>
+                                <th>Symbol</th>
+                                <th>Volume</th>
+                                <th>Open Date</th>
+                                <th>Close Date</th>
+                                <th>Open Price</th>
+                                <th>Close Price</th>
+                                <th>Position Type</th>
+                                <th>Swap</th>
+                                <th>Commission</th>
+                                <th>Profit</th>
+                                <th>Margin</th>
+                            </tr>
+                        </thead>
+                    </table>
+                </div>
             </div>
         </div>
         <aside id="sidebar">
-<div class="box">
-<div class="heading">
-    <h3>My account</h3>
-</div>
-<div class="sidenav">
-    <ul>
-        <li class="">
-            <a routerLink="/userhome" (click)="userhome()"><span>Home</span></a>
-        </li>
-        <li class="">
-            <a routerLink="/userhome" (click)="prsnldtls()"><span>Personal Details</span></a>
-        </li>
-        <li class="">
-            <a routerLink="/userhome" (click)="chngepassword()"><span>Change Password</span></a>
-        </li>
-        <li class="active">
-            <a routerLink="/userhome" (click)="tradinghistory()"><span>Trading History</span></a>
-        </li>
-        <li class="">
-            <a routerLink="/userhome" (click)="depositfunds()"><span>Deposit Funds</span></a>
-        </li>
-        <li class="">
-            <a routerLink="/userhome" (click)="uploaddocuments()"><span>Upload Documents</span></a>
-        </li>
-        <li class="">
-            <a routerLink="/userhome" (click)="monetarytransactions()"><span>Monetary Transactions</span></a>
-        </li>
-        <li class="">
-            <a routerLink="/userhome" (click)="withdrawl()"><span>Withdrawal</span></a>
-        </li>
-        <li class="">
-            <a routerLink="/userhome" (click)="contactwe()"><span>Contact Us</span></a>
-        </li>
-    </ul>
-</div>
-</div>
-</aside>
-
+            <div class="box">
+                <div class="heading">
+                    <h3>My account</h3>
+                </div>
+                <div class="sidenav">
+                    <ul>
+                        <li class="">
+                            <a routerLink="/userhome" (click)="userhome()"><span>Home</span></a>
+                        </li>
+                        <li class="">
+                            <a routerLink="/userhome" (click)="prsnldtls()"><span>Personal Details</span></a>
+                        </li>
+                        <li class="">
+                            <a routerLink="/userhome" (click)="chngepassword()"><span>Change Password</span></a>
+                        </li>
+                        <li class="active">
+                            <a routerLink="/userhome" (click)="tradinghistory()"><span>Trading History</span></a>
+                        </li>
+                        <li class="">
+                            <a routerLink="/userhome" (click)="depositfunds()"><span>Deposit Funds</span></a>
+                        </li>
+                        <li class="">
+                            <a routerLink="/userhome" (click)="uploaddocuments()"><span>Upload Documents</span></a>
+                        </li>
+                        <li class="">
+                            <a routerLink="/userhome" (click)="monetarytransactions()"><span>Monetary Transactions</span></a>
+                        </li>
+                        <li class="">
+                            <a routerLink="/userhome" (click)="withdrawl()"><span>Withdrawal</span></a>
+                        </li>
+                        <li class="">
+                            <a routerLink="/userhome" (click)="contactwe()"><span>Contact Us</span></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </aside>
     </div>
 </main>
 <!-- deposit funds -->
-<main *ngIf = dpsitfunds>
+<main *ngIf="dpsitfunds">
     <div class="quote__container">&nbsp;</div>
     <div class="breadcrumbs">
-        <ul class=""><li><a href="javascript:void(0);">Home</a></li><li>Deposit</li></ul>
+        <ul class="">
+            <li><a href="javascript:void(0);">Home</a></li>
+            <li>Deposit</li>
+        </ul>
     </div>
     <div class="main-holder">
         <div class="contentholder">
             <div id="content">
-                
+                <div class="mb30">
+                    <div class="row">
+                        <h1 class="fl-l-lg reversed">Deposit</h1>
+                        <div class="required fl-r-lg reversed">* Indicates required field</div>
+                    </div>
+                </div>
 
+                <form [formGroup]="UserFormInfo" class="form" id="actionForm" role="form">
+                    <input name="" type="hidden" />
+                    <fieldset>
+                        <div class="row">
+                            <label for="DepositModel_TradeAccount">Trade Account: *</label>
+                            <div class="row-control">
+                                <div class="formset">
+                                    <select
+                                        data-val="true"
+                                        data-val-localizedrequired="Please re-enter Trade Account"
+                                        data-val-localizedrequired-otherpropertyname="ProjectManager"
+                                        data-val-number="The field Trade Account: * must be a number."
+                                        id="DepositModel_TradeAccount"
+                                        name="DepositModel.TradeAccount"
+                                        formControlName="trdeaccount"
+                                    >
+                                        <option value="{{this.bindLoginData?.TradeAccount.TPAccountNumber}}">{{this.bindLoginData?.TradeAccount.TPAccountNumber}}</option>
+                                    </select>
+                                </div>
+                                <span class="error"><span class="field-validation-valid" data-valmsg-for="DepositModel.TradeAccount" data-valmsg-replace="true"></span></span>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <label for="DepositModel_Amount">Amount: *</label>
+                            <div class="row-control">
+                                <div class="formset">
+                                    <div class="formitems">
+                                        <div class="formitem span-8">
+                                            <input
+                                                data-val="true"
+                                                data-val-localizedrequired="Please re-enter Amount"
+                                                data-val-localizedrequired-otherpropertyname="ProjectManager"
+                                                data-val-mindepositvalidator="Deposit should be greater than or equal to 1"
+                                                data-val-mindepositvalidator-otherpropertyname="1"
+                                                data-val-number="The field Amount: * must be a number."
+                                                id="DepositModel_Amount"
+                                                name="DepositModel.Amount"
+                                                type="text"
+                                                value="0"
+                                                formControlName="amount"
+                                            />
+                                        </div>
+                                        <div class="formitem span-4 mark"><span id="currentCurrency" class="mark">{{this.bindLoginData?.Client.CurrencyName}}</span></div>
+                                    </div>
+                                    <span class="error"><span class="field-validation-valid" data-valmsg-for="DepositModel.Amount" data-valmsg-replace="true"></span></span>
+                                </div>
+                            </div>
+                        </div>
 
-<div class="mb30">
-<div class="row">
-<h1 class="fl-l-lg reversed">Deposit</h1>
-<div class="required fl-r-lg reversed">* Indicates required field</div>
-</div>
-</div>
+                        <input
+                            data-val="true"
+                            data-val-localizedrequired="Please re-enter Zip / Postal Code"
+                            data-val-localizedrequired-otherpropertyname="ProjectManager"
+                            id="DepositModel_Zip"
+                            name="DepositModel.Zip"
+                            type="hidden"
+                            value="12345"
+                        />
+                        <input data-val="true" data-val-localizedrequired="Please re-enter City" data-val-localizedrequired-otherpropertyname="ProjectManager" id="DepositModel_City" name="DepositModel.City" type="hidden" value="London" />
+                        <input
+                            data-val="true"
+                            data-val-localizedrequired="Please re-enter Address"
+                            data-val-localizedrequired-otherpropertyname="ProjectManager"
+                            id="DepositModel_Address"
+                            name="DepositModel.Address"
+                            type="hidden"
+                            value="London123"
+                        />
+                        <input
+                            data-val="true"
+                            data-val-localizedemail="Please re-enter Email"
+                            data-val-localizedemail-otherpropertyname="ProjectManager"
+                            data-val-localizedrequired="Please re-enter Email"
+                            data-val-localizedrequired-otherpropertyname="ProjectManager"
+                            id="DepositModel_Email"
+                            name="DepositModel.Email"
+                            type="hidden"
+                            value="sitcomdeveloper43@gmail.com"
+                        />
+                        <input
+                            data-val="true"
+                            data-val-localizedrequired="Please re-enter Country"
+                            data-val-localizedrequired-otherpropertyname="ProjectManager"
+                            id="DepositModel_Country"
+                            name="DepositModel.Country"
+                            type="hidden"
+                            value="GE"
+                        />
+                        <input
+                            data-val="true"
+                            data-val-localizedrequired="Please re-enter Phone Number"
+                            data-val-localizedrequired-otherpropertyname="ProjectManager"
+                            id="DepositModel_PhoneNumber"
+                            name="DepositModel.PhoneNumber"
+                            type="hidden"
+                            value="995-544545454"
+                        />
+                        <input id="PaymentId" name="PaymentId" type="hidden" value="62ae55b5-afa9-4b0c-b8dc-df108e924956" />
 
-
-<form [formGroup]="UserFormInfo" class="form" id="actionForm" role="form"><input name="" type="hidden" />    <fieldset>
-<div class="row"><label for="DepositModel_TradeAccount">Trade Account: *</label><div class="row-control"><div class="formset"><select data-val="true" data-val-localizedrequired="Please re-enter Trade Account" data-val-localizedrequired-otherpropertyname="ProjectManager" data-val-number="The field Trade Account: * must be a number." id="DepositModel_TradeAccount" name="DepositModel.TradeAccount" formControlName="trdeaccount"><option value="{{this.bindLoginData?.TradeAccount.TPAccountNumber}}">{{this.bindLoginData?.TradeAccount.TPAccountNumber}}</option>
-</select></div><span class="error"><span class="field-validation-valid" data-valmsg-for="DepositModel.TradeAccount" data-valmsg-replace="true"></span></span></div></div>
-<div class="row"><label for="DepositModel_Amount">Amount: *</label><div class="row-control"><div class="formset"><div class="formitems"><div class="formitem span-8"><input data-val="true" data-val-localizedrequired="Please re-enter Amount" data-val-localizedrequired-otherpropertyname="ProjectManager" data-val-mindepositvalidator="Deposit should be greater than or equal to 1" data-val-mindepositvalidator-otherpropertyname="1" data-val-number="The field Amount: * must be a number." id="DepositModel_Amount" name="DepositModel.Amount" type="text" value="0" formControlName="amount"/></div><div class="formitem span-4 mark"><span id="currentCurrency" class="mark">{{this.bindLoginData?.Client.CurrencyName}}</span></div></div><span class="error"><span class="field-validation-valid" data-valmsg-for="DepositModel.Amount" data-valmsg-replace="true"></span></span></div></div></div>
-
-<input data-val="true" data-val-localizedrequired="Please re-enter Zip / Postal Code" data-val-localizedrequired-otherpropertyname="ProjectManager" id="DepositModel_Zip" name="DepositModel.Zip" type="hidden" value="12345" />
-<input data-val="true" data-val-localizedrequired="Please re-enter City" data-val-localizedrequired-otherpropertyname="ProjectManager" id="DepositModel_City" name="DepositModel.City" type="hidden" value="London" />
-<input data-val="true" data-val-localizedrequired="Please re-enter Address" data-val-localizedrequired-otherpropertyname="ProjectManager" id="DepositModel_Address" name="DepositModel.Address" type="hidden" value="London123" />
-<input data-val="true" data-val-localizedemail="Please re-enter Email" data-val-localizedemail-otherpropertyname="ProjectManager" data-val-localizedrequired="Please re-enter Email" data-val-localizedrequired-otherpropertyname="ProjectManager" id="DepositModel_Email" name="DepositModel.Email" type="hidden" value="sitcomdeveloper43@gmail.com" />
-<input data-val="true" data-val-localizedrequired="Please re-enter Country" data-val-localizedrequired-otherpropertyname="ProjectManager" id="DepositModel_Country" name="DepositModel.Country" type="hidden" value="GE" /> 
-<input data-val="true" data-val-localizedrequired="Please re-enter Phone Number" data-val-localizedrequired-otherpropertyname="ProjectManager" id="DepositModel_PhoneNumber" name="DepositModel.PhoneNumber" type="hidden" value="995-544545454" />
-<input id="PaymentId" name="PaymentId" type="hidden" value="62ae55b5-afa9-4b0c-b8dc-df108e924956" />
-
-<div class="row button-row"><div class="buttonset"><a class="button" href="javascript:void(0);" (click)="addfund()"><span>Submit</span></a></div></div>
-</fieldset>
-</form>
-
-
+                        <div class="row button-row">
+                            <div class="buttonset">
+                                <a class="button" href="javascript:void(0);" (click)="addfund()"><span>Submit</span></a>
+                            </div>
+                        </div>
+                    </fieldset>
+                </form>
             </div>
         </div>
         <aside id="sidebar">
-<div class="box">
-<div class="heading">
-    <h3>My account</h3>
-</div>
-<div class="sidenav">
-    <ul>
-        <li class="">
-            <a routerLink="/userhome" (click)="userhome()"><span>Home</span></a>
-        </li>
-        <li class="">
-            <a routerLink="/userhome" (click)="prsnldtls()"><span>Personal Details</span></a>
-        </li>
-        <li class="">
-            <a routerLink="/userhome" (click)="chngepassword()"><span>Change Password</span></a>
-        </li>
-        <li class="">
-            <a routerLink="/userhome" (click)="tradinghistory()"><span>Trading History</span></a>
-        </li>
-        <li class="active">
-            <a routerLink="/userhome" (click)="depositfunds()"><span>Deposit Funds</span></a>
-        </li>
-        <li class="">
-            <a routerLink="/userhome" (click)="uploaddocuments()"><span>Upload Documents</span></a>
-        </li>
-        <li class="">
-            <a routerLink="/userhome" (click)="monetarytransactions()"><span>Monetary Transactions</span></a>
-        </li>
-        <li class="">
-            <a routerLink="/userhome" (click)="withdrawl()"><span>Withdrawal</span></a>
-        </li>
-        <li class="">
-            <a routerLink="/userhome" (click)="contactwe()"><span>Contact Us</span></a>
-        </li>
-    </ul>
-</div>
-</div>
-</aside>
-
+            <div class="box">
+                <div class="heading">
+                    <h3>My account</h3>
+                </div>
+                <div class="sidenav">
+                    <ul>
+                        <li class="">
+                            <a routerLink="/userhome" (click)="userhome()"><span>Home</span></a>
+                        </li>
+                        <li class="">
+                            <a routerLink="/userhome" (click)="prsnldtls()"><span>Personal Details</span></a>
+                        </li>
+                        <li class="">
+                            <a routerLink="/userhome" (click)="chngepassword()"><span>Change Password</span></a>
+                        </li>
+                        <li class="">
+                            <a routerLink="/userhome" (click)="tradinghistory()"><span>Trading History</span></a>
+                        </li>
+                        <li class="active">
+                            <a routerLink="/userhome" (click)="depositfunds()"><span>Deposit Funds</span></a>
+                        </li>
+                        <li class="">
+                            <a routerLink="/userhome" (click)="uploaddocuments()"><span>Upload Documents</span></a>
+                        </li>
+                        <li class="">
+                            <a routerLink="/userhome" (click)="monetarytransactions()"><span>Monetary Transactions</span></a>
+                        </li>
+                        <li class="">
+                            <a routerLink="/userhome" (click)="withdrawl()"><span>Withdrawal</span></a>
+                        </li>
+                        <li class="">
+                            <a routerLink="/userhome" (click)="contactwe()"><span>Contact Us</span></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </aside>
     </div>
     <div class="message">{{respons}}</div>
 </main>
 <!-- upload documents -->
-<main *ngIf = uplddocuments>
+<main *ngIf="uplddocuments">
     <div class="quote__container">&nbsp;</div>
     <div class="breadcrumbs">
-        <ul class=""><li><a href="javascript:void(0);">Home</a></li><li>Upload Documents</li></ul>
+        <ul class="">
+            <li><a href="javascript:void(0);">Home</a></li>
+            <li>Upload Documents</li>
+        </ul>
     </div>
     <div class="main-holder">
         <div class="contentholder">
             <div id="content">
-                
+                <h2>Upload Documents</h2>
+                <form [formGroup]="UserFormInfo" class="form" enctype="multipart/form-data" id="actionForm2">
+                    <div class="row">
+                        <label for="UploadType">UploadType</label>
+                        <div class="formset">
+                            <select data-val="true" data-val-number="The field UploadType must be a number." data-val-required="The UploadType field is required." id="UploadType" name="UploadType" formControlName="documenttype">
+                                <option *ngFor="let documents of typesofdocuments">{{documents.TypeName}}</option>
+                            </select>
+                        </div>
+                        <span class="error"><span class="field-validation-valid" data-valmsg-for="UploadType" data-valmsg-replace="true"></span></span>
+                    </div>
+                    <div class="row">
+                        <label for="IdentificationsFile">File: *</label>
+                        <div class="row-control">
+                            <div class="formset">
+                                <input type="file" class="file" id="IdentificationsFile" name="IdentificationsFile" accept="*.gif" size="25" (change)="file_name_show($event)" formControlName="document" />
+                                <span class="error"><span class="field-validation-valid" data-valmsg-for="IdentificationsFile" data-valmsg-replace="true"></span></span>
+                            </div>
+                        </div>
+                    </div>
+                    <span class="error col-md-offset-2"></span>
+                    <h3 class="status-success"></h3>
+                    <div class="row button-row">
+                        <div class="buttonset">
+                            <a class="button" href="javascript:void(0);" (click)="uplddocument()"><span>Submit</span></a>
+                        </div>
+                    </div>
+                </form>
 
-<h2>Upload Documents</h2>
-<form [formGroup]="UserFormInfo" class="form" enctype="multipart/form-data" id="actionForm2">    <div class="row">
-<label for="UploadType">UploadType</label>
-<div class="formset">
-    <select data-val="true" data-val-number="The field UploadType must be a number." data-val-required="The UploadType field is required." id="UploadType" name="UploadType" formControlName="documenttype">
-        <option *ngFor = "let documents of typesofdocuments">{{documents.TypeName}}</option>
-</select>
-</div>
-<span class="error"><span class="field-validation-valid" data-valmsg-for="UploadType" data-valmsg-replace="true"></span></span>
-</div>
-<div class="row"><label for="IdentificationsFile">File: *</label><div class="row-control"><div class="formset"><input type="file" class="file" id="IdentificationsFile" name="IdentificationsFile" accept="*.gif" size="25" (change)="file_name_show($event)" formControlName="document"/><span class="error"><span class="field-validation-valid" data-valmsg-for="IdentificationsFile" data-valmsg-replace="true"></span></span></div></div></div>    <span class="error col-md-offset-2"></span>
-<h3 class="status-success">
-
-</h3>
-<div class="row button-row"><div class="buttonset"><a class="button" href="javascript:void(0);" (click)="uplddocument()"><span>Submit</span></a></div></div></form>
-
-<br />
-<div class="line">&nbsp;</div>
+                <br />
+                <div class="line">&nbsp;</div>
             </div>
         </div>
         <aside id="sidebar">
-<div class="box">
-<div class="heading">
-    <h3>My account</h3>
-</div>
-<div class="sidenav">
-    <ul>
-        <li class="">
-            <a routerLink="/userhome" (click)="userhome()"><span>Home</span></a>
-        </li>
-        <li class="">
-            <a routerLink="/userhome" (click)="prsnldtls()"><span>Personal Details</span></a>
-        </li>
-        <li class="">
-            <a routerLink="/userhome" (click)="chngepassword()"><span>Change Password</span></a>
-        </li>
-        <li class="">
-            <a routerLink="/userhome" (click)="tradinghistory()"><span>Trading History</span></a>
-        </li>
-        <li class="">
-            <a routerLink="/userhome" (click)="depositfunds()"><span>Deposit Funds</span></a>
-        </li>
-        <li class="active">
-            <a routerLink="/userhome" (click)="uploaddocuments()"><span>Upload Documents</span></a>
-        </li>
-        <li class="">
-            <a routerLink="/userhome" (click)="monetarytransactions()"><span>Monetary Transactions</span></a>
-        </li>
-        <li class="">
-            <a routerLink="/userhome" (click)="withdrawl()"><span>Withdrawal</span></a>
-        </li>
-        <li class="">
-            <a routerLink="/userhome" (click)="contactwe()"><span>Contact Us</span></a>
-        </li>
-    </ul>
-</div>
-</div>
-</aside>
-<div class="message">{{respon}}</div>
+            <div class="box">
+                <div class="heading">
+                    <h3>My account</h3>
+                </div>
+                <div class="sidenav">
+                    <ul>
+                        <li class="">
+                            <a routerLink="/userhome" (click)="userhome()"><span>Home</span></a>
+                        </li>
+                        <li class="">
+                            <a routerLink="/userhome" (click)="prsnldtls()"><span>Personal Details</span></a>
+                        </li>
+                        <li class="">
+                            <a routerLink="/userhome" (click)="chngepassword()"><span>Change Password</span></a>
+                        </li>
+                        <li class="">
+                            <a routerLink="/userhome" (click)="tradinghistory()"><span>Trading History</span></a>
+                        </li>
+                        <li class="">
+                            <a routerLink="/userhome" (click)="depositfunds()"><span>Deposit Funds</span></a>
+                        </li>
+                        <li class="active">
+                            <a routerLink="/userhome" (click)="uploaddocuments()"><span>Upload Documents</span></a>
+                        </li>
+                        <li class="">
+                            <a routerLink="/userhome" (click)="monetarytransactions()"><span>Monetary Transactions</span></a>
+                        </li>
+                        <li class="">
+                            <a routerLink="/userhome" (click)="withdrawl()"><span>Withdrawal</span></a>
+                        </li>
+                        <li class="">
+                            <a routerLink="/userhome" (click)="contactwe()"><span>Contact Us</span></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </aside>
+        <div class="message">{{respon}}</div>
     </div>
-    
 </main>
 <!-- monetary transactions -->
-<main *ngIf = mnetrytransction>
+<main *ngIf="mnetrytransction">
     <div class="quote__container">&nbsp;</div>
     <div class="breadcrumbs">
-        <ul class=""><li><a href="javascript:void(0);">Home</a></li><li>Monetary Statement</li></ul>
+        <ul class="">
+            <li><a href="javascript:void(0);">Home</a></li>
+            <li>Monetary Statement</li>
+        </ul>
     </div>
     <div class="main-holder">
         <div class="contentholder">
             <div id="content">
-                
+                <h1>Monetary Statement</h1>
+                <form [formGroup]="UserFormInfo" class="form">
+                    <fieldset>
+                        <div class="form-columns">
+                            <div class="form-col col-md-6">
+                                <div class="row">
+                                    <label for="TradeAccount">Trade Account: *</label>
+                                    <div class="row-control">
+                                        <div class="formset">
+                                            <select
+                                                class="sel"
+                                                data-val="true"
+                                                data-val-localizedrequired="Please re-enter Trade Account"
+                                                data-val-localizedrequired-otherpropertyname="ProjectManager"
+                                                data-val-number="The field Trade Account: * must be a number."
+                                                id="TradeAccount"
+                                                name="TradeAccount"
+                                            >
+                                                <option value="{{this.bindLoginData?.TradeAccount.TPAccountNumber}}">{{this.bindLoginData?.TradeAccount.TPAccountNumber}}</option>
+                                            </select>
+                                        </div>
+                                        <span class="error"><span class="field-validation-valid" data-valmsg-for="TradeAccount" data-valmsg-replace="true"></span></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </fieldset>
+                </form>
 
-<h1>Monetary Statement</h1>
-<form [formGroup]="UserFormInfo" class="form">
-<fieldset>
-<div class="form-columns">
-    <div class="form-col col-md-6">
-        <div class="row"><label for="TradeAccount">Trade Account: *</label><div class="row-control"><div class="formset"><select class="sel" data-val="true" data-val-localizedrequired="Please re-enter Trade Account" data-val-localizedrequired-otherpropertyname="ProjectManager" data-val-number="The field Trade Account: * must be a number." id="TradeAccount" name="TradeAccount"><option value="{{this.bindLoginData?.TradeAccount.TPAccountNumber}}">{{this.bindLoginData?.TradeAccount.TPAccountNumber}}</option>
-</select></div><span class="error"><span class="field-validation-valid" data-valmsg-for="TradeAccount" data-valmsg-replace="true"></span></span></div></div>
-    </div>
-</div>
-</fieldset>
-</form>
-
-<div class="table account-table">
-<table id="monetaryStatement">
-<thead>
-    <tr>
-        <th>Operation Date</th>
-        <th>Enquity</th>
-        <th>Transaction Type</th>
-    </tr>
-</thead>
-<thead>
-    <tr *ngFor = "let MT of allMonetartTrans">
-        <td>{{MT.TransactionDate}}</td>
-        <td>{{MT.DepositAmount}}</td>
-        <td>{{MT.TransactionTypeName}}</td>
-    </tr>
-</thead>
-</table>
-</div>
+                <div class="table account-table">
+                    <table id="monetaryStatement">
+                        <thead>
+                            <tr>
+                                <th>Operation Date</th>
+                                <th>Enquity</th>
+                                <th>Transaction Type</th>
+                            </tr>
+                        </thead>
+                        <thead>
+                            <tr *ngFor="let MT of allMonetartTrans">
+                                <td>{{MT.TransactionDate}}</td>
+                                <td>{{MT.DepositAmount}}</td>
+                                <td>{{MT.TransactionTypeName}}</td>
+                            </tr>
+                        </thead>
+                    </table>
+                </div>
             </div>
         </div>
         <aside id="sidebar">
-<div class="box">
-<div class="heading">
-    <h3>My account</h3>
-</div>
-<div class="sidenav">
-    <ul>
-        <li class="">
-            <a routerLink="/userhome" (click)="userhome()"><span>Home</span></a>
-        </li>
-        <li class="">
-            <a routerLink="/userhome" (click)="prsnldtls()"><span>Personal Details</span></a>
-        </li>
-        <li class="">
-            <a routerLink="/userhome" (click)="chngepassword()"><span>Change Password</span></a>
-        </li>
-        <li class="">
-            <a routerLink="/userhome" (click)="tradinghistory()"><span>Trading History</span></a>
-        </li>
-        <li class="">
-            <a routerLink="/userhome" (click)="depositfunds()"><span>Deposit Funds</span></a>
-        </li>
-        <li class="">
-            <a routerLink="/userhome" (click)="uploaddocuments()"><span>Upload Documents</span></a>
-        </li>
-        <li class="active">
-            <a routerLink="/userhome" (click)="monetarytransactions()"><span>Monetary Transactions</span></a>
-        </li>
-        <li class="">
-            <a routerLink="/userhome" (click)="withdrawl()"><span>Withdrawal</span></a>
-        </li>
-        <li class="">
-            <a routerLink="/userhome" (click)="contactwe()"><span>Contact Us</span></a>
-        </li>
-    </ul>
-</div>
-</div>
-</aside>
-
+            <div class="box">
+                <div class="heading">
+                    <h3>My account</h3>
+                </div>
+                <div class="sidenav">
+                    <ul>
+                        <li class="">
+                            <a routerLink="/userhome" (click)="userhome()"><span>Home</span></a>
+                        </li>
+                        <li class="">
+                            <a routerLink="/userhome" (click)="prsnldtls()"><span>Personal Details</span></a>
+                        </li>
+                        <li class="">
+                            <a routerLink="/userhome" (click)="chngepassword()"><span>Change Password</span></a>
+                        </li>
+                        <li class="">
+                            <a routerLink="/userhome" (click)="tradinghistory()"><span>Trading History</span></a>
+                        </li>
+                        <li class="">
+                            <a routerLink="/userhome" (click)="depositfunds()"><span>Deposit Funds</span></a>
+                        </li>
+                        <li class="">
+                            <a routerLink="/userhome" (click)="uploaddocuments()"><span>Upload Documents</span></a>
+                        </li>
+                        <li class="active">
+                            <a routerLink="/userhome" (click)="monetarytransactions()"><span>Monetary Transactions</span></a>
+                        </li>
+                        <li class="">
+                            <a routerLink="/userhome" (click)="withdrawl()"><span>Withdrawal</span></a>
+                        </li>
+                        <li class="">
+                            <a routerLink="/userhome" (click)="contactwe()"><span>Contact Us</span></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </aside>
     </div>
 </main>
 <!-- withdrawal -->
-<main *ngIf = withdrwl>
+<main *ngIf="withdrwl">
     <div class="quote__container">&nbsp;</div>
     <div class="breadcrumbs">
-        <ul class=""><li><a href="javascript:void(0);">Home</a></li><li>Withdrawal</li></ul>
+        <ul class="">
+            <li><a href="javascript:void(0);">Home</a></li>
+            <li>Withdrawal</li>
+        </ul>
     </div>
     <div class="main-holder">
         <div class="contentholder">
             <div id="content">
-                
+                <h1>Withdrawal</h1>
+                <p>
+                    Please complete the necessary fields below and submit this information via e-mail as a scanned image (JPG, GIF, PNG, non-password protected PDF) to <a href="mailto:contact@topseedtech.com">contact@topseedtech.com</a>.
+                    The request will generally be processed within 2 business days of receipt. In order to avoid any delays please review your information carefully before submitting. We assume no responsibility for errors or inaccuracies
+                    made by the account holder.
+                </p>
 
-
-<h1>Withdrawal</h1>
-<p>Please complete the necessary fields below and submit this information via e-mail as a scanned image (JPG, GIF, PNG, non-password protected PDF) to <a href="mailto:contact@topseedtech.com">contact@topseedtech.com</a>. The request will generally be processed within 2 business days of receipt. In order to avoid any delays please review your information carefully before submitting. We assume no responsibility for errors or inaccuracies made by the account holder.</p>
-
-<form [formGroup]="UserFormInfo" class="form" id="actionForm" role="form"><input name="" type="hidden"/>    <p>By clicking &quot;Request a Withdrawal&quot; We are will be informed that you would like to withdraw funds. The money will be refunded to your funding credit or debit card.</p>
-<div class="row"><label for="TradeAccount">Trade Account: *</label><div class="row-control"><div class="formset"><select data-val="true" data-val-localizedrequired="Please re-enter Trade Account" data-val-localizedrequired-otherpropertyname="ProjectManager" data-val-number="The field Trade Account: * must be a number." id="TradeAccount" name="TradeAccount" formControlName="tpaccountnumber"><option value="{{this.bindLoginData?.TradeAccount.TPAccountNumber}}">{{this.bindLoginData?.TradeAccount.TPAccountNumber}}</option>
-</select></div><span class="error"><span class="field-validation-valid" data-valmsg-for="TradeAccount" data-valmsg-replace="true"></span></span></div></div><div class="row"><label for="Amount">Amount: *</label><div class="row-control"><div class="formset"><div class="formitems"><div class="formitem span-8"><input data-val="true" data-val-localizedrequired="Please re-enter Amount" data-val-localizedrequired-otherpropertyname="ProjectManager" data-val-number="The field Amount: * must be a number." id="Amount" name="Amount" type="text" value="0" formControlName="amount"/></div><div class="formitem span-4 mark"><span id="currentCurrency" class="mark">{{this.bindLoginData?.Client.CurrencyName}}</span></div></div><span class="error"><span class="field-validation-valid" data-valmsg-for="Amount" data-valmsg-replace="true"></span></span></div></div></div><div class="row"><label for="BankName">Bank name: *</label><div class="row-control"><div class="formset"><input data-val="true" data-val-localizedrequired="Please re-enter Bank name" data-val-localizedrequired-otherpropertyname="ProjectManager" id="BankName" name="BankName" type="text" value="" formControlName="bankname"/><span class="error"><span class="field-validation-valid" data-valmsg-for="BankName" data-valmsg-replace="true"></span></span></div></div></div><div class="row"><label for="BankAccount">IBAN: *</label><div class="row-control"><div class="formset"><input data-val="true" data-val-localizedrequired="Please re-enter IBAN" data-val-localizedrequired-otherpropertyname="ProjectManager" id="BankAccount" name="BankAccount" type="text" value="" formControlName="iban"/><span class="error"><span class="field-validation-valid" data-valmsg-for="BankAccount" data-valmsg-replace="true"></span></span></div></div></div><div class="row button-row"><div class="buttonset"><a class="button" href="javascript:void(0);" (click)="WithdrawalAmount()"><span>Submit</span></a></div></div></form>
-
+                <form [formGroup]="UserFormInfo" class="form" id="actionForm" role="form">
+                    <input name="" type="hidden" />
+                    <p>By clicking &quot;Request a Withdrawal&quot; We are will be informed that you would like to withdraw funds. The money will be refunded to your funding credit or debit card.</p>
+                    <div class="row">
+                        <label for="TradeAccount">Trade Account: *</label>
+                        <div class="row-control">
+                            <div class="formset">
+                                <select
+                                    data-val="true"
+                                    data-val-localizedrequired="Please re-enter Trade Account"
+                                    data-val-localizedrequired-otherpropertyname="ProjectManager"
+                                    data-val-number="The field Trade Account: * must be a number."
+                                    id="TradeAccount"
+                                    name="TradeAccount"
+                                    formControlName="tpaccountnumber"
+                                >
+                                    <option value="{{this.bindLoginData?.TradeAccount.TPAccountNumber}}">{{this.bindLoginData?.TradeAccount.TPAccountNumber}}</option>
+                                </select>
+                            </div>
+                            <span class="error"><span class="field-validation-valid" data-valmsg-for="TradeAccount" data-valmsg-replace="true"></span></span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <label for="Amount">Amount: *</label>
+                        <div class="row-control">
+                            <div class="formset">
+                                <div class="formitems">
+                                    <div class="formitem span-8">
+                                        <input
+                                            data-val="true"
+                                            data-val-localizedrequired="Please re-enter Amount"
+                                            data-val-localizedrequired-otherpropertyname="ProjectManager"
+                                            data-val-number="The field Amount: * must be a number."
+                                            id="Amount"
+                                            name="Amount"
+                                            type="text"
+                                            value="0"
+                                            formControlName="amount"
+                                        />
+                                    </div>
+                                    <div class="formitem span-4 mark"><span id="currentCurrency" class="mark">{{this.bindLoginData?.Client.CurrencyName}}</span></div>
+                                </div>
+                                <span class="error"><span class="field-validation-valid" data-valmsg-for="Amount" data-valmsg-replace="true"></span></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <label for="BankName">Bank name: *</label>
+                        <div class="row-control">
+                            <div class="formset">
+                                <input
+                                    data-val="true"
+                                    data-val-localizedrequired="Please re-enter Bank name"
+                                    data-val-localizedrequired-otherpropertyname="ProjectManager"
+                                    id="BankName"
+                                    name="BankName"
+                                    type="text"
+                                    value=""
+                                    formControlName="bankname"
+                                />
+                                <span class="error"><span class="field-validation-valid" data-valmsg-for="BankName" data-valmsg-replace="true"></span></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <label for="BankAccount">IBAN: *</label>
+                        <div class="row-control">
+                            <div class="formset">
+                                <input
+                                    data-val="true"
+                                    data-val-localizedrequired="Please re-enter IBAN"
+                                    data-val-localizedrequired-otherpropertyname="ProjectManager"
+                                    id="BankAccount"
+                                    name="BankAccount"
+                                    type="text"
+                                    value=""
+                                    formControlName="iban"
+                                />
+                                <span class="error"><span class="field-validation-valid" data-valmsg-for="BankAccount" data-valmsg-replace="true"></span></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row button-row">
+                        <div class="buttonset">
+                            <a class="button" href="javascript:void(0);" (click)="WithdrawalAmount()"><span>Submit</span></a>
+                        </div>
+                    </div>
+                </form>
             </div>
         </div>
         <aside id="sidebar">
-<div class="box">
-<div class="heading">
-    <h3>My account</h3>
-</div>
-<div class="sidenav">
-    <ul>
-        <li class="">
-            <a routerLink="/userhome" (click)="userhome()"><span>Home</span></a>
-        </li>
-        <li class="">
-            <a routerLink="/userhome" (click)="prsnldtls()"><span>Personal Details</span></a>
-        </li>
-        <li class="">
-            <a routerLink="/userhome" (click)="chngepassword()"><span>Change Password</span></a>
-        </li>
-        <li class="">
-            <a routerLink="/userhome" (click)="tradinghistory()"><span>Trading History</span></a>
-        </li>
-        <li class="">
-            <a routerLink="/userhome" (click)="depositfunds()"><span>Deposit Funds</span></a>
-        </li>
-        <li class="">
-            <a routerLink="/userhome" (click)="uploaddocuments()"><span>Upload Documents</span></a>
-        </li>
-        <li class="">
-            <a routerLink="/userhome" (click)="monetarytransactions()"><span>Monetary Transactions</span></a>
-        </li>
-        <li class="active">
-            <a routerLink="/userhome" (click)="withdrawl()"><span>Withdrawal</span></a>
-        </li>
-        <li class="">
-            <a routerLink="/userhome" (click)="contactwe()"><span>Contact Us</span></a>
-        </li>
-    </ul>
-</div>
-</div>
-</aside>
-
+            <div class="box">
+                <div class="heading">
+                    <h3>My account</h3>
+                </div>
+                <div class="sidenav">
+                    <ul>
+                        <li class="">
+                            <a routerLink="/userhome" (click)="userhome()"><span>Home</span></a>
+                        </li>
+                        <li class="">
+                            <a routerLink="/userhome" (click)="prsnldtls()"><span>Personal Details</span></a>
+                        </li>
+                        <li class="">
+                            <a routerLink="/userhome" (click)="chngepassword()"><span>Change Password</span></a>
+                        </li>
+                        <li class="">
+                            <a routerLink="/userhome" (click)="tradinghistory()"><span>Trading History</span></a>
+                        </li>
+                        <li class="">
+                            <a routerLink="/userhome" (click)="depositfunds()"><span>Deposit Funds</span></a>
+                        </li>
+                        <li class="">
+                            <a routerLink="/userhome" (click)="uploaddocuments()"><span>Upload Documents</span></a>
+                        </li>
+                        <li class="">
+                            <a routerLink="/userhome" (click)="monetarytransactions()"><span>Monetary Transactions</span></a>
+                        </li>
+                        <li class="active">
+                            <a routerLink="/userhome" (click)="withdrawl()"><span>Withdrawal</span></a>
+                        </li>
+                        <li class="">
+                            <a routerLink="/userhome" (click)="contactwe()"><span>Contact Us</span></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </aside>
     </div>
     <div class="message">{{respo}}</div>
 </main>
 <!-- contact us -->
-<main *ngIf = cntctus>
+<main *ngIf="cntctus">
     <div class="quote__container">&nbsp;</div>
     <div class="breadcrumbs">
-        <ul class=""><li><a href="/">Home</a></li><li>ContactUs</li></ul>
+        <ul class="">
+            <li><a href="/">Home</a></li>
+            <li>ContactUs</li>
+        </ul>
     </div>
     <div class="main-holder">
         <div class="contentholder">
             <div id="content">
-            
-<div class="clearfix">
-<h1 class="fl-l-lg fl-l-md reversed">Send us a Message</h1>
-<div class="required fl-r-lg fl-r-md reversed">All fields marked as <span>*</span>are mandatory</div>
-</div>
-<form [formGroup]="UserFormInfo" class="form" id="actionForm" role="form"><input name="" type="hidden"/>    <fieldset>
-<div class="form-columns">
-    <div class="form-col col-md-6">
-        <div class="row"><label for="FirstName">First Name: *</label>
-            <div class="row-control">
-                <div class="formset">
-            <input data-val="true" data-val-lengthvalidator="Must be at least 1 and no more than 20 characters long." data-val-lengthvalidator-otherpropertyname="1,20" data-val-localizedrequired="Please re-enter First Name" data-val-localizedrequired-otherpropertyname="ProjectManager" id="FirstName" name="FirstName" type="text" value="" formControlName="firstname" />
-            <span class="error">
-                <span class="field-validation-valid" data-valmsg-for="FirstName" data-valmsg-replace="true">
-                </span>
-            </span>
-        </div>
-    </div>
-</div>
-        <div class="row"><label for="LastName">Last Name: *</label><div class="row-control"><div class="formset">
-            <input data-val="true" data-val-lengthvalidator="Must be at least 1 and no more than 20 characters long." data-val-lengthvalidator-otherpropertyname="1,20" data-val-localizedrequired="Please re-enter Last Name" data-val-localizedrequired-otherpropertyname="ProjectManager" id="LastName" name="LastName" type="text" value="gupta" formControlName="lastname"/>
-            <!-- <span class="vall">rohan</span> -->
-            <span class="error"><span class="field-validation-valid" data-valmsg-for="LastName" data-valmsg-replace="true"></span></span></div></div></div>
-        <div class="row"><label for="Country">Country: *</label><div class="row-control"><div class="formset">
-            <select class="sel" data-val="true" data-val-localizedrequired="Please re-enter Country" data-val-localizedrequired-otherpropertyname="ProjectManager" id="Country" name="Country" formControlName="countryname">
-            <option value="">Select...</option>
-<option value="AF">Afghanistan</option>
-<option value="AX">Aland Islands</option>
-<option value="AL">Albania</option>
-<option value="DZ">Algeria</option>
-<option value="AS">American Samoa</option>
-<option value="AD">Andorra</option>
-<option value="AO">Angola</option>
-<option value="AI">Anguilla</option>
-<option value="AQ">Antarctica</option>
-<option value="AG">Antigua and Barbuda</option>
-<option value="AR">Argentina</option>
-<option value="AM">Armenia</option>
-<option value="AW">Aruba</option>
-<option value="AU">Australia</option>
-<option value="AT">Austria</option>
-<option value="AZ">Azerbaijan</option>
-<option value="BS">Bahamas</option>
-<option value="BH">Bahrain</option>
-<option value="BD">Bangladesh</option>
-<option value="BB">Barbados</option>
-<option value="BY">Belarus</option>
-<option value="BE">Belgium</option>
-<option value="BZ">Belize</option>
-<option value="BJ">Benin</option>
-<option value="BM">Bermuda</option>
-<option value="BT">Bhutan</option>
-<option value="BO">Bolivia</option>
-<option value="BA">Bosnia and Herzegovina</option>
-<option value="BW">Botswana</option>
-<option value="BV">Bouvet Island</option>
-<option value="BR">Brazil</option>
-<option value="IO">British Indian Ocean Territory</option>
-<option value="BN">Brunei Darussalam</option>
-<option value="BG">Bulgaria</option>
-<option value="BF">Burkina Faso</option>
-<option value="BI">Burundi</option>
-<option value="KH">Cambodia</option>
-<option value="CM">Cameroon</option>
-<option value="CA">Canada</option>
-<option value="CV">Cape Verde</option>
-<option value="KY">Cayman Islands</option>
-<option value="CF">Central African Republic</option>
-<option value="TD">Chad</option>
-<option value="CL">Chile</option>
-<option value="CN">China</option>
-<option value="CO">Colombia</option>
-<option value="KM">Comoros</option>
-<option value="CG">Congo</option>
-<option value="CK">Cook Islands</option>
-<option value="CR">Costa Rica</option>
-<option value="CI">Cote DIvoire</option>
-<option value="HR">Croatia</option>
-<option value="CU">Cuba</option>
-<option value="CY">Cyprus</option>
-<option value="CZ">Czech Republic</option>
-<option value="DK">Denmark</option>
-<option value="DJ">Djibouti</option>
-<option value="DM">Dominica</option>
-<option value="DO">Dominican Republic</option>
-<option value="EC">Ecuador</option>
-<option value="EG">Egypt</option>
-<option value="SV">El Salvador</option>
-<option value="GQ">Equatorial Guinea</option>
-<option value="ER">Eritrea</option>
-<option value="EE">Estonia</option>
-<option value="ET">Ethiopia</option>
-<option value="FK">Falkland Islands (Malvinas)</option>
-<option value="FO">Faroe Islands</option>
-<option value="FJ">Fiji</option>
-<option value="FI">Finland</option>
-<option value="FR">France</option>
-<option value="GF">French Guiana</option>
-<option value="PF">French Polynesia</option>
-<option value="GA">Gabon</option>
-<option value="GM">Gambia</option>
-<option selected="selected" value="GE">Georgia</option>
-<option value="DE">Germany</option>
-<option value="GH">Ghana</option>
-<option value="GI">Gibraltar</option>
-<option value="GR">Greece</option>
-<option value="GL">Greenland</option>
-<option value="GD">Grenada</option>
-<option value="GP">Guadeloupe</option>
-<option value="GU">Guam</option>
-<option value="GT">Guatemala</option>
-<option value="GG">Guernsey</option>
-<option value="GN">Guinea</option>
-<option value="GW">Guinea-Bissau</option>
-<option value="GY">Guyana</option>
-<option value="HT">Haiti</option>
-<option value="VA">Holy See (Vatican City State)</option>
-<option value="HN">Honduras</option>
-<option value="HK">Hong Kong</option>
-<option value="HU">Hungary</option>
-<option value="IS">Iceland</option>
-<option value="IN">India</option>
-<option value="ID">Indonesia</option>
-<option value="IR">Iran</option>
-<option value="IQ">Iraq</option>
-<option value="IE">Ireland</option>
-<option value="IM">Isle of Man</option>
-<option value="IL">Israel</option>
-<option value="IT">Italy</option>
-<option value="JM">Jamaica</option>
-<option value="JP">Japan</option>
-<option value="JE">Jersey</option>
-<option value="JO">Jordan</option>
-<option value="KZ">Kazakstan</option>
-<option value="KE">Kenya</option>
-<option value="KI">Kiribati</option>
-<option value="KR">Korea</option>
-<option value="KP">Korea</option>
-<option value="KW">Kuwait</option>
-<option value="KG">Kyrgyzstan</option>
-<option value="LA">Lao</option>
-<option value="LV">Latvia</option>
-<option value="LB">Lebanon</option>
-<option value="LS">Lesotho</option>
-<option value="LR">Liberia</option>
-<option value="LY">Libyan Arab Jamahiriya</option>
-<option value="LI">Liechtenstein</option>
-<option value="LT">Lithuania</option>
-<option value="LU">Luxembourg</option>
-<option value="MO">Macau</option>
-<option value="MK">Macedonia</option>
-<option value="MG">Madagascar</option>
-<option value="MW">Malawi</option>
-<option value="MY">Malaysia</option>
-<option value="MV">Maldives</option>
-<option value="ML">Mali</option>
-<option value="MT">Malta</option>
-<option value="MH">Marshall Islands</option>
-<option value="MQ">Martinique</option>
-<option value="MR">Mauritania</option>
-<option value="MU">Mauritius</option>
-<option value="YT">Mayotte</option>
-<option value="MX">Mexico</option>
-<option value="FM">Micronesia</option>
-<option value="MD">Moldova</option>
-<option value="MC">Monaco</option>
-<option value="MN">Mongolia</option>
-<option value="ME">Montenegro</option>
-<option value="MS">Montserrat</option>
-<option value="MA">Morocco</option>
-<option value="MZ">Mozambique</option>
-<option value="MM">Myanmar</option>
-<option value="NA">Namibia</option>
-<option value="NR">Nauru</option>
-<option value="NP">Nepal</option>
-<option value="NL">Netherlands</option>
-<option value="AN">Netherlands Antilles</option>
-<option value="NC">New Caledonia</option>
-<option value="NZ">New Zealand</option>
-<option value="NI">Nicaragua</option>
-<option value="NE">Niger</option>
-<option value="NG">Nigeria</option>
-<option value="NU">Niue</option>
-<option value="NF">Norfolk Island</option>
-<option value="MP">Northern Mariana Islands</option>
-<option value="NO">Norway</option>
-<option value="OM">Oman</option>
-<option value="PK">Pakistan</option>
-<option value="PW">Palau</option>
-<option value="PS">Palestinian Territory, Occupied</option>
-<option value="PA">Panama</option>
-<option value="PG">Papua New Guinea</option>
-<option value="PY">Paraguay</option>
-<option value="PE">Peru</option>
-<option value="PH">Philippines</option>
-<option value="PL">Poland</option>
-<option value="PT">Portugal</option>
-<option value="PR">Puerto Rico</option>
-<option value="QA">Qatar</option>
-<option value="RE">Reunion</option>
-<option value="RO">Romania</option>
-<option value="RU">Russian Federation</option>
-<option value="RW">Rwanda</option>
-<option value="KN">Saint Kitts and Nevis</option>
-<option value="LC">Saint Lucia</option>
-<option value="PM">Saint Pierre and Miquelon</option>
-<option value="VC">Saint Vincent and the Grenadines</option>
-<option value="WS">Samoa</option>
-<option value="SM">San Marino</option>
-<option value="ST">Sao Tome and Principe</option>
-<option value="SA">Saudi Arabia</option>
-<option value="SN">Senegal</option>
-<option value="RS">Serbia</option>
-<option value="SC">Seychelles</option>
-<option value="SL">Sierra Leone</option>
-<option value="SG">Singapore</option>
-<option value="SK">Slovakia</option>
-<option value="SI">Slovenia</option>
-<option value="SB">Solomon Islands</option>
-<option value="SO">Somalia</option>
-<option value="ZA">South Africa</option>
-<option value="ES">Spain</option>
-<option value="LK">Sri Lanka</option>
-<option value="SD">Sudan</option>
-<option value="SR">Suriname</option>
-<option value="SJ">Svalbard and Jan Mayen</option>
-<option value="SZ">Swaziland</option>
-<option value="SE">Sweden</option>
-<option value="CH">Switzerland</option>
-<option value="SY">Syrian Arab Republic</option>
-<option value="TW">Taiwan</option>
-<option value="TJ">Tajikistan</option>
-<option value="TZ">Tanzania</option>
-<option value="TH">Thailand</option>
-<option value="TG">Togo</option>
-<option value="TK">Tokelau</option>
-<option value="TO">Tonga</option>
-<option value="TT">Trinidad and Tobago</option>
-<option value="TN">Tunisia</option>
-<option value="TR">Turkey</option>
-<option value="TM">Turkmenistan</option>
-<option value="TC">Turks and Caicos Islands</option>
-<option value="TV">Tuvalu</option>
-<option value="UG">Uganda</option>
-<option value="UA">Ukraine</option>
-<option value="AE">United Arab Emirates</option>
-<option value="GB">United Kingdom</option>
-<option value="US">United States</option>
-<option value="UM">United States Minor Outlying Islands</option>
-<option value="UY">Uruguay</option>
-<option value="UZ">Uzbekistan</option>
-<option value="VU">Vanuatu</option>
-<option value="VE">Venezuela</option>
-<option value="VN">Vietnam</option>
-<option value="VG">Virgin Islands, British</option>
-<option value="VI">Virgin Islands, U.S.</option>
-<option value="WF">Wallis and Futuna</option>
-<option value="EH">Western Sahara</option>
-<option value="YE">Yemen</option>
-<option value="ZM">Zambia</option>
-<option value="ZW">Zimbabwe</option>
-</select></div><span class="error"><span class="field-validation-valid" data-valmsg-for="Country" data-valmsg-replace="true"></span></span></div></div>
-        <div class="row"><label for="Email">Email: *</label><div class="row-control"><div class="formset"><input data-val="true" data-val-localizedemail="Please re-enter Email" data-val-localizedemail-otherpropertyname="ProjectManager" data-val-localizedrequired="Please re-enter Email" data-val-localizedrequired-otherpropertyname="ProjectManager" id="Email" name="Email" type="text" value="sitcomdeveloper43@gmail.com" formControlName="email"/><span class="error"><span class="field-validation-valid" data-valmsg-for="Email" data-valmsg-replace="true"></span></span><span id="uniqueEmailError" class="error" style="display: none;">This Email is already registered</span></div></div></div>
+                <div class="clearfix">
+                    <h1 class="fl-l-lg fl-l-md reversed">Send us a Message</h1>
+                    <div class="required fl-r-lg fl-r-md reversed">All fields marked as <span>*</span>are mandatory</div>
+                </div>
+                <form [formGroup]="UserFormInfo" class="form" id="actionForm" role="form">
+                    <input name="" type="hidden" />
+                    <fieldset>
+                        <div class="form-columns">
+                            <div class="form-col col-md-6">
+                                <div class="row">
+                                    <label for="FirstName">First Name: *</label>
+                                    <div class="row-control">
+                                        <div class="formset">
+                                            <input
+                                                data-val="true"
+                                                data-val-lengthvalidator="Must be at least 1 and no more than 20 characters long."
+                                                data-val-lengthvalidator-otherpropertyname="1,20"
+                                                data-val-localizedrequired="Please re-enter First Name"
+                                                data-val-localizedrequired-otherpropertyname="ProjectManager"
+                                                id="FirstName"
+                                                name="FirstName"
+                                                type="text"
+                                                value=""
+                                                formControlName="firstname"
+                                            />
+                                            <span class="error">
+                                                <span class="field-validation-valid" data-valmsg-for="FirstName" data-valmsg-replace="true"> </span>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <label for="LastName">Last Name: *</label>
+                                    <div class="row-control">
+                                        <div class="formset">
+                                            <input
+                                                data-val="true"
+                                                data-val-lengthvalidator="Must be at least 1 and no more than 20 characters long."
+                                                data-val-lengthvalidator-otherpropertyname="1,20"
+                                                data-val-localizedrequired="Please re-enter Last Name"
+                                                data-val-localizedrequired-otherpropertyname="ProjectManager"
+                                                id="LastName"
+                                                name="LastName"
+                                                type="text"
+                                                value="gupta"
+                                                formControlName="lastname"
+                                            />
+                                            <!-- <span class="vall">rohan</span> -->
+                                            <span class="error"><span class="field-validation-valid" data-valmsg-for="LastName" data-valmsg-replace="true"></span></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <label for="Country">Country: *</label>
+                                    <div class="row-control">
+                                        <div class="formset">
+                                            <select
+                                                class="sel"
+                                                data-val="true"
+                                                data-val-localizedrequired="Please re-enter Country"
+                                                data-val-localizedrequired-otherpropertyname="ProjectManager"
+                                                id="Country"
+                                                name="Country"
+                                                formControlName="countryname"
+                                                (change)="getPhoneCode($event.target.value)"
+                                            >
+                                                <option value="">Select...</option>
+                                                <option *ngFor="let country of allCountries" value="{{country.Id}}">{{country.Name}}</option>
+                                            </select>
+                                        </div>
+                                        <span class="error"><span class="field-validation-valid" data-valmsg-for="Country" data-valmsg-replace="true"></span></span>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <label for="Email">Email: *</label>
+                                    <div class="row-control">
+                                        <div class="formset">
+                                            <input
+                                                data-val="true"
+                                                data-val-localizedemail="Please re-enter Email"
+                                                data-val-localizedemail-otherpropertyname="ProjectManager"
+                                                data-val-localizedrequired="Please re-enter Email"
+                                                data-val-localizedrequired-otherpropertyname="ProjectManager"
+                                                id="Email"
+                                                name="Email"
+                                                type="text"
+                                                value="sitcomdeveloper43@gmail.com"
+                                                formControlName="email"
+                                            />
+                                            <span class="error"><span class="field-validation-valid" data-valmsg-for="Email" data-valmsg-replace="true"></span></span>
+                                            <span id="uniqueEmailError" class="error" style="display: none;">This Email is already registered</span>
+                                        </div>
+                                    </div>
+                                </div>
 
-        <div class="row"><label for="PhoneNumber">Phone: *</label><div class="row-control"><div class="formset"><div class="formitems phone-number"><div class="formitem custom-col-1">
-            <input class="phone-txt" data-val="true" data-val-localizedrequired="Please re-enter Phone Area Code" data-val-localizedrequired-otherpropertyname="ProjectManager" data-val-regularexpression="Phone Area Code should contain only numbers" data-val-regularexpression-otherpropertyname="^\d+$" id="PhoneAreaCode" name="PhoneAreaCode" type="text" value="995" formControlName="phonecode"/></div><div class="custom-offset-1"><div class="formitem"><input autocomplete="off" data-val="true" data-val-localizedrequired="Please re-enter Phone Number" data-val-localizedrequired-otherpropertyname="ProjectManager" data-val-regularexpression="Phone Area Code should contain only numbers" data-val-regularexpression-otherpropertyname="^\d+$" id="PhoneNumber" name="PhoneNumber" type="text" value="544545454" formControlName="phonenumber"/></div></div></div></div><span class="error"><span class="field-validation-valid" data-valmsg-for="PhoneAreaCode" data-valmsg-replace="true"></span></span><span class="error"><span class="field-validation-valid" data-valmsg-for="PhoneNumber" data-valmsg-replace="true"></span></span></div></div>
-    </div>
-    <div class="form-col col-md-6">
-        <div class="row"><label for="Subject">Subject: *</label><div class="row-control"><div class="formset"><select class="sel" data-val="true" data-val-localizedrequired="Please re-enter Subject" data-val-localizedrequired-otherpropertyname="ProjectManager" id="Subject" name="Subject" formControlName="subject">
-            <option value="">Select...</option>
-<option value="Withdrawal">Withdrawal</option>
-<option value="Deposit">Deposit</option>
-<option value="Tech Issue">Tech Issue</option>
-<option value="Request A Call Back">Request A Call Back</option>
-<option value="Other">Other</option>
-</select></div><span class="error"><span class="field-validation-valid" data-valmsg-for="Subject" data-valmsg-replace="true"></span></span></div></div>            
-        <div class="row"><label for="Message">Message: *</label><div class="row-control"><div class="formset"><textarea class="textarea" cols="30" data-val="true" data-val-localizedrequired="Please re-enter Message" data-val-localizedrequired-otherpropertyname="ProjectManager" id="Message" name="Message" rows="10" formControlName="message">
-</textarea></div><span class="error"><span class="field-validation-valid" data-valmsg-for="Message" data-valmsg-replace="true"></span></span></div></div>
-        <div class="row button-row"><div class="buttonset"><a class="button" href="javascript:void(0)" (click)="fillcontactusform()"><span>Submit</span></a></div></div>
-    </div>
-</div>
-</fieldset>
-</form>
-
+                                <div class="row">
+                                    <label for="PhoneNumber">Phone: *</label>
+                                    <div class="row-control">
+                                        <div class="formset">
+                                            <div class="formitems phone-number">
+                                                <div class="formitem custom-col-1">
+                                                    <input
+                                                        class="phone-txt"
+                                                        data-val="true"
+                                                        data-val-localizedrequired="Please re-enter Phone Area Code"
+                                                        data-val-localizedrequired-otherpropertyname="ProjectManager"
+                                                        data-val-regularexpression="Phone Area Code should contain only numbers"
+                                                        data-val-regularexpression-otherpropertyname="^\d+$"
+                                                        id="PhoneAreaCode"
+                                                        name="PhoneAreaCode"
+                                                        type="text"
+                                                        value="995"
+                                                        formControlName="phonecode"
+                                                    />
+                                                </div>
+                                                <div class="custom-offset-1">
+                                                    <div class="formitem">
+                                                        <input
+                                                            autocomplete="off"
+                                                            data-val="true"
+                                                            data-val-localizedrequired="Please re-enter Phone Number"
+                                                            data-val-localizedrequired-otherpropertyname="ProjectManager"
+                                                            data-val-regularexpression="Phone Area Code should contain only numbers"
+                                                            data-val-regularexpression-otherpropertyname="^\d+$"
+                                                            id="PhoneNumber"
+                                                            name="PhoneNumber"
+                                                            type="text"
+                                                            value="544545454"
+                                                            formControlName="phonenumber"
+                                                        />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <span class="error"><span class="field-validation-valid" data-valmsg-for="PhoneAreaCode" data-valmsg-replace="true"></span></span>
+                                        <span class="error"><span class="field-validation-valid" data-valmsg-for="PhoneNumber" data-valmsg-replace="true"></span></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-col col-md-6">
+                                <div class="row">
+                                    <label for="Subject">Subject: *</label>
+                                    <div class="row-control">
+                                        <div class="formset">
+                                            <select
+                                                class="sel"
+                                                data-val="true"
+                                                data-val-localizedrequired="Please re-enter Subject"
+                                                data-val-localizedrequired-otherpropertyname="ProjectManager"
+                                                id="Subject"
+                                                name="Subject"
+                                                formControlName="subject"
+                                            >
+                                                <option value="">Select...</option>
+                                                <option value="Withdrawal">Withdrawal</option>
+                                                <option value="Deposit">Deposit</option>
+                                                <option value="Tech Issue">Tech Issue</option>
+                                                <option value="Request A Call Back">Request A Call Back</option>
+                                                <option value="Other">Other</option>
+                                            </select>
+                                        </div>
+                                        <span class="error"><span class="field-validation-valid" data-valmsg-for="Subject" data-valmsg-replace="true"></span></span>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <label for="Message">Message: *</label>
+                                    <div class="row-control">
+                                        <div class="formset">
+                                            <textarea
+                                                class="textarea"
+                                                cols="30"
+                                                data-val="true"
+                                                data-val-localizedrequired="Please re-enter Message"
+                                                data-val-localizedrequired-otherpropertyname="ProjectManager"
+                                                id="Message"
+                                                name="Message"
+                                                rows="10"
+                                                formControlName="message"
+                                            ></textarea>
+                                        </div>
+                                        <span class="error"><span class="field-validation-valid" data-valmsg-for="Message" data-valmsg-replace="true"></span></span>
+                                    </div>
+                                </div>
+                                <div class="row button-row">
+                                    <div class="buttonset">
+                                        <a class="button" href="javascript:void(0)" (click)="fillcontactusform()"><span>Submit</span></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </fieldset>
+                </form>
             </div>
         </div>
         <aside id="sidebar">
-<div class="box">
-<div class="heading">
-    <h3>My account</h3>
-</div>
-<div class="sidenav">
-    <ul>
-        <li class="">
-            <a routerLink="/userhome" (click)="userhome()"><span>Home</span></a>
-        </li>
-        <li class="">
-            <a routerLink="/userhome" (click)="prsnldtls()"><span>Personal Details</span></a>
-        </li>
-        <li class="">
-            <a routerLink="/userhome" (click)="chngepassword()"><span>Change Password</span></a>
-        </li>
-        <li class="">
-            <a routerLink="/userhome" (click)="tradinghistory()"><span>Trading History</span></a>
-        </li>
-        <li class="">
-            <a routerLink="/userhome" (click)="depositfunds()"><span>Deposit Funds</span></a>
-        </li>
-        <li class="">
-            <a routerLink="/userhome" (click)="uploaddocuments()"><span>Upload Documents</span></a>
-        </li>
-        <li class="">
-            <a routerLink="/userhome" (click)="monetarytransactions()"><span>Monetary Transactions</span></a>
-        </li>
-        <li class="">
-            <a routerLink="/userhome" (click)="withdrawl()"><span>Withdrawal</span></a>
-        </li>
-        <li class="active">
-            <a routerLink="/userhome" (click)="contactwe()"><span>Contact Us</span></a>
-        </li>
-    </ul>
-</div>
-</div>
-</aside>
-
+            <div class="box">
+                <div class="heading">
+                    <h3>My account</h3>
+                </div>
+                <div class="sidenav">
+                    <ul>
+                        <li class="">
+                            <a routerLink="/userhome" (click)="userhome()"><span>Home</span></a>
+                        </li>
+                        <li class="">
+                            <a routerLink="/userhome" (click)="prsnldtls()"><span>Personal Details</span></a>
+                        </li>
+                        <li class="">
+                            <a routerLink="/userhome" (click)="chngepassword()"><span>Change Password</span></a>
+                        </li>
+                        <li class="">
+                            <a routerLink="/userhome" (click)="tradinghistory()"><span>Trading History</span></a>
+                        </li>
+                        <li class="">
+                            <a routerLink="/userhome" (click)="depositfunds()"><span>Deposit Funds</span></a>
+                        </li>
+                        <li class="">
+                            <a routerLink="/userhome" (click)="uploaddocuments()"><span>Upload Documents</span></a>
+                        </li>
+                        <li class="">
+                            <a routerLink="/userhome" (click)="monetarytransactions()"><span>Monetary Transactions</span></a>
+                        </li>
+                        <li class="">
+                            <a routerLink="/userhome" (click)="withdrawl()"><span>Withdrawal</span></a>
+                        </li>
+                        <li class="active">
+                            <a routerLink="/userhome" (click)="contactwe()"><span>Contact Us</span></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </aside>
     </div>
     <div class="message">{{resp}}</div>
 </main>

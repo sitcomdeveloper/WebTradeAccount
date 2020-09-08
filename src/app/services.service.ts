@@ -59,4 +59,8 @@ docuType(dcmttype: any): Observable<any> {
 uploaddocumnt(uplddocument: any): Observable<any> {
   return this.http.post<any>(API_URL + 'TradeAccount/UploadDocuments', uplddocument);
 }
+// country name
+countryName(obj: any): Observable<any> {
+  return this.http.post<any>(API_URL + 'User/GetAllCountries', obj);
+}
 }

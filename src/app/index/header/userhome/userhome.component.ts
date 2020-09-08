@@ -38,6 +38,9 @@ export class UserhomeComponent implements OnInit {
   respon: string;
   respo: string;
   resp: string;
+  respond: string;
+  allCountries: any;
+  countryPhoneCode: any;
   constructor(private fb: FormBuilder, private service: ServicesService) { }
 
   ngOnInit(): void {
@@ -75,6 +78,7 @@ export class UserhomeComponent implements OnInit {
       document: ['']
     })
     this.typeofdocument();
+    this.getallCountry();
   }
   // fund account
   addfund() {
@@ -207,7 +211,9 @@ export class UserhomeComponent implements OnInit {
     }
     this.service.updatepersonaldetails(updtprsnldetls).subscribe(persnldtlsupdt => {
       this.updatedetails = persnldtlsupdt;
-      this.afterupdate();
+      this.respond = 'Details is updated successfully..!';
+      this.UserFormInfo.reset();
+      // this.afterupdate();
       console.log('updatedetails', persnldtlsupdt);
     })
     // this.editpersonaldetails = false;
@@ -304,7 +310,7 @@ export class UserhomeComponent implements OnInit {
     const allmonetrytrnsctions = {}
     // get monetary transaction data
     this.service.getMonetarytransation(allmonetrytrnsctions).subscribe(monetarytransactionRes => {
-      this.allMonetartTrans = monetarytransactionRes;
+      this.allMonetartTrans = monetarytransactionRes.reverse();
       console.log('allMonetartTrans', monetarytransactionRes);
     })
     this.home = false;
@@ -383,4 +389,23 @@ export class UserhomeComponent implements OnInit {
       console.log('confidentialdocumnts',upldtdocmnt);
     })
   }
+  // get country
+getallCountry() {
+  const obj ={}
+  this.service.countryName(obj).subscribe(fetchcountry => {
+    this.allCountries = fetchcountry;
+    // console.log('allCountries',fetchcountry);
+  })
+}
+getPhoneCode(val: any) {
+  this.allCountries.forEach(element => {
+    const y = +val;
+    if (element.Id === y) {
+      this.countryPhoneCode = element.ISDCode;
+    }
+  });
+  this.UserFormInfo.controls.phonecode.setValue(
+    '+' + this.countryPhoneCode
+  );
+}
 }

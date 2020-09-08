@@ -11,6 +11,8 @@ export class DemoaccountComponent implements OnInit {
   newUserForm: FormGroup;
   NewDemoUser: any;
   response: string;
+  allCountries: any;
+  countryPhoneCode: any;
   constructor(private service: ServicesService, private fb:FormBuilder) { }
 
   ngOnInit(): void {
@@ -21,13 +23,14 @@ export class DemoaccountComponent implements OnInit {
       date: [''],
       month: [''],
       year: [''],
-      phonecode: [''],
+      phoneCode: [''],
       phonenumber: [''],
       preferredlanguge: [''],
       email: [''],
       password: [''],
       cnfrmpwd: [''],
     })
+    this.getallCountry();
   }
   registerDemoAccountType() {
     const clntregisterParameter = {
@@ -35,7 +38,7 @@ export class DemoaccountComponent implements OnInit {
       LastName: this.newUserForm.value.lastname,
       CountryId: '',
       CountryName: this.newUserForm.value.countryname,
-      CountryISDCode: this.newUserForm.value.phonecode,
+      CountryISDCode: this.newUserForm.value.phoneCode,
       Phone:  this.newUserForm.value.phonenumber,
       PreferredLanguage: this.newUserForm.value.preferredlanguge,
       Email: this.newUserForm.value.email,
@@ -43,13 +46,13 @@ export class DemoaccountComponent implements OnInit {
       GroupId: '',
       GroupName: '',
       ISendEmail: '',
-      AccountType: '',
+      AccountType: "Lead",
       OwnerId: 1, 
       ConvertionDeskId: '',
       ConvertionDeskName: '',
       RealAccountTypeId: '',
       RealAccountTypeName: '',
-      TradeAccountType: '',
+      TradeAccountType: "Lead",
       PromoCode: ''
     }
     this.service.clientRegister(clntregisterParameter).subscribe(nwusrRes =>{
@@ -63,5 +66,22 @@ export class DemoaccountComponent implements OnInit {
       console.log('NewDemoUser',nwusrRes);
     })
   }
-
+  // get country
+  getallCountry() {
+    const obj ={}
+    this.service.countryName(obj).subscribe(fetchcountry => {
+      this.allCountries = fetchcountry;
+    })
+  }
+  getPhoneCode(val: any) {
+    this.allCountries.forEach(element => {
+      const y = +val;
+      if (element.Id === y) {
+        this.countryPhoneCode = element.ISDCode;
+      }
+    });
+    this.newUserForm.controls.phoneCode.setValue(
+      '+' + this.countryPhoneCode
+    );
+  }
 }
