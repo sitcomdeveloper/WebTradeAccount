@@ -21,6 +21,7 @@ export class AccountComponent implements OnInit {
       firstname: [''],
       lastname: [''],
       countryname: [''],
+      countryid: [''],
       date: [''],
       month: [''],
       year: [''],
@@ -36,13 +37,20 @@ export class AccountComponent implements OnInit {
     this.getallCountry();
   }
   registerRealAccountType() {
+    this.allCountries.forEach(element => {
+      if ( element.Id === +this.newUserForm.value.countryname) {
+        this.newUserForm.value.countryid = element.Name;
+      }
+    });
     const clntregisterParameter = {
       FirstName: this.newUserForm.value.firstname,
       LastName: this.newUserForm.value.lastname,
       Email: this.newUserForm.value.email,
       Phone:  this.newUserForm.value.phonenumber,
-      CountryId: '',
-      CountryName: this.newUserForm.value.countryname,
+      CountryId: this.newUserForm.value.countryname,
+      CountryName: this.newUserForm.value.countryid,
+      CurrencyId: '',
+      CurrencyName: this.newUserForm.value.currencyname,
       GroupId: '',
       GroupName: '',
       ISendEmail: '',

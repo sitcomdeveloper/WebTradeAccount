@@ -62,6 +62,7 @@ export class UserhomeComponent implements OnInit {
       state: [''],
       city: [''],
       postcode: [''],
+      countryid: [''],
       // deposit funds
       trdeaccount: [''],
       amount: [''],
@@ -192,6 +193,11 @@ export class UserhomeComponent implements OnInit {
   }
   
   savepersonaldetails() {
+    this.allCountries.forEach(element => {
+      if ( element.Id === +this.UserFormInfo.value.countryname) {
+        this.UserFormInfo.value.countryid = element.Name;
+      }
+    });
     this.service.fetchpersonaldetails(this.bindLoginData?.Client.Email).subscribe(dtlsoffetchuser => {
       this.detailsonEmail = dtlsoffetchuser;
     })
@@ -199,8 +205,8 @@ export class UserhomeComponent implements OnInit {
       Id: this.detailsonEmail.Id,
       FirstName: this.UserFormInfo.value.firstname,
       LastName: this.UserFormInfo.value.lastname,
-      CountryId: '',
-      CountryName: this.UserFormInfo.value.countryname,
+      CountryId: this.UserFormInfo.value.countryname,
+      CountryName: this.UserFormInfo.value.countryid,
       Email: this.UserFormInfo.value.email,
       Phone: this.UserFormInfo.value.phonenumber,
       OwnerId: this.detailsonEmail.OwnerId,
@@ -211,14 +217,18 @@ export class UserhomeComponent implements OnInit {
     }
     this.service.updatepersonaldetails(updtprsnldetls).subscribe(persnldtlsupdt => {
       this.updatedetails = persnldtlsupdt;
+      if(persnldtlsupdt === null) {
       this.respond = 'Details is updated successfully..!';
+      this.editpersonaldetails = false;
+    this.personalddetails = true;
+      } else {
+        this.respond = 'Error';
+      }
       this.UserFormInfo.reset();
-      // this.afterupdate();
+      this.afterupdate();
       console.log('updatedetails', persnldtlsupdt);
     })
-    // this.editpersonaldetails = false;
-
-    // this.personalddetails = true;
+    
   }
   // getpersonaldetails for after update
   afterupdate() {

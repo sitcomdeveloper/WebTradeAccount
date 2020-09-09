@@ -19,6 +19,7 @@ export class DemoaccountComponent implements OnInit {
     this.newUserForm = this.fb.group({
       firstname: [''],
       lastname: [''],
+      countryid: [''],
       countryname: [''],
       date: [''],
       month: [''],
@@ -33,11 +34,16 @@ export class DemoaccountComponent implements OnInit {
     this.getallCountry();
   }
   registerDemoAccountType() {
+    this.allCountries.forEach(element => {
+      if ( element.Id === +this.newUserForm.value.countryname) {
+        this.newUserForm.value.countryid = element.Name;
+      }
+    });
     const clntregisterParameter = {
       FirstName: this.newUserForm.value.firstname,
       LastName: this.newUserForm.value.lastname,
-      CountryId: '',
-      CountryName: this.newUserForm.value.countryname,
+      CountryId: this.newUserForm.value.countryname,
+      CountryName: this.newUserForm.value.countryid,
       CountryISDCode: this.newUserForm.value.phoneCode,
       Phone:  this.newUserForm.value.phonenumber,
       PreferredLanguage: this.newUserForm.value.preferredlanguge,
