@@ -48,7 +48,7 @@ export class UserhomeComponent implements OnInit {
     this.getLoginDetails = JSON.parse(localStorage.getItem('project'));
     this.bindLoginData = this.getLoginDetails;
 
-    this.UserFormInfo = this.fb.group({
+    this.UserFormInfo = this.fb.group({ 
       // contact us
       firstname: [''],
       lastname: [''],

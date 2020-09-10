@@ -27,6 +27,7 @@ export class AccountComponent implements OnInit {
       year: [''],
       phonecode: [''],
       phonenumber: [''],
+      currencyid: [''],
       currencyname: [''],
       email: [''],
       accounttype: [''],
@@ -56,7 +57,7 @@ export class AccountComponent implements OnInit {
       ISendEmail: '',
       AccountType: 'Real',
       Password: this.newUserForm.value.password,
-      OwnerId: 1,
+      OwnerId: 4,
       CountryISDCode: this.newUserForm.value.phonecode,
       ConvertionDeskId: '',
       ConvertionDeskName: '',
@@ -64,7 +65,8 @@ export class AccountComponent implements OnInit {
       RealAccountTypeName: this.newUserForm.value.accounttype,
       TradeAccountType: "Real",
       PreferredLanguage: '',
-      PromoCode: this.newUserForm.value.promocode
+      PromoCode: this.newUserForm.value.promocode,
+      DateOfBirth: this.newUserForm.value.date + this.newUserForm.value.month + this.newUserForm.value.year
     }
     this.service.clientRegister(clntregisterParameter).subscribe(nwusrRes =>{
       this.NewRealUser = nwusrRes;

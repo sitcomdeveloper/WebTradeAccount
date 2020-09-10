@@ -45,6 +45,7 @@ export class HeaderComponent implements OnInit {
         console.log('stringifydata', JSON.stringify(loginRes));
         this.beforelogin = false;
         this.afterlogin = true;
+        this.loginForm.reset();
       } else {
         alert('Invalid Credential');
       }

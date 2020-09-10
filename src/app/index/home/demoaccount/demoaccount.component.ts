@@ -53,13 +53,16 @@ export class DemoaccountComponent implements OnInit {
       GroupName: '',
       ISendEmail: '',
       AccountType: "Lead",
-      OwnerId: 1, 
+      OwnerId: 4, 
       ConvertionDeskId: '',
       ConvertionDeskName: '',
       RealAccountTypeId: '',
       RealAccountTypeName: '',
       TradeAccountType: "Lead",
-      PromoCode: ''
+      PromoCode: '',
+      CurrencyId: '',
+      CurrencyName: '',
+      DateOfBirth: this.newUserForm.value.date + this.newUserForm.value.month + this.newUserForm.value.year
     }
     this.service.clientRegister(clntregisterParameter).subscribe(nwusrRes =>{
       this.NewDemoUser = nwusrRes;

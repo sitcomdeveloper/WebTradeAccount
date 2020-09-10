@@ -928,7 +928,8 @@
                         <thead>
                             <tr>
                                 <th>Operation Date</th>
-                                <th>Enquity</th>
+                                <th>Deposit</th>
+                                <th>Withdrawal</th>
                                 <th>Transaction Type</th>
                             </tr>
                         </thead>
@@ -936,6 +937,7 @@
                             <tr *ngFor="let MT of allMonetartTrans">
                                 <td>{{MT.TransactionDate}}</td>
                                 <td>{{MT.DepositAmount}}</td>
+                                <td>{{MT.WithdrawAmount}}</td>
                                 <td>{{MT.TransactionTypeName}}</td>
                             </tr>
                         </thead>
