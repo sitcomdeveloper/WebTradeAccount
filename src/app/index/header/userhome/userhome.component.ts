@@ -95,7 +95,7 @@ export class UserhomeComponent implements OnInit {
         this.respons = '';
       }
       this.UserFormInfo.reset();
-      console.log('fundtheAccount', giveFund);
+      // console.log('fundtheAccount', giveFund);
     })
   }
   // update password
@@ -115,7 +115,7 @@ export class UserhomeComponent implements OnInit {
         this.response = '';
       }
       this.UserFormInfo.reset();
-      console.log('updatedpasswrd', updtpwdbyeml);
+      // console.log('updatedpasswrd', updtpwdbyeml);
     })
   }
   // contact us
@@ -139,7 +139,7 @@ export class UserhomeComponent implements OnInit {
         this.resp = "Thank you for reaching us. Our team will contact you..!"
       }
       this.UserFormInfo.reset();
-      console.log('usercontactus', contctusforquery);
+      // console.log('usercontactus', contctusforquery);
     })
   }
   userhome() {
@@ -186,7 +186,7 @@ export class UserhomeComponent implements OnInit {
         city: this.detailsonEmail.City,
         postcode: this.detailsonEmail.PinCode,
       });
-      console.log('detailsonEmail', dtlsoffetchuser);
+      // console.log('detailsonEmail', dtlsoffetchuser);
     })
     this.personalddetails = false;
     this.editpersonaldetails = true;
@@ -226,7 +226,7 @@ export class UserhomeComponent implements OnInit {
       }
       this.UserFormInfo.reset();
       this.afterupdate();
-      console.log('updatedetails', persnldtlsupdt);
+      // console.log('updatedetails', persnldtlsupdt);
     })
     
   }
@@ -267,7 +267,7 @@ export class UserhomeComponent implements OnInit {
         city: this.detailsonEmail.City,
         postcode: this.detailsonEmail.PinCode,
       });
-      console.log('detailsonEmail', dtlsoffetchuser);
+      // console.log('detailsonEmail', dtlsoffetchuser);
     })
     this.home = false;
     this.personalddetails = false;
@@ -321,7 +321,7 @@ export class UserhomeComponent implements OnInit {
     // get monetary transaction data
     this.service.getMonetarytransation(allmonetrytrnsctions).subscribe(monetarytransactionRes => {
       this.allMonetartTrans = monetarytransactionRes.reverse();
-      console.log('allMonetartTrans', monetarytransactionRes);
+      // console.log('allMonetartTrans', monetarytransactionRes);
     })
     this.home = false;
     this.personalddetails = false;
@@ -365,7 +365,7 @@ export class UserhomeComponent implements OnInit {
         this.respo = '';
       }
       this.UserFormInfo.reset();
-      console.log('debitAmount', withdrwlfndRes);
+      // console.log('debitAmount', withdrwlfndRes);
     })
   }
   // document type
@@ -396,7 +396,7 @@ export class UserhomeComponent implements OnInit {
         this.respon = 'Error'; 
       }
       this.UserFormInfo.reset();
-      console.log('confidentialdocumnts',upldtdocmnt);
+      // console.log('confidentialdocumnts',upldtdocmnt);
     })
   }
   // get country
