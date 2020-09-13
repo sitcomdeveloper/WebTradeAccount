@@ -319,7 +319,7 @@ export class UserhomeComponent implements OnInit {
   monetarytransactions() {
     const allmonetrytrnsctions = {}
     // get monetary transaction data
-    this.service.getMonetarytransation(allmonetrytrnsctions).subscribe(monetarytransactionRes => {
+    this.service.getMonetarytransation(this.bindLoginData?.TradeAccount.TPAccountNumber).subscribe(monetarytransactionRes => {
       this.allMonetartTrans = monetarytransactionRes.reverse();
       // console.log('allMonetartTrans', monetarytransactionRes);
     })

@@ -42,9 +42,9 @@ export class ServicesService {
   forgotpwd(frgt: any): Observable<any> {
     return this.http.post<any>(API_URL + 'Client/TPAccountForgotPassword?email=' + frgt, {})
   }
-  // get all monetary transactions
+  // get all monetary transactions by tp account
   getMonetarytransation(allmonetrytrnsctions: any): Observable<any> {
-    return this.http.post<any>(API_URL + 'TradeAccount/GetAllFinancialTransactionLists',allmonetrytrnsctions);
+    return this.http.post<any>(API_URL + 'TradeAccount/GetFinancialTransactionByTPAccountNumber?tpaccount=' + allmonetrytrnsctions, {});
   }
    // withdrawal amont
    withdrawFund(debitfund: any): Observable<any> {
