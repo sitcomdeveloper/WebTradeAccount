@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { ServicesService } from '../../services.service';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
-
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -40,9 +39,9 @@ export class HeaderComponent implements OnInit {
       if (loginRes) {
         // this.router.navigateByUrl('clients');
         this.userwilllogin = loginRes;
-        console.log('userwilllogin', loginRes);
+        // console.log('userwilllogin', loginRes);
         localStorage.setItem('project', JSON.stringify(loginRes));
-        console.log('stringifydata', JSON.stringify(loginRes));
+        // console.log('stringifydata', JSON.stringify(loginRes));
         this.beforelogin = false;
         this.afterlogin = true;
         this.loginForm.reset();
